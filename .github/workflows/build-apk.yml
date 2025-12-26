@@ -1,10 +1,12 @@
 name: Build APK
 
 on:
-  # 推送到 main 分支时触发
+  # 推送到 main 分支或 tag 时触发
   push:
     branches:
       - main
+    tags:
+      - 'v*'
     paths-ignore:
       - '**.md'
       - '.kiro/**'
@@ -28,11 +30,6 @@ on:
         options:
           - debug
           - release
-
-  # Release 标签触发
-  push:
-    tags:
-      - 'v*'
 
 env:
   JAVA_VERSION: '17'
