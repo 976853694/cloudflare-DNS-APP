@@ -179,7 +179,6 @@ cloudflare-DNS-APP/
   <img src="img/Screenshot_2025-12-28-18-17-29-655_com.liuqu.dns.jpg" width="200" alt="首页">
   <img src="img/Screenshot_2025-12-28-18-17-35-380_com.liuqu.dns.jpg" width="200" alt="域名管理">
   <img src="img/Screenshot_2025-12-28-18-17-37-330_com.liuqu.dns.jpg" width="200" alt="我的">
-  <img src="img/Screenshot_2025-12-27-17-07-46-448_mark.via.jpg" width="200" alt="更多">
 </p>
 
 ---
