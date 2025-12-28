@@ -1,0 +1,134 @@
+
+.page {
+	min-height: 100vh;
+	background: #f0f2f5;
+}
+.page-header {
+	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+	padding: 1.25rem 0.9375rem 2.1875rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.header-title {
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: #fff;
+}
+.header-count {
+	font-size: 0.75rem;
+	color: rgba(255,255,255,0.7);
+	background: rgba(255,255,255,0.1);
+	padding: 0.25rem 0.625rem;
+	border-radius: 0.625rem;
+}
+.record-list {
+	padding: 0 0.9375rem;
+	margin-top: -1.25rem;
+	position: relative;
+	z-index: 2;
+	height: calc(100vh - 5.625rem);
+}
+.bottom-space {
+	height: 1.25rem;
+}
+.record-card {
+	background: #fff;
+	border-radius: 0.625rem;
+	padding: 0.75rem;
+	margin-bottom: 0.5rem;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.04);
+}
+.card-left { margin-right: 0.625rem;
+}
+.record-icon {
+	width: 2.25rem;
+	height: 2.25rem;
+	border-radius: 0.5625rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: #fff;
+}
+.record-icon.buy {
+	background: linear-gradient(135deg, #4C84FF 0%, #6A9DFF 100%);
+}
+.record-icon.renew {
+	background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);
+}
+.card-main { flex: 1;
+}
+.record-domain {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: #1a1a2e;
+	display: block;
+	margin-bottom: 0.3125rem;
+}
+.record-tags {
+	display: flex;
+	gap: 0.375rem;
+}
+.tag {
+	font-size: 0.6875rem;
+	padding: 0.125rem 0.375rem;
+	border-radius: 0.1875rem;
+}
+.tag.plan {
+	color: #8e8e93;
+	background: #f0f2f5;
+}
+.tag.type {
+	color: #4C84FF;
+	background: rgba(76,132,255,0.1);
+}
+.tag.type.renew {
+	color: #00b894;
+	background: rgba(0,184,148,0.1);
+}
+.card-right { text-align: right;
+}
+.record-price {
+	font-size: 0.9375rem;
+	color: #ff6b00;
+	font-weight: 700;
+	display: block;
+	margin-bottom: 0.1875rem;
+}
+.record-time {
+	font-size: 0.6875rem;
+	color: #8e8e93;
+}
+.empty-state {
+	padding: 3.125rem;
+	text-align: center;
+}
+.empty-icon {
+	font-size: 2.5rem;
+	display: block;
+	margin-bottom: 0.625rem;
+}
+.empty-text {
+	font-size: 0.875rem;
+	color: #8e8e93;
+}
+.load-more {
+	text-align: center;
+	padding: 0.9375rem;
+}
+.load-more-text {
+	font-size: 0.8125rem;
+	color: #4C84FF;
+}
+.no-more {
+	text-align: center;
+	padding: 0.9375rem;
+}
+.no-more-text {
+	font-size: 0.75rem;
+	color: #c7c7cc;
+}

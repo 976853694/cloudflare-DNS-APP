@@ -1,0 +1,171 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "注册"
+			}
+		},
+		{
+			"path": "pages/forgot-password/forgot-password",
+			"style": {
+				"navigationBarTitleText": "忘记密码"
+			}
+		},
+		{
+			"path": "pages/domain/list",
+			"style": {
+				"navigationBarTitleText": "我的域名"
+			}
+		},
+		{
+			"path": "pages/domain/purchase",
+			"style": {
+				"navigationBarTitleText": "购买域名"
+			}
+		},
+		{
+			"path": "pages/domain/detail",
+			"style": {
+				"navigationBarTitleText": "域名详情"
+			}
+		},
+		{
+			"path": "pages/recharge/recharge",
+			"style": {
+				"navigationBarTitleText": "充值"
+			}
+		},
+		{
+			"path": "pages/record/record",
+			"style": {
+				"navigationBarTitleText": "购买记录"
+			}
+		},
+		{
+			"path": "pages/announcement/list",
+			"style": {
+				"navigationBarTitleText": "公告"
+			}
+		},
+		{
+			"path": "pages/settings/settings",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		},
+		{
+			"path": "pages/admin/index",
+			"style": {
+				"navigationBarTitleText": "管理中心"
+			}
+		},
+		{
+			"path": "pages/admin/users",
+			"style": {
+				"navigationBarTitleText": "用户管理"
+			}
+		},
+		{
+			"path": "pages/admin/domains",
+			"style": {
+				"navigationBarTitleText": "域名管理"
+			}
+		},
+		{
+			"path": "pages/admin/plans",
+			"style": {
+				"navigationBarTitleText": "套餐管理"
+			}
+		},
+		{
+			"path": "pages/admin/redeem",
+			"style": {
+				"navigationBarTitleText": "卡密管理"
+			}
+		},
+		{
+			"path": "pages/admin/orders",
+			"style": {
+				"navigationBarTitleText": "订单管理"
+			}
+		},
+		{
+			"path": "pages/admin/announcements",
+			"style": {
+				"navigationBarTitleText": "公告管理"
+			}
+		},
+		{
+			"path": "pages/admin/settings",
+			"style": {
+				"navigationBarTitleText": "系统设置"
+			}
+		},
+		{
+			"path": "pages/admin/cf-accounts",
+			"style": {
+				"navigationBarTitleText": "渠道管理"
+			}
+		},
+		{
+			"path": "pages/admin/dns-records",
+			"style": {
+				"navigationBarTitleText": "DNS记录管理"
+			}
+		},
+		{
+			"path": "pages/admin/subdomains",
+			"style": {
+				"navigationBarTitleText": "二级域名管理"
+			}
+		},
+		{
+			"path": "pages/admin/logs",
+			"style": {
+				"navigationBarTitleText": "操作日志"
+			}
+		},
+		{
+			"path": "pages/admin/coupons",
+			"style": {
+				"navigationBarTitleText": "优惠券管理"
+			}
+		},
+		{
+			"path": "pages/admin/app-versions",
+			"style": {
+				"navigationBarTitleText": "APP版本管理"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "域名管理",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#F5F5F5"
+	},
+	"uniIdRouter": {}
+}

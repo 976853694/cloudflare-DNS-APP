@@ -1,0 +1,202 @@
+
+.page {
+	min-height: 100vh;
+	background: #f0f2f5;
+	padding-bottom: 4.6875rem;
+}
+.page-header {
+	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+	padding: 1.25rem 0.9375rem 2.1875rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.header-title {
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: #fff;
+}
+.header-count {
+	font-size: 0.75rem;
+	color: rgba(255,255,255,0.7);
+	background: rgba(255,255,255,0.1);
+	padding: 0.25rem 0.625rem;
+	border-radius: 0.625rem;
+}
+.domain-list {
+	padding: 0 0.9375rem;
+	margin-top: -1.25rem;
+	position: relative;
+	z-index: 2;
+}
+.domain-card {
+	background: #fff;
+	border-radius: 0.625rem;
+	padding: 0.75rem;
+	margin-bottom: 0.5rem;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.04);
+}
+.card-main { flex: 1;
+}
+.domain-row {
+	display: flex;
+	align-items: center;
+	gap: 0.375rem;
+	margin-bottom: 0.375rem;
+}
+.domain-name {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	color: #1a1a2e;
+}
+.status-badge {
+	font-size: 0.625rem;
+	padding: 0.125rem 0.375rem;
+	border-radius: 0.1875rem;
+	background: rgba(255,77,79,0.1);
+	color: #ff4d4f;
+}
+.status-badge.open {
+	background: rgba(0,184,148,0.1);
+	color: #00b894;
+}
+.domain-stats {
+	display: flex;
+	gap: 0.75rem;
+	margin-bottom: 0.25rem;
+}
+.stat-item {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+.stat-label {
+	font-size: 0.6875rem;
+	color: #8e8e93;
+}
+.stat-value {
+	font-size: 0.6875rem;
+	color: #1a1a2e;
+	font-weight: 500;
+}
+.domain-desc {
+	font-size: 0.6875rem;
+	color: #8e8e93;
+	display: block;
+}
+.card-action {
+	margin-left: 0.5rem;
+}
+.empty-state {
+	padding: 3.125rem;
+	text-align: center;
+}
+.empty-icon {
+	font-size: 2.5rem;
+	display: block;
+	margin-bottom: 0.625rem;
+}
+.empty-text {
+	font-size: 0.875rem;
+	color: #8e8e93;
+}
+.fab {
+	position: fixed;
+	right: 1.25rem;
+	bottom: 3.125rem;
+	width: 3.4375rem;
+	height: 3.4375rem;
+	border-radius: 1.71875rem;
+	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0.375rem 1rem rgba(26,26,46,0.4);
+}
+.fab-icon {
+	font-size: 1.5rem;
+	color: #fff;
+}
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+}
+.modal-content {
+	width: 85%;
+	max-height: 80vh;
+	background: #fff;
+	border-radius: 0.75rem;
+	padding: 1.25rem;
+}
+.modal-title {
+	font-size: 1.0625rem;
+	font-weight: 600;
+	color: #1a1a2e;
+	text-align: center;
+	margin-bottom: 1.25rem;
+}
+.form-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 0;
+	border-bottom: 0.03125rem solid #f0f0f0;
+}
+.label {
+	font-size: 0.875rem;
+	color: #8e8e93;
+}
+.value {
+	font-size: 0.875rem;
+	color: #1a1a2e;
+}
+.input {
+	width: 10rem;
+	text-align: right;
+	font-size: 0.875rem;
+	color: #1a1a2e;
+	background: #f8f9fa;
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.25rem;
+}
+.picker {
+	font-size: 0.875rem;
+	color: #4C84FF;
+	font-weight: 500;
+}
+.modal-btns {
+	display: flex;
+	gap: 0.5rem;
+	margin-top: 1.25rem;
+}
+.modal-btn {
+	flex: 1;
+	height: 2.625rem;
+	border-radius: 1.3125rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.875rem;
+}
+.modal-btn.cancel {
+	background: #f0f2f5;
+	color: #666;
+}
+.modal-btn.danger {
+	background: rgba(255,77,79,0.1);
+	color: #ff4d4f;
+}
+.modal-btn.confirm {
+	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+	color: #fff;
+}

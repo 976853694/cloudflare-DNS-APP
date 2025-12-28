@@ -1,0 +1,144 @@
+
+.page {
+	min-height: 100vh;
+	background: #f0f2f5;
+}
+.page-header {
+	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+	padding: 1.25rem 0.9375rem 2.1875rem;
+}
+.header-title {
+	font-size: 1.125rem;
+	font-weight: 700;
+	color: #fff;
+}
+.settings-section {
+	padding: 0 0.9375rem;
+	margin-top: -1.25rem;
+	position: relative;
+	z-index: 2;
+}
+.settings-section:first-of-type {
+	margin-top: -1.25rem;
+}
+.settings-section:not(:first-of-type) {
+	margin-top: 0;
+}
+.section-label {
+	font-size: 0.75rem;
+	color: #8e8e93;
+	display: block;
+	padding: 0.625rem 0 0.375rem 0.25rem;
+}
+.menu-group {
+	background: #fff;
+	border-radius: 0.625rem;
+	overflow: hidden;
+	box-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.04);
+}
+.menu-item {
+	display: flex;
+	align-items: center;
+	padding: 0.875rem 0.75rem;
+	border-bottom: 0.03125rem solid #f0f0f0;
+}
+.menu-item:last-child {
+	border-bottom: none;
+}
+.menu-icon {
+	font-size: 1rem;
+	margin-right: 0.5rem;
+}
+.menu-text {
+	flex: 1;
+	font-size: 0.875rem;
+	color: #1a1a2e;
+}
+.menu-value {
+	font-size: 0.8125rem;
+	color: #8e8e93;
+	margin-right: 0.25rem;
+}
+.menu-arrow {
+	font-size: 0.875rem;
+	color: #c7c7cc;
+}
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+}
+.modal-content {
+	width: 85%;
+	background: #fff;
+	border-radius: 0.75rem;
+	padding: 1.25rem;
+}
+.modal-title {
+	font-size: 1.0625rem;
+	font-weight: 600;
+	color: #1a1a2e;
+	text-align: center;
+	margin-bottom: 0.625rem;
+	display: block;
+}
+.modal-tip {
+	font-size: 0.8125rem;
+	color: #8e8e93;
+	line-height: 1.6;
+	text-align: center;
+	margin-bottom: 0.75rem;
+	display: block;
+}
+.modal-captcha {
+	margin-bottom: 0.75rem;
+}
+.captcha-row {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.captcha-input {
+	flex: 1;
+	height: 2.5rem;
+	background: #f8f9fa;
+	border-radius: 0.375rem;
+	padding: 0 0.625rem;
+	font-size: 0.875rem;
+	color: #333;
+}
+.captcha-img {
+	width: 5.625rem;
+	height: 2.5rem;
+	border-radius: 0.375rem;
+	background: #f0f0f0;
+}
+.modal-btns {
+	display: flex;
+	gap: 0.5rem;
+}
+.modal-btn {
+	flex: 1;
+	height: 2.625rem;
+	border-radius: 1.3125rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.875rem;
+	font-weight: 500;
+}
+.modal-btn.cancel {
+	background: #f0f2f5;
+	color: #666;
+}
+.modal-btn.confirm {
+	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+	color: #fff;
+}
