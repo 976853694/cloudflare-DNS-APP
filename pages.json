@@ -77,6 +77,12 @@
 			}
 		},
 		{
+			"path": "pages/settings/security",
+			"style": {
+				"navigationBarTitleText": "安全设置"
+			}
+		},
+		{
 			"path": "pages/admin/index",
 			"style": {
 				"navigationBarTitleText": "管理中心"
@@ -158,6 +164,24 @@
 			"path": "pages/admin/app-versions",
 			"style": {
 				"navigationBarTitleText": "APP版本管理"
+			}
+		},
+		{
+			"path": "pages/admin/email-templates",
+			"style": {
+				"navigationBarTitleText": "邮件模板管理"
+			}
+		},
+		{
+			"path": "pages/admin/ip-blacklist",
+			"style": {
+				"navigationBarTitleText": "IP黑名单"
+			}
+		},
+		{
+			"path": "pages/admin/data-manage",
+			"style": {
+				"navigationBarTitleText": "数据管理"
 			}
 		}
 	],

@@ -9,6 +9,11 @@
 		<view class="settings-section" v-if="isLoggedIn">
 			<text class="section-label">账户设置</text>
 			<view class="menu-group">
+				<view class="menu-item" @click="goToSecurity">
+					<view class="menu-icon">🛡️</view>
+					<text class="menu-text">安全设置</text>
+					<text class="menu-arrow">›</text>
+				</view>
 				<view class="menu-item" @click="changePassword">
 					<view class="menu-icon">🔐</view>
 					<text class="menu-text">修改密码</text>
@@ -130,6 +135,9 @@ export default {
 		this.getCacheSize()
 	},
 	methods: {
+		goToSecurity() {
+			uni.navigateTo({ url: '/pages/settings/security' })
+		},
 		getCacheSize() {
 			try {
 				const res = uni.getStorageInfoSync()

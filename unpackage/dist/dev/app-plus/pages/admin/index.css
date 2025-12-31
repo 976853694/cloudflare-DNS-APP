@@ -217,6 +217,10 @@
 }
 .menu-icon-wrap.indigo { background: linear-gradient(135deg, #5c6bc0 0%, #7986cb 100%);
 }
+.menu-icon-wrap.gray { background: linear-gradient(135deg, #636e72 0%, #b2bec3 100%);
+}
+.menu-icon-wrap.brown { background: linear-gradient(135deg, #a0826d 0%, #795548 100%);
+}
 .menu-text {
 	font-size: 0.75rem;
 	color: #666;

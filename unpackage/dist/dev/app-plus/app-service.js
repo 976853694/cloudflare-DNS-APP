@@ -48,7 +48,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$r = {
+  const _sfc_main$v = {
     name: "CustomTabbar",
     props: {
       current: {
@@ -78,7 +78,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -152,8 +152,8 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$q], ["__scopeId", "data-v-51c48e3c"], ["__file", "C:/Users/liu/Desktop/app/app/components/custom-tabbar/custom-tabbar.vue"]]);
-  const BASE_URL = "http://192.168.20.190:5000/api";
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$u], ["__scopeId", "data-v-51c48e3c"], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/components/custom-tabbar/custom-tabbar.vue"]]);
+  const BASE_URL = "https://dns.6qu.cc/api";
   const request = (options) => {
     return new Promise((resolve, reject) => {
       const token = uni.getStorageSync("token");
@@ -161,6 +161,7 @@ if (uni.restoreGlobal) {
         "Content-Type": "application/json",
         ...options.header
       };
+      header["X-Client-Type"] = "app";
       if (token) {
         header["Authorization"] = `Bearer ${token}`;
       }
@@ -305,7 +306,7 @@ if (uni.restoreGlobal) {
     removeToken();
     removeUserInfo();
   };
-  const _sfc_main$q = {
+  const _sfc_main$u = {
     components: {
       CustomTabbar: __easycom_0
     },
@@ -386,7 +387,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_custom_tabbar = resolveEasycom(vue.resolveDynamicComponent("custom-tabbar"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 自定义导航栏 "),
@@ -719,7 +720,7 @@ if (uni.restoreGlobal) {
       vue.createVNode(_component_custom_tabbar, { current: "/pages/index/index" })
     ]);
   }
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$p], ["__file", "C:/Users/liu/Desktop/app/app/pages/index/index.vue"]]);
+  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$t], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/index/index.vue"]]);
   function getCaptcha(id) {
     return request({
       url: "/auth/captcha",
@@ -795,7 +796,7 @@ if (uni.restoreGlobal) {
       method: "GET"
     });
   }
-  const _sfc_main$p = {
+  const _sfc_main$t = {
     components: {
       CustomTabbar: __easycom_0
     },
@@ -912,7 +913,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     var _a, _b, _c, _d, _e, _f, _g, _h;
     const _component_custom_tabbar = resolveEasycom(vue.resolveDynamicComponent("custom-tabbar"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
@@ -1209,8 +1210,8 @@ if (uni.restoreGlobal) {
       vue.createVNode(_component_custom_tabbar, { current: "/pages/mine/mine" })
     ]);
   }
-  const PagesMineMine = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$o], ["__file", "C:/Users/liu/Desktop/app/app/pages/mine/mine.vue"]]);
-  const _sfc_main$o = {
+  const PagesMineMine = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$s], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/mine/mine.vue"]]);
+  const _sfc_main$s = {
     data() {
       return {
         form: {
@@ -1283,7 +1284,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 顶部装饰 "),
       vue.createElementVNode("view", { class: "header-bg" }, [
@@ -1396,8 +1397,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$n], ["__file", "C:/Users/liu/Desktop/app/app/pages/login/login.vue"]]);
-  const _sfc_main$n = {
+  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$r], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/login/login.vue"]]);
+  const _sfc_main$r = {
     data() {
       return {
         smtpConfigured: true,
@@ -1547,7 +1548,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 顶部装饰 "),
       vue.createElementVNode("view", { class: "header-bg" }, [
@@ -1833,8 +1834,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$m], ["__file", "C:/Users/liu/Desktop/app/app/pages/register/register.vue"]]);
-  const _sfc_main$m = {
+  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$q], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/register/register.vue"]]);
+  const _sfc_main$q = {
     data() {
       return {
         hasToken: false,
@@ -1926,7 +1927,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 顶部装饰 "),
       vue.createElementVNode("view", { class: "header-bg" }, [
@@ -2141,8 +2142,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesForgotPasswordForgotPassword = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__file", "C:/Users/liu/Desktop/app/app/pages/forgot-password/forgot-password.vue"]]);
-  const _sfc_main$l = {
+  const PagesForgotPasswordForgotPassword = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$p], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/forgot-password/forgot-password.vue"]]);
+  const _sfc_main$p = {
     data() {
       return {
         subdomains: [],
@@ -2179,7 +2180,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -2299,7 +2300,7 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesDomainList = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__file", "C:/Users/liu/Desktop/app/app/pages/domain/list.vue"]]);
+  const PagesDomainList = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$o], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/domain/list.vue"]]);
   function validateCoupon(data) {
     return request({
       url: "/coupon/validate",
@@ -2307,7 +2308,7 @@ if (uni.restoreGlobal) {
       data
     });
   }
-  const _sfc_main$k = {
+  const _sfc_main$o = {
     data() {
       return {
         domains: [],
@@ -2430,7 +2431,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -2763,7 +2764,7 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesDomainPurchase = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__file", "C:/Users/liu/Desktop/app/app/pages/domain/purchase.vue"]]);
+  const PagesDomainPurchase = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$n], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/domain/purchase.vue"]]);
   function getDnsRecords(subdomainId) {
     return request({
       url: `/subdomains/${subdomainId}/records`,
@@ -2790,7 +2791,7 @@ if (uni.restoreGlobal) {
       method: "DELETE"
     });
   }
-  const _sfc_main$j = {
+  const _sfc_main$n = {
     data() {
       return {
         subdomainId: null,
@@ -2951,7 +2952,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -3322,7 +3323,7 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesDomainDetail = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__file", "C:/Users/liu/Desktop/app/app/pages/domain/detail.vue"]]);
+  const PagesDomainDetail = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$m], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/domain/detail.vue"]]);
   function verifyRedeemCode(data) {
     return request({
       url: "/redeem/verify",
@@ -3338,7 +3339,7 @@ if (uni.restoreGlobal) {
     });
   }
   const redeemCode = useRedeemCode;
-  const _sfc_main$i = {
+  const _sfc_main$m = {
     data() {
       return {
         userInfo: null,
@@ -3402,7 +3403,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     var _a, _b;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 余额展示区 "),
@@ -3515,7 +3516,7 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesRechargeRecharge = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__file", "C:/Users/liu/Desktop/app/app/pages/recharge/recharge.vue"]]);
+  const PagesRechargeRecharge = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/recharge/recharge.vue"]]);
   function getPurchaseRecords(params = {}) {
     return request({
       url: "/purchase-records",
@@ -3523,7 +3524,7 @@ if (uni.restoreGlobal) {
       data: params
     });
   }
-  const _sfc_main$h = {
+  const _sfc_main$l = {
     data() {
       return {
         records: [],
@@ -3580,7 +3581,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -3699,8 +3700,8 @@ if (uni.restoreGlobal) {
       ], 40, ["refresher-triggered"])
     ]);
   }
-  const PagesRecordRecord = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__file", "C:/Users/liu/Desktop/app/app/pages/record/record.vue"]]);
-  const _sfc_main$g = {
+  const PagesRecordRecord = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/record/record.vue"]]);
+  const _sfc_main$k = {
     data() {
       return {
         announcements: [],
@@ -3749,7 +3750,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -3873,8 +3874,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAnnouncementList = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__file", "C:/Users/liu/Desktop/app/app/pages/announcement/list.vue"]]);
-  const _sfc_main$f = {
+  const PagesAnnouncementList = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/announcement/list.vue"]]);
+  const _sfc_main$j = {
     data() {
       return {
         isLoggedIn: false,
@@ -3898,6 +3899,9 @@ if (uni.restoreGlobal) {
       this.getCacheSize();
     },
     methods: {
+      goToSecurity() {
+        uni.navigateTo({ url: "/pages/settings/security" });
+      },
       getCacheSize() {
         try {
           const res = uni.getStorageInfoSync();
@@ -3918,7 +3922,7 @@ if (uni.restoreGlobal) {
           this.passwordForm.captcha_id = ((_a = res.data) == null ? void 0 : _a.id) || "";
           this.passwordCaptchaUrl = ((_b = res.data) == null ? void 0 : _b.image) || "";
         } catch (e) {
-          formatAppLog("error", "at pages/settings/settings.vue:152", "获取验证码失败", e);
+          formatAppLog("error", "at pages/settings/settings.vue:160", "获取验证码失败", e);
         }
       },
       async refreshEmailCaptcha() {
@@ -3928,7 +3932,7 @@ if (uni.restoreGlobal) {
           this.emailForm.captcha_id = ((_a = res.data) == null ? void 0 : _a.id) || "";
           this.emailCaptchaUrl = ((_b = res.data) == null ? void 0 : _b.image) || "";
         } catch (e) {
-          formatAppLog("error", "at pages/settings/settings.vue:161", "获取验证码失败", e);
+          formatAppLog("error", "at pages/settings/settings.vue:169", "获取验证码失败", e);
         }
       },
       changePassword() {
@@ -4007,7 +4011,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -4022,7 +4026,15 @@ if (uni.restoreGlobal) {
         vue.createElementVNode("view", { class: "menu-group" }, [
           vue.createElementVNode("view", {
             class: "menu-item",
-            onClick: _cache[0] || (_cache[0] = (...args) => $options.changePassword && $options.changePassword(...args))
+            onClick: _cache[0] || (_cache[0] = (...args) => $options.goToSecurity && $options.goToSecurity(...args))
+          }, [
+            vue.createElementVNode("view", { class: "menu-icon" }, "🛡️"),
+            vue.createElementVNode("text", { class: "menu-text" }, "安全设置"),
+            vue.createElementVNode("text", { class: "menu-arrow" }, "›")
+          ]),
+          vue.createElementVNode("view", {
+            class: "menu-item",
+            onClick: _cache[1] || (_cache[1] = (...args) => $options.changePassword && $options.changePassword(...args))
           }, [
             vue.createElementVNode("view", { class: "menu-icon" }, "🔐"),
             vue.createElementVNode("text", { class: "menu-text" }, "修改密码"),
@@ -4030,7 +4042,7 @@ if (uni.restoreGlobal) {
           ]),
           vue.createElementVNode("view", {
             class: "menu-item",
-            onClick: _cache[1] || (_cache[1] = (...args) => $options.changeEmail && $options.changeEmail(...args))
+            onClick: _cache[2] || (_cache[2] = (...args) => $options.changeEmail && $options.changeEmail(...args))
           }, [
             vue.createElementVNode("view", { class: "menu-icon" }, "📧"),
             vue.createElementVNode("text", { class: "menu-text" }, "修改邮箱"),
@@ -4044,7 +4056,7 @@ if (uni.restoreGlobal) {
         vue.createElementVNode("view", { class: "menu-group" }, [
           vue.createElementVNode("view", {
             class: "menu-item",
-            onClick: _cache[2] || (_cache[2] = (...args) => $options.clearCache && $options.clearCache(...args))
+            onClick: _cache[3] || (_cache[3] = (...args) => $options.clearCache && $options.clearCache(...args))
           }, [
             vue.createElementVNode("view", { class: "menu-icon" }, "🗑️"),
             vue.createElementVNode("text", { class: "menu-text" }, "清除缓存"),
@@ -4070,7 +4082,7 @@ if (uni.restoreGlobal) {
         vue.createElementVNode("view", { class: "menu-group" }, [
           vue.createElementVNode("view", {
             class: "menu-item",
-            onClick: _cache[3] || (_cache[3] = (...args) => $options.showAbout && $options.showAbout(...args))
+            onClick: _cache[4] || (_cache[4] = (...args) => $options.showAbout && $options.showAbout(...args))
           }, [
             vue.createElementVNode("view", { class: "menu-icon" }, "ℹ️"),
             vue.createElementVNode("text", { class: "menu-text" }, "关于我们"),
@@ -4082,7 +4094,7 @@ if (uni.restoreGlobal) {
       $data.showPasswordModal ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 1,
         class: "modal",
-        onClick: _cache[8] || (_cache[8] = vue.withModifiers(($event) => $data.showPasswordModal = false, ["self"]))
+        onClick: _cache[9] || (_cache[9] = vue.withModifiers(($event) => $data.showPasswordModal = false, ["self"]))
       }, [
         vue.createElementVNode("view", { class: "modal-content" }, [
           vue.createElementVNode("text", { class: "modal-title" }, "修改密码"),
@@ -4094,7 +4106,7 @@ if (uni.restoreGlobal) {
                 {
                   class: "captcha-input",
                   type: "number",
-                  "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $data.passwordForm.captcha = $event),
+                  "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.passwordForm.captcha = $event),
                   placeholder: "验证码",
                   maxlength: "4"
                 },
@@ -4107,7 +4119,7 @@ if (uni.restoreGlobal) {
               vue.createElementVNode("image", {
                 class: "captcha-img",
                 src: $data.passwordCaptchaUrl,
-                onClick: _cache[5] || (_cache[5] = (...args) => $options.refreshPasswordCaptcha && $options.refreshPasswordCaptcha(...args)),
+                onClick: _cache[6] || (_cache[6] = (...args) => $options.refreshPasswordCaptcha && $options.refreshPasswordCaptcha(...args)),
                 mode: "aspectFit"
               }, null, 8, ["src"])
             ])
@@ -4115,13 +4127,13 @@ if (uni.restoreGlobal) {
           vue.createElementVNode("view", { class: "modal-btns" }, [
             vue.createElementVNode("view", {
               class: "modal-btn cancel",
-              onClick: _cache[6] || (_cache[6] = ($event) => $data.showPasswordModal = false)
+              onClick: _cache[7] || (_cache[7] = ($event) => $data.showPasswordModal = false)
             }, [
               vue.createElementVNode("text", null, "取消")
             ]),
             vue.createElementVNode("view", {
               class: "modal-btn confirm",
-              onClick: _cache[7] || (_cache[7] = (...args) => $options.sendPasswordEmail && $options.sendPasswordEmail(...args))
+              onClick: _cache[8] || (_cache[8] = (...args) => $options.sendPasswordEmail && $options.sendPasswordEmail(...args))
             }, [
               vue.createElementVNode("text", null, "发送验证邮件")
             ])
@@ -4132,7 +4144,7 @@ if (uni.restoreGlobal) {
       $data.showEmailModal ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 2,
         class: "modal",
-        onClick: _cache[13] || (_cache[13] = vue.withModifiers(($event) => $data.showEmailModal = false, ["self"]))
+        onClick: _cache[14] || (_cache[14] = vue.withModifiers(($event) => $data.showEmailModal = false, ["self"]))
       }, [
         vue.createElementVNode("view", { class: "modal-content" }, [
           vue.createElementVNode("text", { class: "modal-title" }, "修改邮箱"),
@@ -4144,7 +4156,7 @@ if (uni.restoreGlobal) {
                 {
                   class: "captcha-input",
                   type: "number",
-                  "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => $data.emailForm.captcha = $event),
+                  "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => $data.emailForm.captcha = $event),
                   placeholder: "验证码",
                   maxlength: "4"
                 },
@@ -4157,7 +4169,7 @@ if (uni.restoreGlobal) {
               vue.createElementVNode("image", {
                 class: "captcha-img",
                 src: $data.emailCaptchaUrl,
-                onClick: _cache[10] || (_cache[10] = (...args) => $options.refreshEmailCaptcha && $options.refreshEmailCaptcha(...args)),
+                onClick: _cache[11] || (_cache[11] = (...args) => $options.refreshEmailCaptcha && $options.refreshEmailCaptcha(...args)),
                 mode: "aspectFit"
               }, null, 8, ["src"])
             ])
@@ -4165,13 +4177,13 @@ if (uni.restoreGlobal) {
           vue.createElementVNode("view", { class: "modal-btns" }, [
             vue.createElementVNode("view", {
               class: "modal-btn cancel",
-              onClick: _cache[11] || (_cache[11] = ($event) => $data.showEmailModal = false)
+              onClick: _cache[12] || (_cache[12] = ($event) => $data.showEmailModal = false)
             }, [
               vue.createElementVNode("text", null, "取消")
             ]),
             vue.createElementVNode("view", {
               class: "modal-btn confirm",
-              onClick: _cache[12] || (_cache[12] = (...args) => $options.sendEmailCode && $options.sendEmailCode(...args))
+              onClick: _cache[13] || (_cache[13] = (...args) => $options.sendEmailCode && $options.sendEmailCode(...args))
             }, [
               vue.createElementVNode("text", null, "发送验证邮件")
             ])
@@ -4180,7 +4192,1057 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesSettingsSettings = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__file", "C:/Users/liu/Desktop/app/app/pages/settings/settings.vue"]]);
+  const PagesSettingsSettings = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/settings/settings.vue"]]);
+  function setup2FA() {
+    return request({
+      url: "/security/2fa/setup",
+      method: "POST"
+    });
+  }
+  function enable2FA(data) {
+    return request({
+      url: "/security/2fa/enable",
+      method: "POST",
+      data
+    });
+  }
+  function disable2FA(data) {
+    return request({
+      url: "/security/2fa/disable",
+      method: "POST",
+      data
+    });
+  }
+  function get2FAStatus() {
+    return request({
+      url: "/security/2fa/status",
+      method: "GET"
+    });
+  }
+  function regenerateBackupCodes(data) {
+    return request({
+      url: "/security/2fa/backup-codes",
+      method: "POST",
+      data
+    });
+  }
+  function getIpRestriction() {
+    return request({
+      url: "/security/ip-restriction",
+      method: "GET"
+    });
+  }
+  function updateIpRestriction(data) {
+    return request({
+      url: "/security/ip-restriction",
+      method: "PUT",
+      data
+    });
+  }
+  function getLoginHistory() {
+    return request({
+      url: "/security/sessions",
+      method: "GET"
+    });
+  }
+  function getApiKeys() {
+    return request({
+      url: "/security/api-keys",
+      method: "GET"
+    });
+  }
+  function generateApiKeys(data = {}) {
+    return request({
+      url: "/security/api-keys/generate",
+      method: "POST",
+      data
+    });
+  }
+  function toggleApiKeys(data = {}) {
+    return request({
+      url: "/security/api-keys/toggle",
+      method: "POST",
+      data
+    });
+  }
+  function updateApiWhitelist(data) {
+    return request({
+      url: "/security/api-keys/whitelist",
+      method: "PUT",
+      data
+    });
+  }
+  function viewApiSecret(data) {
+    return request({
+      url: "/security/api-keys/secret",
+      method: "POST",
+      data
+    });
+  }
+  const _sfc_main$i = {
+    data() {
+      return {
+        // 2FA
+        twoFAEnabled: false,
+        showSetup2FAModal: false,
+        showDisable2FAModal: false,
+        showBackupCodesModal: false,
+        qrCodeUrl: "",
+        twoFASecret: "",
+        verifyCode: "",
+        disableForm: { password: "", code: "" },
+        backupCodes: [],
+        backupCodeVerify: "",
+        // API 密钥
+        apiKey: "",
+        apiSecretDisplay: "******",
+        apiEnabled: false,
+        apiIpWhitelist: [],
+        newIp: "",
+        showViewSecretModal: false,
+        showResetApiModal: false,
+        showNewKeyModal: false,
+        viewSecretPassword: "",
+        viewedSecret: "",
+        resetApiPassword: "",
+        newApiKey: "",
+        newApiSecret: "",
+        // 登录 IP 限制
+        allowedIps: [],
+        newAllowedIp: "",
+        // 登录历史
+        loginHistory: []
+      };
+    },
+    onLoad() {
+      this.loadData();
+    },
+    methods: {
+      async loadData() {
+        uni.showLoading({ title: "加载中..." });
+        try {
+          await Promise.all([
+            this.load2FAStatus(),
+            this.loadApiKeys(),
+            this.loadIpRestriction(),
+            this.loadLoginHistory()
+          ]);
+        } catch (e) {
+          formatAppLog("error", "at pages/settings/security.vue:350", "加载数据失败", e);
+        }
+        uni.hideLoading();
+      },
+      async load2FAStatus() {
+        var _a;
+        try {
+          const res = await get2FAStatus();
+          this.twoFAEnabled = ((_a = res.data) == null ? void 0 : _a.enabled) || false;
+        } catch (e) {
+          formatAppLog("error", "at pages/settings/security.vue:360", "获取2FA状态失败", e);
+        }
+      },
+      async loadApiKeys() {
+        var _a, _b, _c;
+        try {
+          const res = await getApiKeys();
+          this.apiKey = ((_a = res.data) == null ? void 0 : _a.api_key) || "";
+          this.apiEnabled = ((_b = res.data) == null ? void 0 : _b.api_enabled) || false;
+          this.apiIpWhitelist = ((_c = res.data) == null ? void 0 : _c.api_ip_whitelist) || [];
+        } catch (e) {
+          formatAppLog("error", "at pages/settings/security.vue:371", "获取API密钥失败", e);
+        }
+      },
+      async loadIpRestriction() {
+        var _a;
+        try {
+          const res = await getIpRestriction();
+          this.allowedIps = ((_a = res.data) == null ? void 0 : _a.allowed_ips) || [];
+        } catch (e) {
+          formatAppLog("error", "at pages/settings/security.vue:380", "获取IP限制失败", e);
+        }
+      },
+      async loadLoginHistory() {
+        var _a;
+        try {
+          const res = await getLoginHistory();
+          this.loginHistory = ((_a = res.data) == null ? void 0 : _a.sessions) || res.data || [];
+        } catch (e) {
+          formatAppLog("error", "at pages/settings/security.vue:389", "获取登录历史失败", e);
+        }
+      },
+      // 2FA 相关
+      async setup2FA() {
+        var _a, _b;
+        try {
+          uni.showLoading({ title: "生成中..." });
+          const res = await setup2FA();
+          uni.hideLoading();
+          this.qrCodeUrl = ((_a = res.data) == null ? void 0 : _a.qr_code) || "";
+          this.twoFASecret = ((_b = res.data) == null ? void 0 : _b.secret) || "";
+          this.verifyCode = "";
+          this.showSetup2FAModal = true;
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async enable2FA() {
+        var _a;
+        if (!this.verifyCode || this.verifyCode.length !== 6) {
+          uni.showToast({ title: "请输入6位验证码", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "验证中..." });
+          const res = await enable2FA({ code: this.verifyCode });
+          uni.hideLoading();
+          this.showSetup2FAModal = false;
+          this.twoFAEnabled = true;
+          if ((_a = res.data) == null ? void 0 : _a.backup_codes) {
+            this.backupCodes = res.data.backup_codes;
+            this.showBackupCodesModal = true;
+          }
+          uni.showToast({ title: "2FA 已启用", icon: "success" });
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async disable2FA() {
+        if (!this.disableForm.password || !this.disableForm.code) {
+          uni.showToast({ title: "请填写完整信息", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "处理中..." });
+          await disable2FA(this.disableForm);
+          uni.hideLoading();
+          this.showDisable2FAModal = false;
+          this.twoFAEnabled = false;
+          this.disableForm = { password: "", code: "" };
+          uni.showToast({ title: "2FA 已禁用", icon: "success" });
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async regenerateBackupCodes() {
+        var _a;
+        if (!this.backupCodeVerify || this.backupCodeVerify.length !== 6) {
+          uni.showToast({ title: "请输入6位验证码", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "生成中..." });
+          const res = await regenerateBackupCodes({ code: this.backupCodeVerify });
+          uni.hideLoading();
+          this.backupCodes = ((_a = res.data) == null ? void 0 : _a.backup_codes) || [];
+          this.backupCodeVerify = "";
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      // API 密钥相关
+      async generateApiKey() {
+        var _a, _b;
+        try {
+          uni.showLoading({ title: "生成中..." });
+          const res = await generateApiKeys();
+          uni.hideLoading();
+          this.newApiKey = ((_a = res.data) == null ? void 0 : _a.api_key) || "";
+          this.newApiSecret = ((_b = res.data) == null ? void 0 : _b.api_secret) || "";
+          this.showNewKeyModal = true;
+          this.loadApiKeys();
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async toggleApi() {
+        try {
+          uni.showLoading({ title: "处理中..." });
+          await toggleApiKeys({ enabled: !this.apiEnabled });
+          uni.hideLoading();
+          this.apiEnabled = !this.apiEnabled;
+          uni.showToast({ title: this.apiEnabled ? "API 已启用" : "API 已禁用", icon: "success" });
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async viewSecret() {
+        var _a;
+        if (!this.viewSecretPassword) {
+          uni.showToast({ title: "请输入密码", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "验证中..." });
+          const res = await viewApiSecret({ password: this.viewSecretPassword });
+          uni.hideLoading();
+          this.viewedSecret = ((_a = res.data) == null ? void 0 : _a.api_secret) || "";
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      closeViewSecret() {
+        this.showViewSecretModal = false;
+        this.viewSecretPassword = "";
+        this.viewedSecret = "";
+      },
+      async resetApiKey() {
+        var _a, _b;
+        if (!this.resetApiPassword) {
+          uni.showToast({ title: "请输入密码", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "重置中..." });
+          const res = await generateApiKeys({ password: this.resetApiPassword });
+          uni.hideLoading();
+          this.showResetApiModal = false;
+          this.resetApiPassword = "";
+          this.newApiKey = ((_a = res.data) == null ? void 0 : _a.api_key) || "";
+          this.newApiSecret = ((_b = res.data) == null ? void 0 : _b.api_secret) || "";
+          this.showNewKeyModal = true;
+          this.loadApiKeys();
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      closeNewKeyModal() {
+        this.showNewKeyModal = false;
+        this.newApiKey = "";
+        this.newApiSecret = "";
+      },
+      // IP 白名单相关
+      addIp() {
+        if (!this.newIp) {
+          uni.showToast({ title: "请输入 IP 地址", icon: "none" });
+          return;
+        }
+        if (this.apiIpWhitelist.includes(this.newIp)) {
+          uni.showToast({ title: "IP 已存在", icon: "none" });
+          return;
+        }
+        this.apiIpWhitelist.push(this.newIp);
+        this.newIp = "";
+        this.saveApiWhitelist();
+      },
+      removeIp(index) {
+        this.apiIpWhitelist.splice(index, 1);
+        this.saveApiWhitelist();
+      },
+      async saveApiWhitelist() {
+        try {
+          await updateApiWhitelist({ ip_whitelist: this.apiIpWhitelist });
+          uni.showToast({ title: "已保存", icon: "success" });
+        } catch (e) {
+          formatAppLog("error", "at pages/settings/security.vue:563", "保存失败", e);
+        }
+      },
+      // 登录 IP 限制相关
+      addAllowedIp() {
+        if (!this.newAllowedIp) {
+          uni.showToast({ title: "请输入 IP 地址", icon: "none" });
+          return;
+        }
+        if (this.allowedIps.includes(this.newAllowedIp)) {
+          uni.showToast({ title: "IP 已存在", icon: "none" });
+          return;
+        }
+        this.allowedIps.push(this.newAllowedIp);
+        this.newAllowedIp = "";
+        this.saveIpRestriction();
+      },
+      removeAllowedIp(index) {
+        this.allowedIps.splice(index, 1);
+        this.saveIpRestriction();
+      },
+      async saveIpRestriction() {
+        try {
+          await updateIpRestriction({ allowed_ips: this.allowedIps });
+          uni.showToast({ title: "已保存", icon: "success" });
+        } catch (e) {
+          formatAppLog("error", "at pages/settings/security.vue:592", "保存失败", e);
+        }
+      }
+    }
+  };
+  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createCommentVNode(" 页面头部 "),
+      vue.createElementVNode("view", { class: "page-header" }, [
+        vue.createElementVNode("text", { class: "header-title" }, "安全设置"),
+        vue.createElementVNode("text", { class: "header-subtitle" }, "管理您的账户安全选项")
+      ]),
+      vue.createElementVNode("view", { class: "content" }, [
+        vue.createCommentVNode(" 双因素认证 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "🔐 双因素认证 (2FA)"),
+            vue.createElementVNode(
+              "view",
+              {
+                class: vue.normalizeClass(["status-badge", $data.twoFAEnabled ? "enabled" : "disabled"])
+              },
+              [
+                vue.createElementVNode(
+                  "text",
+                  null,
+                  vue.toDisplayString($data.twoFAEnabled ? "已启用" : "未启用"),
+                  1
+                  /* TEXT */
+                )
+              ],
+              2
+              /* CLASS */
+            )
+          ]),
+          vue.createElementVNode("view", { class: "section-content" }, [
+            vue.createElementVNode("text", { class: "section-desc" }, "启用双因素认证后，登录时需要输入验证器应用生成的验证码，大幅提升账户安全性。"),
+            vue.createElementVNode("view", { class: "btn-group" }, [
+              !$data.twoFAEnabled ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 0,
+                class: "action-btn primary",
+                onClick: _cache[0] || (_cache[0] = (...args) => $options.setup2FA && $options.setup2FA(...args))
+              }, [
+                vue.createElementVNode("text", null, "启用 2FA")
+              ])) : (vue.openBlock(), vue.createElementBlock("view", {
+                key: 1,
+                class: "action-btn danger",
+                onClick: _cache[1] || (_cache[1] = ($event) => $data.showDisable2FAModal = true)
+              }, [
+                vue.createElementVNode("text", null, "禁用 2FA")
+              ])),
+              $data.twoFAEnabled ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 2,
+                class: "action-btn secondary",
+                onClick: _cache[2] || (_cache[2] = ($event) => $data.showBackupCodesModal = true)
+              }, [
+                vue.createElementVNode("text", null, "备用码")
+              ])) : vue.createCommentVNode("v-if", true)
+            ])
+          ])
+        ]),
+        vue.createCommentVNode(" API 密钥管理 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "🔑 API 密钥"),
+            vue.createElementVNode(
+              "view",
+              {
+                class: vue.normalizeClass(["status-badge", $data.apiEnabled ? "enabled" : "disabled"])
+              },
+              [
+                vue.createElementVNode(
+                  "text",
+                  null,
+                  vue.toDisplayString($data.apiEnabled ? "已启用" : "未启用"),
+                  1
+                  /* TEXT */
+                )
+              ],
+              2
+              /* CLASS */
+            )
+          ]),
+          vue.createElementVNode("view", { class: "section-content" }, [
+            vue.createElementVNode("text", { class: "section-desc" }, "API 密钥用于外部系统调用开放 API，请妥善保管您的密钥。"),
+            $data.apiKey ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "api-info"
+            }, [
+              vue.createElementVNode("view", { class: "info-row" }, [
+                vue.createElementVNode("text", { class: "info-label" }, "API Key"),
+                vue.createElementVNode(
+                  "text",
+                  { class: "info-value" },
+                  vue.toDisplayString($data.apiKey),
+                  1
+                  /* TEXT */
+                )
+              ]),
+              vue.createElementVNode("view", { class: "info-row" }, [
+                vue.createElementVNode("text", { class: "info-label" }, "API Secret"),
+                vue.createElementVNode(
+                  "text",
+                  { class: "info-value" },
+                  vue.toDisplayString($data.apiSecretDisplay),
+                  1
+                  /* TEXT */
+                ),
+                vue.createElementVNode("view", {
+                  class: "view-btn",
+                  onClick: _cache[3] || (_cache[3] = ($event) => $data.showViewSecretModal = true)
+                }, [
+                  vue.createElementVNode("text", null, "查看")
+                ])
+              ])
+            ])) : vue.createCommentVNode("v-if", true),
+            vue.createElementVNode("view", { class: "btn-group" }, [
+              !$data.apiKey ? (vue.openBlock(), vue.createElementBlock("view", {
+                key: 0,
+                class: "action-btn primary",
+                onClick: _cache[4] || (_cache[4] = (...args) => $options.generateApiKey && $options.generateApiKey(...args))
+              }, [
+                vue.createElementVNode("text", null, "生成密钥")
+              ])) : (vue.openBlock(), vue.createElementBlock(
+                vue.Fragment,
+                { key: 1 },
+                [
+                  vue.createElementVNode(
+                    "view",
+                    {
+                      class: vue.normalizeClass(["action-btn", $data.apiEnabled ? "warning" : "success"]),
+                      onClick: _cache[5] || (_cache[5] = (...args) => $options.toggleApi && $options.toggleApi(...args))
+                    },
+                    [
+                      vue.createElementVNode(
+                        "text",
+                        null,
+                        vue.toDisplayString($data.apiEnabled ? "禁用 API" : "启用 API"),
+                        1
+                        /* TEXT */
+                      )
+                    ],
+                    2
+                    /* CLASS */
+                  ),
+                  vue.createElementVNode("view", {
+                    class: "action-btn danger",
+                    onClick: _cache[6] || (_cache[6] = ($event) => $data.showResetApiModal = true)
+                  }, [
+                    vue.createElementVNode("text", null, "重置密钥")
+                  ])
+                ],
+                64
+                /* STABLE_FRAGMENT */
+              ))
+            ])
+          ])
+        ]),
+        vue.createCommentVNode(" IP 白名单 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "🌐 API IP 白名单")
+          ]),
+          vue.createElementVNode("view", { class: "section-content" }, [
+            vue.createElementVNode("text", { class: "section-desc" }, "限制只有指定 IP 才能调用 API，留空则不限制。"),
+            $data.apiIpWhitelist.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "ip-list"
+            }, [
+              (vue.openBlock(true), vue.createElementBlock(
+                vue.Fragment,
+                null,
+                vue.renderList($data.apiIpWhitelist, (ip, index) => {
+                  return vue.openBlock(), vue.createElementBlock("view", {
+                    class: "ip-item",
+                    key: index
+                  }, [
+                    vue.createElementVNode(
+                      "text",
+                      { class: "ip-text" },
+                      vue.toDisplayString(ip),
+                      1
+                      /* TEXT */
+                    ),
+                    vue.createElementVNode("text", {
+                      class: "ip-remove",
+                      onClick: ($event) => $options.removeIp(index)
+                    }, "×", 8, ["onClick"])
+                  ]);
+                }),
+                128
+                /* KEYED_FRAGMENT */
+              ))
+            ])) : (vue.openBlock(), vue.createElementBlock("view", {
+              key: 1,
+              class: "empty-tip"
+            }, [
+              vue.createElementVNode("text", null, "暂未设置 IP 白名单")
+            ])),
+            vue.createElementVNode("view", { class: "add-ip-row" }, [
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "ip-input",
+                  "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $data.newIp = $event),
+                  placeholder: "输入 IP 地址"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.newIp]
+              ]),
+              vue.createElementVNode("view", {
+                class: "add-btn",
+                onClick: _cache[8] || (_cache[8] = (...args) => $options.addIp && $options.addIp(...args))
+              }, [
+                vue.createElementVNode("text", null, "添加")
+              ])
+            ])
+          ])
+        ]),
+        vue.createCommentVNode(" 登录 IP 限制 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "🛡️ 登录 IP 限制")
+          ]),
+          vue.createElementVNode("view", { class: "section-content" }, [
+            vue.createElementVNode("text", { class: "section-desc" }, "限制只有指定 IP 才能登录账户，留空则不限制。"),
+            $data.allowedIps.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "ip-list"
+            }, [
+              (vue.openBlock(true), vue.createElementBlock(
+                vue.Fragment,
+                null,
+                vue.renderList($data.allowedIps, (ip, index) => {
+                  return vue.openBlock(), vue.createElementBlock("view", {
+                    class: "ip-item",
+                    key: index
+                  }, [
+                    vue.createElementVNode(
+                      "text",
+                      { class: "ip-text" },
+                      vue.toDisplayString(ip),
+                      1
+                      /* TEXT */
+                    ),
+                    vue.createElementVNode("text", {
+                      class: "ip-remove",
+                      onClick: ($event) => $options.removeAllowedIp(index)
+                    }, "×", 8, ["onClick"])
+                  ]);
+                }),
+                128
+                /* KEYED_FRAGMENT */
+              ))
+            ])) : (vue.openBlock(), vue.createElementBlock("view", {
+              key: 1,
+              class: "empty-tip"
+            }, [
+              vue.createElementVNode("text", null, "暂未设置登录 IP 限制")
+            ])),
+            vue.createElementVNode("view", { class: "add-ip-row" }, [
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "ip-input",
+                  "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => $data.newAllowedIp = $event),
+                  placeholder: "输入 IP 地址"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.newAllowedIp]
+              ]),
+              vue.createElementVNode("view", {
+                class: "add-btn",
+                onClick: _cache[10] || (_cache[10] = (...args) => $options.addAllowedIp && $options.addAllowedIp(...args))
+              }, [
+                vue.createElementVNode("text", null, "添加")
+              ])
+            ])
+          ])
+        ]),
+        vue.createCommentVNode(" 登录历史 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "📋 登录历史"),
+            vue.createElementVNode("view", {
+              class: "refresh-btn",
+              onClick: _cache[11] || (_cache[11] = (...args) => $options.loadLoginHistory && $options.loadLoginHistory(...args))
+            }, [
+              vue.createElementVNode("text", null, "刷新")
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "section-content" }, [
+            $data.loginHistory.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "history-list"
+            }, [
+              (vue.openBlock(true), vue.createElementBlock(
+                vue.Fragment,
+                null,
+                vue.renderList($data.loginHistory, (item, index) => {
+                  return vue.openBlock(), vue.createElementBlock("view", {
+                    class: "history-item",
+                    key: index
+                  }, [
+                    vue.createElementVNode("view", { class: "history-main" }, [
+                      vue.createElementVNode(
+                        "text",
+                        { class: "history-ip" },
+                        vue.toDisplayString(item.ip),
+                        1
+                        /* TEXT */
+                      ),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "history-time" },
+                        vue.toDisplayString(item.login_time || item.created_at),
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    vue.createElementVNode("view", { class: "history-sub" }, [
+                      vue.createElementVNode(
+                        "text",
+                        { class: "history-ua" },
+                        vue.toDisplayString(item.user_agent || "未知设备"),
+                        1
+                        /* TEXT */
+                      )
+                    ])
+                  ]);
+                }),
+                128
+                /* KEYED_FRAGMENT */
+              ))
+            ])) : (vue.openBlock(), vue.createElementBlock("view", {
+              key: 1,
+              class: "empty-tip"
+            }, [
+              vue.createElementVNode("text", null, "暂无登录记录")
+            ]))
+          ])
+        ])
+      ]),
+      vue.createCommentVNode(" 2FA 设置弹窗 "),
+      $data.showSetup2FAModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "modal",
+        onClick: _cache[15] || (_cache[15] = vue.withModifiers(($event) => $data.showSetup2FAModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content large" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "启用双因素认证"),
+          vue.createElementVNode("view", { class: "qr-section" }, [
+            vue.createElementVNode("text", { class: "qr-tip" }, "请使用 Google Authenticator 或其他验证器应用扫描二维码"),
+            $data.qrCodeUrl ? (vue.openBlock(), vue.createElementBlock("image", {
+              key: 0,
+              class: "qr-image",
+              src: $data.qrCodeUrl,
+              mode: "aspectFit"
+            }, null, 8, ["src"])) : vue.createCommentVNode("v-if", true),
+            vue.createElementVNode("view", { class: "secret-row" }, [
+              vue.createElementVNode("text", { class: "secret-label" }, "密钥："),
+              vue.createElementVNode(
+                "text",
+                { class: "secret-value" },
+                vue.toDisplayString($data.twoFASecret),
+                1
+                /* TEXT */
+              )
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "input-group" }, [
+            vue.createElementVNode("text", { class: "input-label" }, "输入验证码确认"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "modal-input",
+                type: "number",
+                "onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => $data.verifyCode = $event),
+                placeholder: "6位验证码",
+                maxlength: "6"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.verifyCode]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[13] || (_cache[13] = ($event) => $data.showSetup2FAModal = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[14] || (_cache[14] = (...args) => $options.enable2FA && $options.enable2FA(...args))
+            }, [
+              vue.createElementVNode("text", null, "确认启用")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 禁用 2FA 弹窗 "),
+      $data.showDisable2FAModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 1,
+        class: "modal",
+        onClick: _cache[20] || (_cache[20] = vue.withModifiers(($event) => $data.showDisable2FAModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "禁用双因素认证"),
+          vue.createElementVNode("view", { class: "input-group" }, [
+            vue.createElementVNode("text", { class: "input-label" }, "账户密码"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "modal-input",
+                type: "password",
+                "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => $data.disableForm.password = $event),
+                placeholder: "请输入密码"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.disableForm.password]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "input-group" }, [
+            vue.createElementVNode("text", { class: "input-label" }, "2FA 验证码"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "modal-input",
+                type: "number",
+                "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => $data.disableForm.code = $event),
+                placeholder: "6位验证码",
+                maxlength: "6"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.disableForm.code]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[18] || (_cache[18] = ($event) => $data.showDisable2FAModal = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm danger",
+              onClick: _cache[19] || (_cache[19] = (...args) => $options.disable2FA && $options.disable2FA(...args))
+            }, [
+              vue.createElementVNode("text", null, "确认禁用")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 备用码弹窗 "),
+      $data.showBackupCodesModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 2,
+        class: "modal",
+        onClick: _cache[24] || (_cache[24] = vue.withModifiers(($event) => $data.showBackupCodesModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "备用码管理"),
+          vue.createElementVNode("text", { class: "modal-tip" }, "备用码可在无法使用验证器时登录账户，每个备用码只能使用一次。"),
+          $data.backupCodes.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "backup-codes"
+          }, [
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($data.backupCodes, (code, index) => {
+                return vue.openBlock(), vue.createElementBlock(
+                  "text",
+                  {
+                    class: "backup-code",
+                    key: index
+                  },
+                  vue.toDisplayString(code),
+                  1
+                  /* TEXT */
+                );
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ])) : vue.createCommentVNode("v-if", true),
+          !$data.backupCodes.length ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 1,
+            class: "input-group"
+          }, [
+            vue.createElementVNode("text", { class: "input-label" }, "输入 2FA 验证码重新生成"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "modal-input",
+                type: "number",
+                "onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => $data.backupCodeVerify = $event),
+                placeholder: "6位验证码",
+                maxlength: "6"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.backupCodeVerify]
+            ])
+          ])) : vue.createCommentVNode("v-if", true),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[22] || (_cache[22] = ($event) => {
+                $data.showBackupCodesModal = false;
+                $data.backupCodes = [];
+              })
+            }, [
+              vue.createElementVNode("text", null, "关闭")
+            ]),
+            !$data.backupCodes.length ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "modal-btn confirm",
+              onClick: _cache[23] || (_cache[23] = (...args) => $options.regenerateBackupCodes && $options.regenerateBackupCodes(...args))
+            }, [
+              vue.createElementVNode("text", null, "生成备用码")
+            ])) : vue.createCommentVNode("v-if", true)
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 查看 API Secret 弹窗 "),
+      $data.showViewSecretModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 3,
+        class: "modal",
+        onClick: _cache[28] || (_cache[28] = vue.withModifiers(($event) => $data.showViewSecretModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "查看 API Secret"),
+          !$data.viewedSecret ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "input-group"
+          }, [
+            vue.createElementVNode("text", { class: "input-label" }, "请输入账户密码验证身份"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "modal-input",
+                type: "password",
+                "onUpdate:modelValue": _cache[25] || (_cache[25] = ($event) => $data.viewSecretPassword = $event),
+                placeholder: "请输入密码"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.viewSecretPassword]
+            ])
+          ])) : (vue.openBlock(), vue.createElementBlock("view", {
+            key: 1,
+            class: "secret-display"
+          }, [
+            vue.createElementVNode(
+              "text",
+              { class: "secret-text" },
+              vue.toDisplayString($data.viewedSecret),
+              1
+              /* TEXT */
+            )
+          ])),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[26] || (_cache[26] = (...args) => $options.closeViewSecret && $options.closeViewSecret(...args))
+            }, [
+              vue.createElementVNode("text", null, "关闭")
+            ]),
+            !$data.viewedSecret ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "modal-btn confirm",
+              onClick: _cache[27] || (_cache[27] = (...args) => $options.viewSecret && $options.viewSecret(...args))
+            }, [
+              vue.createElementVNode("text", null, "查看")
+            ])) : vue.createCommentVNode("v-if", true)
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 重置 API 密钥弹窗 "),
+      $data.showResetApiModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 4,
+        class: "modal",
+        onClick: _cache[32] || (_cache[32] = vue.withModifiers(($event) => $data.showResetApiModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "重置 API 密钥"),
+          vue.createElementVNode("text", { class: "modal-tip warning" }, "⚠️ 重置后原密钥将立即失效，请确保已更新所有使用该密钥的应用。"),
+          vue.createElementVNode("view", { class: "input-group" }, [
+            vue.createElementVNode("text", { class: "input-label" }, "请输入账户密码确认"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "modal-input",
+                type: "password",
+                "onUpdate:modelValue": _cache[29] || (_cache[29] = ($event) => $data.resetApiPassword = $event),
+                placeholder: "请输入密码"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.resetApiPassword]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[30] || (_cache[30] = ($event) => $data.showResetApiModal = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm danger",
+              onClick: _cache[31] || (_cache[31] = (...args) => $options.resetApiKey && $options.resetApiKey(...args))
+            }, [
+              vue.createElementVNode("text", null, "确认重置")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 新密钥展示弹窗 "),
+      $data.showNewKeyModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 5,
+        class: "modal",
+        onClick: _cache[34] || (_cache[34] = vue.withModifiers((...args) => $options.closeNewKeyModal && $options.closeNewKeyModal(...args), ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "🎉 API 密钥已生成"),
+          vue.createElementVNode("text", { class: "modal-tip warning" }, "⚠️ 请立即保存 API Secret，此信息只显示一次！"),
+          vue.createElementVNode("view", { class: "key-display" }, [
+            vue.createElementVNode("view", { class: "key-row" }, [
+              vue.createElementVNode("text", { class: "key-label" }, "API Key"),
+              vue.createElementVNode(
+                "text",
+                { class: "key-value" },
+                vue.toDisplayString($data.newApiKey),
+                1
+                /* TEXT */
+              )
+            ]),
+            vue.createElementVNode("view", { class: "key-row" }, [
+              vue.createElementVNode("text", { class: "key-label" }, "API Secret"),
+              vue.createElementVNode(
+                "text",
+                { class: "key-value secret" },
+                vue.toDisplayString($data.newApiSecret),
+                1
+                /* TEXT */
+              )
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[33] || (_cache[33] = (...args) => $options.closeNewKeyModal && $options.closeNewKeyModal(...args))
+            }, [
+              vue.createElementVNode("text", null, "我已保存")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const PagesSettingsSecurity = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/settings/security.vue"]]);
   function getAdminStats() {
     return request({
       url: "/admin/stats",
@@ -4194,6 +5256,12 @@ if (uni.restoreGlobal) {
       data: params
     });
   }
+  function getAdminUser(userId) {
+    return request({
+      url: `/admin/users/${userId}`,
+      method: "GET"
+    });
+  }
   function updateAdminUser(userId, data) {
     return request({
       url: `/admin/users/${userId}`,
@@ -4204,6 +5272,12 @@ if (uni.restoreGlobal) {
   function deleteAdminUser(userId) {
     return request({
       url: `/admin/users/${userId}`,
+      method: "DELETE"
+    });
+  }
+  function unbindUserOAuth(userId, provider) {
+    return request({
+      url: `/admin/users/${userId}/oauth/${provider}`,
       method: "DELETE"
     });
   }
@@ -4317,6 +5391,13 @@ if (uni.restoreGlobal) {
       url: "/admin/redeem-codes/generate",
       method: "POST",
       data
+    });
+  }
+  function exportRedeemCodes(params = {}) {
+    return request({
+      url: "/admin/redeem-codes/export",
+      method: "GET",
+      data: params
     });
   }
   function getCoupons(params = {}) {
@@ -4479,6 +5560,91 @@ if (uni.restoreGlobal) {
       method: "POST"
     });
   }
+  function getIpBlacklist(params = {}) {
+    return request({
+      url: "/admin/ip-blacklist",
+      method: "GET",
+      data: params
+    });
+  }
+  function addIpToBlacklist(data) {
+    return request({
+      url: "/admin/ip-blacklist",
+      method: "POST",
+      data
+    });
+  }
+  function removeIpFromBlacklist(id) {
+    return request({
+      url: `/admin/ip-blacklist/${id}`,
+      method: "DELETE"
+    });
+  }
+  function checkIpBlacklist(ip) {
+    return request({
+      url: "/admin/ip-blacklist/check",
+      method: "GET",
+      data: { ip }
+    });
+  }
+  function importUsers(data) {
+    return request({
+      url: "/admin/import/users",
+      method: "POST",
+      data
+    });
+  }
+  function importRedeemCodes(data) {
+    return request({
+      url: "/admin/import/redeem-codes",
+      method: "POST",
+      data
+    });
+  }
+  function exportUsers() {
+    return request({
+      url: "/admin/export/users",
+      method: "GET"
+    });
+  }
+  function exportSubdomains() {
+    return request({
+      url: "/admin/export/subdomains",
+      method: "GET"
+    });
+  }
+  function getEmailTemplates() {
+    return request({
+      url: "/admin/email-templates",
+      method: "GET"
+    });
+  }
+  function updateEmailTemplate(code, data) {
+    return request({
+      url: `/admin/email-templates/${code}`,
+      method: "PUT",
+      data
+    });
+  }
+  function resetEmailTemplate(code) {
+    return request({
+      url: `/admin/email-templates/${code}/reset`,
+      method: "POST"
+    });
+  }
+  function previewEmailTemplate(code, data) {
+    return request({
+      url: `/admin/email-templates/${code}/preview`,
+      method: "POST",
+      data
+    });
+  }
+  function testEmailTemplate(code) {
+    return request({
+      url: `/admin/email-templates/${code}/test`,
+      method: "POST"
+    });
+  }
   function getAppVersions(params = {}) {
     return request({
       url: "/admin/app-versions",
@@ -4506,7 +5672,7 @@ if (uni.restoreGlobal) {
       method: "DELETE"
     });
   }
-  const _sfc_main$e = {
+  const _sfc_main$h = {
     data() {
       return {
         stats: {},
@@ -4536,7 +5702,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -4736,18 +5902,30 @@ if (uni.restoreGlobal) {
             ]),
             vue.createElementVNode("view", {
               class: "menu-item",
-              style: { "visibility": "hidden" }
+              onClick: _cache[10] || (_cache[10] = ($event) => $options.goTo("/pages/admin/email-templates"))
             }, [
-              vue.createElementVNode("view", { class: "menu-icon-wrap" }),
-              vue.createElementVNode("text", { class: "menu-text" })
+              vue.createElementVNode("view", { class: "menu-icon-wrap pink" }, "📧"),
+              vue.createElementVNode("text", { class: "menu-text" }, "邮件模板")
             ]),
             vue.createElementVNode("view", {
               class: "menu-item",
-              style: { "visibility": "hidden" }
+              onClick: _cache[11] || (_cache[11] = ($event) => $options.goTo("/pages/admin/ip-blacklist"))
             }, [
-              vue.createElementVNode("view", { class: "menu-icon-wrap" }),
-              vue.createElementVNode("text", { class: "menu-text" })
+              vue.createElementVNode("view", { class: "menu-icon-wrap gray" }, "🚫"),
+              vue.createElementVNode("text", { class: "menu-text" }, "IP黑名单")
             ])
+          ]),
+          vue.createElementVNode("view", { class: "menu-row" }, [
+            vue.createElementVNode("view", {
+              class: "menu-item",
+              onClick: _cache[12] || (_cache[12] = ($event) => $options.goTo("/pages/admin/data-manage"))
+            }, [
+              vue.createElementVNode("view", { class: "menu-icon-wrap brown" }, "📦"),
+              vue.createElementVNode("text", { class: "menu-text" }, "数据管理")
+            ]),
+            vue.createElementVNode("view", { class: "menu-item" }),
+            vue.createElementVNode("view", { class: "menu-item" }),
+            vue.createElementVNode("view", { class: "menu-item" })
           ])
         ])
       ]),
@@ -4757,7 +5935,7 @@ if (uni.restoreGlobal) {
         vue.createElementVNode("view", { class: "func-list" }, [
           vue.createElementVNode("view", {
             class: "func-item",
-            onClick: _cache[10] || (_cache[10] = ($event) => $options.goTo("/pages/admin/announcements"))
+            onClick: _cache[13] || (_cache[13] = ($event) => $options.goTo("/pages/admin/announcements"))
           }, [
             vue.createElementVNode("view", { class: "func-left" }, [
               vue.createElementVNode("view", { class: "func-icon pink" }, "📢"),
@@ -4770,7 +5948,7 @@ if (uni.restoreGlobal) {
           ]),
           vue.createElementVNode("view", {
             class: "func-item",
-            onClick: _cache[11] || (_cache[11] = ($event) => $options.goTo("/pages/admin/logs"))
+            onClick: _cache[14] || (_cache[14] = ($event) => $options.goTo("/pages/admin/logs"))
           }, [
             vue.createElementVNode("view", { class: "func-left" }, [
               vue.createElementVNode("view", { class: "func-icon brown" }, "📜"),
@@ -4783,7 +5961,7 @@ if (uni.restoreGlobal) {
           ]),
           vue.createElementVNode("view", {
             class: "func-item",
-            onClick: _cache[12] || (_cache[12] = ($event) => $options.goTo("/pages/admin/settings"))
+            onClick: _cache[15] || (_cache[15] = ($event) => $options.goTo("/pages/admin/settings"))
           }, [
             vue.createElementVNode("view", { class: "func-left" }, [
               vue.createElementVNode("view", { class: "func-icon gray" }, "⚙️"),
@@ -4799,8 +5977,8 @@ if (uni.restoreGlobal) {
       vue.createElementVNode("view", { class: "bottom-space" })
     ]);
   }
-  const PagesAdminIndex = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/index.vue"]]);
-  const _sfc_main$d = {
+  const PagesAdminIndex = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/index.vue"]]);
+  const _sfc_main$g = {
     data() {
       return {
         users: [],
@@ -4817,7 +5995,8 @@ if (uni.restoreGlobal) {
           { value: "user", label: "用户" },
           { value: "admin", label: "管理员" },
           { value: "demo", label: "演示" }
-        ]
+        ],
+        oauthProviders: ["github", "google", "nodeloc"]
       };
     },
     computed: {
@@ -4873,6 +6052,44 @@ if (uni.restoreGlobal) {
         this.editBalance = String(user.balance || 0);
         this.editMaxDomains = String(user.max_domains || 0);
         this.showModal = true;
+        this.loadUserDetail(user.id);
+      },
+      async loadUserDetail(userId) {
+        try {
+          const res = await getAdminUser(userId);
+          if (res.data) {
+            this.currentUser = { ...this.currentUser, ...res.data };
+          }
+        } catch (e) {
+        }
+      },
+      getOAuthLabel(provider) {
+        const labels = {
+          github: "GitHub",
+          google: "Google",
+          nodeloc: "NodeLoc"
+        };
+        return labels[provider] || provider;
+      },
+      async handleUnbindOAuth(provider) {
+        uni.showModal({
+          title: "确认解绑",
+          content: `确定要解绑该用户的 ${this.getOAuthLabel(provider)} 账号吗？`,
+          confirmColor: "#ff4d4f",
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "解绑中..." });
+                await unbindUserOAuth(this.currentUser.id, provider);
+                uni.hideLoading();
+                uni.showToast({ title: "解绑成功", icon: "success" });
+                this.loadUserDetail(this.currentUser.id);
+              } catch (e) {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
       },
       onRoleChange(e) {
         this.currentUser.role = this.roles[e.detail.value].value;
@@ -4919,7 +6136,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -5113,7 +6330,7 @@ if (uni.restoreGlobal) {
               vue.createElementVNode(
                 "view",
                 { class: "picker" },
-                vue.toDisplayString($data.currentUser.role === "admin" ? "管理员" : "用户"),
+                vue.toDisplayString($data.currentUser.role === "admin" ? "管理员" : $data.currentUser.role === "demo" ? "演示" : "用户"),
                 1
                 /* TEXT */
               )
@@ -5160,6 +6377,57 @@ if (uni.restoreGlobal) {
               [vue.vModelText, $data.editMaxDomains]
             ])
           ]),
+          vue.createCommentVNode(" OAuth 绑定信息 "),
+          $data.currentUser.oauth_bindings ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "oauth-section"
+          }, [
+            vue.createElementVNode("text", { class: "section-label" }, "OAuth 绑定"),
+            vue.createElementVNode("view", { class: "oauth-list" }, [
+              (vue.openBlock(true), vue.createElementBlock(
+                vue.Fragment,
+                null,
+                vue.renderList($data.oauthProviders, (provider) => {
+                  return vue.openBlock(), vue.createElementBlock("view", {
+                    class: "oauth-item",
+                    key: provider
+                  }, [
+                    vue.createElementVNode("view", { class: "oauth-info" }, [
+                      vue.createElementVNode(
+                        "text",
+                        { class: "oauth-icon" },
+                        vue.toDisplayString(provider === "github" ? "🐙" : provider === "google" ? "🔍" : "🌐"),
+                        1
+                        /* TEXT */
+                      ),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "oauth-name" },
+                        vue.toDisplayString($options.getOAuthLabel(provider)),
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    $data.currentUser.oauth_bindings && $data.currentUser.oauth_bindings[provider] ? (vue.openBlock(), vue.createElementBlock("view", {
+                      key: 0,
+                      class: "oauth-status"
+                    }, [
+                      vue.createElementVNode("text", { class: "bound-text" }, "已绑定"),
+                      vue.createElementVNode("view", {
+                        class: "unbind-btn",
+                        onClick: ($event) => $options.handleUnbindOAuth(provider)
+                      }, "解绑", 8, ["onClick"])
+                    ])) : (vue.openBlock(), vue.createElementBlock("text", {
+                      key: 1,
+                      class: "unbound-text"
+                    }, "未绑定"))
+                  ]);
+                }),
+                128
+                /* KEYED_FRAGMENT */
+              ))
+            ])
+          ])) : vue.createCommentVNode("v-if", true),
           vue.createElementVNode("view", { class: "modal-btns" }, [
             vue.createElementVNode("view", {
               class: "modal-btn cancel",
@@ -5184,8 +6452,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminUsers = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/users.vue"]]);
-  const _sfc_main$c = {
+  const PagesAdminUsers = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/users.vue"]]);
+  const _sfc_main$f = {
     data() {
       return {
         domains: [],
@@ -5359,7 +6627,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     var _a, _b;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -5588,8 +6856,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminDomains = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/domains.vue"]]);
-  const _sfc_main$b = {
+  const PagesAdminDomains = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/domains.vue"]]);
+  const _sfc_main$e = {
     data() {
       return {
         plans: [],
@@ -5799,7 +7067,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -6295,8 +7563,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminPlans = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/plans.vue"]]);
-  const _sfc_main$a = {
+  const PagesAdminPlans = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/plans.vue"]]);
+  const _sfc_main$d = {
     data() {
       return {
         codes: [],
@@ -6426,7 +7694,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -6689,8 +7957,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminRedeem = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/redeem.vue"]]);
-  const _sfc_main$9 = {
+  const PagesAdminRedeem = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/redeem.vue"]]);
+  const _sfc_main$c = {
     data() {
       return {
         orders: [],
@@ -6745,7 +8013,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -6876,8 +8144,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminOrders = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/orders.vue"]]);
-  const _sfc_main$8 = {
+  const PagesAdminOrders = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/orders.vue"]]);
+  const _sfc_main$b = {
     data() {
       return {
         announcements: [],
@@ -6982,7 +8250,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -7155,22 +8423,48 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminAnnouncements = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/announcements.vue"]]);
-  const _sfc_main$7 = {
+  const PagesAdminAnnouncements = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/announcements.vue"]]);
+  const _sfc_main$a = {
     data() {
       return {
         userInfo: null,
         settings: {
+          // 站点设置
           site_name: "",
           site_description: "",
+          site_url: "",
           admin_email: "",
+          // 注册设置
+          allow_register: "1",
+          default_max_domains: "10",
+          email_suffix_enabled: "0",
+          email_suffix_mode: "whitelist",
+          email_suffix_list: "",
+          // 验证码设置
+          turnstile_enabled: "false",
+          turnstile_site_key: "",
+          turnstile_secret_key: "",
+          captcha_login: "1",
+          captcha_register: "1",
+          captcha_forgot_password: "1",
+          // OAuth 设置
+          github_client_id: "",
+          github_client_secret: "",
+          google_client_id: "",
+          google_client_secret: "",
+          nodeloc_client_id: "",
+          nodeloc_client_secret: "",
+          // SMTP 设置
           smtp_host: "",
           smtp_port: "",
           smtp_user: "",
           smtp_password: "",
           smtp_ssl: "1",
+          // 卡密渠道
           redeem_channel_text: "",
-          redeem_channel_url: ""
+          redeem_channel_url: "",
+          // 统计代码
+          analytics_code: ""
         }
       };
     },
@@ -7184,9 +8478,7 @@ if (uni.restoreGlobal) {
       this.userInfo = getUserInfo$1();
       if (this.isDemo) {
         uni.showToast({ title: "演示用户无权访问设置", icon: "none" });
-        setTimeout(() => {
-          uni.navigateBack();
-        }, 1500);
+        setTimeout(() => uni.navigateBack(), 1500);
         return;
       }
       this.loadSettings();
@@ -7194,11 +8486,19 @@ if (uni.restoreGlobal) {
     methods: {
       async loadSettings() {
         var _a;
+        uni.showLoading({ title: "加载中..." });
         try {
           const res = await getAdminSettings();
-          this.settings = { ...this.settings, ...(_a = res.data) == null ? void 0 : _a.settings };
+          const data = ((_a = res.data) == null ? void 0 : _a.settings) || res.data || {};
+          Object.keys(this.settings).forEach((key) => {
+            if (data[key] !== void 0 && data[key] !== null) {
+              this.settings[key] = String(data[key]);
+            }
+          });
         } catch (e) {
+          formatAppLog("error", "at pages/admin/settings.vue:300", "加载设置失败", e);
         }
+        uni.hideLoading();
       },
       async handleSave() {
         try {
@@ -7212,7 +8512,7 @@ if (uni.restoreGlobal) {
       },
       testSmtpConfig() {
         uni.showModal({
-          title: "测试SMTP",
+          title: "测试 SMTP",
           editable: true,
           placeholderText: "输入测试邮箱",
           success: async (res) => {
@@ -7231,186 +8531,552 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
-      vue.createElementVNode("view", { class: "section" }, [
-        vue.createElementVNode("text", { class: "section-title" }, "站点设置"),
-        vue.createElementVNode("view", { class: "form-item" }, [
-          vue.createElementVNode("text", { class: "label" }, "站点名称"),
-          vue.withDirectives(vue.createElementVNode(
-            "input",
-            {
-              class: "input",
-              "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.settings.site_name = $event),
-              placeholder: "输入站点名称"
-            },
-            null,
-            512
-            /* NEED_PATCH */
-          ), [
-            [vue.vModelText, $data.settings.site_name]
+      vue.createCommentVNode(" 页面头部 "),
+      vue.createElementVNode("view", { class: "page-header" }, [
+        vue.createElementVNode("text", { class: "header-title" }, "系统设置"),
+        vue.createElementVNode("text", { class: "header-subtitle" }, "配置系统参数")
+      ]),
+      vue.createElementVNode("view", { class: "content" }, [
+        vue.createCommentVNode(" 站点设置 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "🌐 站点设置")
+          ]),
+          vue.createElementVNode("view", { class: "section-body" }, [
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "站点名称"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "input",
+                  "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.settings.site_name = $event),
+                  placeholder: "输入站点名称"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.site_name]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item column" }, [
+              vue.createElementVNode("text", { class: "label" }, "站点描述"),
+              vue.withDirectives(vue.createElementVNode(
+                "textarea",
+                {
+                  class: "textarea",
+                  "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.settings.site_description = $event),
+                  placeholder: "输入描述"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.site_description]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "站点 URL"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "input",
+                  "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.settings.site_url = $event),
+                  placeholder: "https://example.com"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.site_url]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "管理员邮箱"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "input",
+                  "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $data.settings.admin_email = $event),
+                  placeholder: "admin@example.com"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.admin_email]
+              ])
+            ])
           ])
         ]),
-        vue.createElementVNode("view", { class: "form-item column" }, [
-          vue.createElementVNode("text", { class: "label" }, "站点描述"),
-          vue.withDirectives(vue.createElementVNode(
-            "textarea",
-            {
-              class: "textarea",
-              "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.settings.site_description = $event),
-              placeholder: "输入描述"
-            },
-            null,
-            512
-            /* NEED_PATCH */
-          ), [
-            [vue.vModelText, $data.settings.site_description]
+        vue.createCommentVNode(" 注册设置 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "📝 注册设置")
+          ]),
+          vue.createElementVNode("view", { class: "section-body" }, [
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "开放注册"),
+              vue.createElementVNode("switch", {
+                checked: $data.settings.allow_register === "1",
+                onChange: _cache[4] || (_cache[4] = (e) => $data.settings.allow_register = e.detail.value ? "1" : "0"),
+                color: "#4C84FF"
+              }, null, 40, ["checked"])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "新用户默认域名配额"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "input short",
+                  type: "number",
+                  "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.settings.default_max_domains = $event),
+                  placeholder: "10"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.default_max_domains]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "邮箱后缀限制"),
+              vue.createElementVNode("switch", {
+                checked: $data.settings.email_suffix_enabled === "1",
+                onChange: _cache[6] || (_cache[6] = (e) => $data.settings.email_suffix_enabled = e.detail.value ? "1" : "0"),
+                color: "#4C84FF"
+              }, null, 40, ["checked"])
+            ]),
+            $data.settings.email_suffix_enabled === "1" ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "form-item"
+            }, [
+              vue.createElementVNode("text", { class: "label" }, "限制模式"),
+              vue.createElementVNode("view", { class: "radio-group" }, [
+                vue.createElementVNode(
+                  "view",
+                  {
+                    class: vue.normalizeClass(["radio-item", { active: $data.settings.email_suffix_mode === "whitelist" }]),
+                    onClick: _cache[7] || (_cache[7] = ($event) => $data.settings.email_suffix_mode = "whitelist")
+                  },
+                  [
+                    vue.createElementVNode("text", null, "白名单")
+                  ],
+                  2
+                  /* CLASS */
+                ),
+                vue.createElementVNode(
+                  "view",
+                  {
+                    class: vue.normalizeClass(["radio-item", { active: $data.settings.email_suffix_mode === "blacklist" }]),
+                    onClick: _cache[8] || (_cache[8] = ($event) => $data.settings.email_suffix_mode = "blacklist")
+                  },
+                  [
+                    vue.createElementVNode("text", null, "黑名单")
+                  ],
+                  2
+                  /* CLASS */
+                )
+              ])
+            ])) : vue.createCommentVNode("v-if", true),
+            $data.settings.email_suffix_enabled === "1" ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 1,
+              class: "form-item column"
+            }, [
+              vue.createElementVNode("text", { class: "label" }, "邮箱后缀列表（每行一个）"),
+              vue.withDirectives(vue.createElementVNode(
+                "textarea",
+                {
+                  class: "textarea",
+                  "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => $data.settings.email_suffix_list = $event),
+                  placeholder: "@gmail.com\n@qq.com"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.email_suffix_list]
+              ])
+            ])) : vue.createCommentVNode("v-if", true)
           ])
         ]),
-        vue.createElementVNode("view", { class: "form-item" }, [
-          vue.createElementVNode("text", { class: "label" }, "管理员邮箱"),
-          vue.withDirectives(vue.createElementVNode(
-            "input",
-            {
-              class: "input",
-              "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.settings.admin_email = $event),
-              placeholder: "输入邮箱"
-            },
-            null,
-            512
-            /* NEED_PATCH */
-          ), [
-            [vue.vModelText, $data.settings.admin_email]
+        vue.createCommentVNode(" 验证码设置 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "🔒 验证码设置")
+          ]),
+          vue.createElementVNode("view", { class: "section-body" }, [
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "启用 Turnstile"),
+              vue.createElementVNode("switch", {
+                checked: $data.settings.turnstile_enabled === "true",
+                onChange: _cache[10] || (_cache[10] = (e) => $data.settings.turnstile_enabled = e.detail.value ? "true" : "false"),
+                color: "#4C84FF"
+              }, null, 40, ["checked"])
+            ]),
+            $data.settings.turnstile_enabled === "true" ? (vue.openBlock(), vue.createElementBlock(
+              vue.Fragment,
+              { key: 0 },
+              [
+                vue.createElementVNode("view", { class: "form-item" }, [
+                  vue.createElementVNode("text", { class: "label" }, "Site Key"),
+                  vue.withDirectives(vue.createElementVNode(
+                    "input",
+                    {
+                      class: "input",
+                      "onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => $data.settings.turnstile_site_key = $event),
+                      placeholder: "Turnstile Site Key"
+                    },
+                    null,
+                    512
+                    /* NEED_PATCH */
+                  ), [
+                    [vue.vModelText, $data.settings.turnstile_site_key]
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "form-item" }, [
+                  vue.createElementVNode("text", { class: "label" }, "Secret Key"),
+                  vue.withDirectives(vue.createElementVNode(
+                    "input",
+                    {
+                      class: "input",
+                      type: "password",
+                      "onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => $data.settings.turnstile_secret_key = $event),
+                      placeholder: "Turnstile Secret Key"
+                    },
+                    null,
+                    512
+                    /* NEED_PATCH */
+                  ), [
+                    [vue.vModelText, $data.settings.turnstile_secret_key]
+                  ])
+                ])
+              ],
+              64
+              /* STABLE_FRAGMENT */
+            )) : vue.createCommentVNode("v-if", true),
+            vue.createElementVNode("view", { class: "divider" }),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "登录需要验证码"),
+              vue.createElementVNode("switch", {
+                checked: $data.settings.captcha_login === "1",
+                onChange: _cache[13] || (_cache[13] = (e) => $data.settings.captcha_login = e.detail.value ? "1" : "0"),
+                color: "#4C84FF"
+              }, null, 40, ["checked"])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "注册需要验证码"),
+              vue.createElementVNode("switch", {
+                checked: $data.settings.captcha_register === "1",
+                onChange: _cache[14] || (_cache[14] = (e) => $data.settings.captcha_register = e.detail.value ? "1" : "0"),
+                color: "#4C84FF"
+              }, null, 40, ["checked"])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "找回密码需要验证码"),
+              vue.createElementVNode("switch", {
+                checked: $data.settings.captcha_forgot_password === "1",
+                onChange: _cache[15] || (_cache[15] = (e) => $data.settings.captcha_forgot_password = e.detail.value ? "1" : "0"),
+                color: "#4C84FF"
+              }, null, 40, ["checked"])
+            ])
+          ])
+        ]),
+        vue.createCommentVNode(" OAuth 设置 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "🔗 OAuth 登录"),
+            vue.createElementVNode(
+              "text",
+              { class: "section-tip" },
+              "回调 URL: " + vue.toDisplayString($data.settings.site_url) + "/api/auth/{provider}/callback",
+              1
+              /* TEXT */
+            )
+          ]),
+          vue.createElementVNode("view", { class: "section-body" }, [
+            vue.createCommentVNode(" GitHub "),
+            vue.createElementVNode("view", { class: "oauth-group" }, [
+              vue.createElementVNode("text", { class: "oauth-title" }, "GitHub"),
+              vue.createElementVNode("view", { class: "form-item" }, [
+                vue.createElementVNode("text", { class: "label" }, "Client ID"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "input",
+                    "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => $data.settings.github_client_id = $event),
+                    placeholder: "GitHub Client ID"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.settings.github_client_id]
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "form-item" }, [
+                vue.createElementVNode("text", { class: "label" }, "Client Secret"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "input",
+                    type: "password",
+                    "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => $data.settings.github_client_secret = $event),
+                    placeholder: "GitHub Client Secret"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.settings.github_client_secret]
+                ])
+              ])
+            ]),
+            vue.createCommentVNode(" Google "),
+            vue.createElementVNode("view", { class: "oauth-group" }, [
+              vue.createElementVNode("text", { class: "oauth-title" }, "Google"),
+              vue.createElementVNode("view", { class: "form-item" }, [
+                vue.createElementVNode("text", { class: "label" }, "Client ID"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "input",
+                    "onUpdate:modelValue": _cache[18] || (_cache[18] = ($event) => $data.settings.google_client_id = $event),
+                    placeholder: "Google Client ID"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.settings.google_client_id]
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "form-item" }, [
+                vue.createElementVNode("text", { class: "label" }, "Client Secret"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "input",
+                    type: "password",
+                    "onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => $data.settings.google_client_secret = $event),
+                    placeholder: "Google Client Secret"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.settings.google_client_secret]
+                ])
+              ])
+            ]),
+            vue.createCommentVNode(" NodeLoc "),
+            vue.createElementVNode("view", { class: "oauth-group" }, [
+              vue.createElementVNode("text", { class: "oauth-title" }, "NodeLoc"),
+              vue.createElementVNode("view", { class: "form-item" }, [
+                vue.createElementVNode("text", { class: "label" }, "Client ID"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "input",
+                    "onUpdate:modelValue": _cache[20] || (_cache[20] = ($event) => $data.settings.nodeloc_client_id = $event),
+                    placeholder: "NodeLoc Client ID"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.settings.nodeloc_client_id]
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "form-item" }, [
+                vue.createElementVNode("text", { class: "label" }, "Client Secret"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "input",
+                    type: "password",
+                    "onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => $data.settings.nodeloc_client_secret = $event),
+                    placeholder: "NodeLoc Client Secret"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.settings.nodeloc_client_secret]
+                ])
+              ])
+            ])
+          ])
+        ]),
+        vue.createCommentVNode(" SMTP 设置 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "📧 SMTP 设置")
+          ]),
+          vue.createElementVNode("view", { class: "section-body" }, [
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "SMTP 服务器"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "input",
+                  "onUpdate:modelValue": _cache[22] || (_cache[22] = ($event) => $data.settings.smtp_host = $event),
+                  placeholder: "smtp.example.com"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.smtp_host]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "SMTP 端口"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "input short",
+                  type: "number",
+                  "onUpdate:modelValue": _cache[23] || (_cache[23] = ($event) => $data.settings.smtp_port = $event),
+                  placeholder: "465"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.smtp_port]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "SMTP 用户名"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "input",
+                  "onUpdate:modelValue": _cache[24] || (_cache[24] = ($event) => $data.settings.smtp_user = $event),
+                  placeholder: "输入用户名"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.smtp_user]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "SMTP 密码"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "input",
+                  type: "password",
+                  "onUpdate:modelValue": _cache[25] || (_cache[25] = ($event) => $data.settings.smtp_password = $event),
+                  placeholder: "输入密码"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.smtp_password]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "启用 SSL"),
+              vue.createElementVNode("switch", {
+                checked: $data.settings.smtp_ssl === "1",
+                onChange: _cache[26] || (_cache[26] = (e) => $data.settings.smtp_ssl = e.detail.value ? "1" : "0"),
+                color: "#4C84FF"
+              }, null, 40, ["checked"])
+            ]),
+            vue.createElementVNode("view", {
+              class: "action-btn",
+              onClick: _cache[27] || (_cache[27] = (...args) => $options.testSmtpConfig && $options.testSmtpConfig(...args))
+            }, [
+              vue.createElementVNode("text", null, "📤 测试 SMTP 配置")
+            ])
+          ])
+        ]),
+        vue.createCommentVNode(" 卡密渠道 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "🎫 卡密渠道")
+          ]),
+          vue.createElementVNode("view", { class: "section-body" }, [
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "按钮文字"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "input",
+                  "onUpdate:modelValue": _cache[28] || (_cache[28] = ($event) => $data.settings.redeem_channel_text = $event),
+                  placeholder: "购买卡密"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.redeem_channel_text]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "链接地址"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "input",
+                  "onUpdate:modelValue": _cache[29] || (_cache[29] = ($event) => $data.settings.redeem_channel_url = $event),
+                  placeholder: "https://..."
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.redeem_channel_url]
+              ])
+            ])
+          ])
+        ]),
+        vue.createCommentVNode(" 统计代码 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "📊 网站统计")
+          ]),
+          vue.createElementVNode("view", { class: "section-body" }, [
+            vue.createElementVNode("view", { class: "form-item column" }, [
+              vue.createElementVNode("text", { class: "label" }, "统计代码（支持 HTML）"),
+              vue.withDirectives(vue.createElementVNode(
+                "textarea",
+                {
+                  class: "textarea code",
+                  "onUpdate:modelValue": _cache[30] || (_cache[30] = ($event) => $data.settings.analytics_code = $event),
+                  placeholder: "<script>...<\/script>"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.settings.analytics_code]
+              ])
+            ])
           ])
         ])
       ]),
-      vue.createElementVNode("view", { class: "section" }, [
-        vue.createElementVNode("text", { class: "section-title" }, "SMTP设置"),
-        vue.createElementVNode("view", { class: "form-item" }, [
-          vue.createElementVNode("text", { class: "label" }, "SMTP服务器"),
-          vue.withDirectives(vue.createElementVNode(
-            "input",
-            {
-              class: "input",
-              "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $data.settings.smtp_host = $event),
-              placeholder: "smtp.example.com"
-            },
-            null,
-            512
-            /* NEED_PATCH */
-          ), [
-            [vue.vModelText, $data.settings.smtp_host]
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "form-item" }, [
-          vue.createElementVNode("text", { class: "label" }, "SMTP端口"),
-          vue.withDirectives(vue.createElementVNode(
-            "input",
-            {
-              class: "input",
-              type: "number",
-              "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $data.settings.smtp_port = $event),
-              placeholder: "465"
-            },
-            null,
-            512
-            /* NEED_PATCH */
-          ), [
-            [vue.vModelText, $data.settings.smtp_port]
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "form-item" }, [
-          vue.createElementVNode("text", { class: "label" }, "SMTP用户名"),
-          vue.withDirectives(vue.createElementVNode(
-            "input",
-            {
-              class: "input",
-              "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.settings.smtp_user = $event),
-              placeholder: "输入用户名"
-            },
-            null,
-            512
-            /* NEED_PATCH */
-          ), [
-            [vue.vModelText, $data.settings.smtp_user]
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "form-item" }, [
-          vue.createElementVNode("text", { class: "label" }, "SMTP密码"),
-          vue.withDirectives(vue.createElementVNode(
-            "input",
-            {
-              class: "input",
-              type: "password",
-              "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $data.settings.smtp_password = $event),
-              placeholder: "输入密码"
-            },
-            null,
-            512
-            /* NEED_PATCH */
-          ), [
-            [vue.vModelText, $data.settings.smtp_password]
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "form-item" }, [
-          vue.createElementVNode("text", { class: "label" }, "启用SSL"),
-          vue.createElementVNode("switch", {
-            checked: $data.settings.smtp_ssl === "1",
-            onChange: _cache[7] || (_cache[7] = (e) => $data.settings.smtp_ssl = e.detail.value ? "1" : "0")
-          }, null, 40, ["checked"])
-        ]),
+      vue.createCommentVNode(" 保存按钮 "),
+      vue.createElementVNode("view", { class: "save-bar" }, [
         vue.createElementVNode("view", {
-          class: "test-btn",
-          onClick: _cache[8] || (_cache[8] = (...args) => $options.testSmtpConfig && $options.testSmtpConfig(...args))
+          class: "save-btn",
+          onClick: _cache[31] || (_cache[31] = (...args) => $options.handleSave && $options.handleSave(...args))
         }, [
-          vue.createElementVNode("text", null, "测试SMTP配置")
+          vue.createElementVNode("text", null, "保存设置")
         ])
-      ]),
-      vue.createElementVNode("view", { class: "section" }, [
-        vue.createElementVNode("text", { class: "section-title" }, "卡密渠道"),
-        vue.createElementVNode("view", { class: "form-item" }, [
-          vue.createElementVNode("text", { class: "label" }, "按钮文字"),
-          vue.withDirectives(vue.createElementVNode(
-            "input",
-            {
-              class: "input",
-              "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => $data.settings.redeem_channel_text = $event),
-              placeholder: "购买卡密"
-            },
-            null,
-            512
-            /* NEED_PATCH */
-          ), [
-            [vue.vModelText, $data.settings.redeem_channel_text]
-          ])
-        ]),
-        vue.createElementVNode("view", { class: "form-item" }, [
-          vue.createElementVNode("text", { class: "label" }, "链接地址"),
-          vue.withDirectives(vue.createElementVNode(
-            "input",
-            {
-              class: "input",
-              "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => $data.settings.redeem_channel_url = $event),
-              placeholder: "https://..."
-            },
-            null,
-            512
-            /* NEED_PATCH */
-          ), [
-            [vue.vModelText, $data.settings.redeem_channel_url]
-          ])
-        ])
-      ]),
-      vue.createElementVNode("view", {
-        class: "save-btn",
-        onClick: _cache[11] || (_cache[11] = (...args) => $options.handleSave && $options.handleSave(...args))
-      }, [
-        vue.createElementVNode("text", { class: "save-text" }, "保存设置")
       ])
     ]);
   }
-  const PagesAdminSettings = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/settings.vue"]]);
-  const _sfc_main$6 = {
+  const PagesAdminSettings = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/settings.vue"]]);
+  const _sfc_main$9 = {
     data() {
       return {
         channels: [],
@@ -7660,7 +9326,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -7911,8 +9577,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminCfAccounts = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/cf-accounts.vue"]]);
-  const _sfc_main$5 = {
+  const PagesAdminCfAccounts = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/cf-accounts.vue"]]);
+  const _sfc_main$8 = {
     data() {
       return {
         records: [],
@@ -8043,7 +9709,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -8236,8 +9902,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminDnsRecords = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/dns-records.vue"]]);
-  const _sfc_main$4 = {
+  const PagesAdminDnsRecords = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/dns-records.vue"]]);
+  const _sfc_main$7 = {
     data() {
       return {
         subdomains: [],
@@ -8437,7 +10103,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -8694,8 +10360,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminSubdomains = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/subdomains.vue"]]);
-  const _sfc_main$3 = {
+  const PagesAdminSubdomains = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/subdomains.vue"]]);
+  const _sfc_main$6 = {
     data() {
       return {
         logs: [],
@@ -8820,7 +10486,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -8953,8 +10619,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminLogs = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/logs.vue"]]);
-  const _sfc_main$2 = {
+  const PagesAdminLogs = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/logs.vue"]]);
+  const _sfc_main$5 = {
     data() {
       return {
         coupons: [],
@@ -9189,7 +10855,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -9647,8 +11313,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminCoupons = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/coupons.vue"]]);
-  const _sfc_main$1 = {
+  const PagesAdminCoupons = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/coupons.vue"]]);
+  const _sfc_main$4 = {
     data() {
       return {
         versions: [],
@@ -9793,7 +11459,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -10174,7 +11840,1155 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminAppVersions = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__file", "C:/Users/liu/Desktop/app/app/pages/admin/app-versions.vue"]]);
+  const PagesAdminAppVersions = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/app-versions.vue"]]);
+  const _sfc_main$3 = {
+    data() {
+      return {
+        loading: false,
+        templates: [],
+        showEditModal: false,
+        showPreviewModal: false,
+        editForm: {
+          code: "",
+          name: "",
+          subject: "",
+          content: "",
+          status: 1,
+          variables: {}
+        },
+        previewData: {
+          subject: "",
+          html: ""
+        }
+      };
+    },
+    onLoad() {
+      this.loadTemplates();
+    },
+    methods: {
+      formatVariable(key) {
+        return "{{" + key + "}}";
+      },
+      async loadTemplates() {
+        var _a;
+        this.loading = true;
+        uni.showLoading({ title: "加载中..." });
+        try {
+          const res = await getEmailTemplates();
+          this.templates = ((_a = res.data) == null ? void 0 : _a.list) || [];
+        } catch (e) {
+          formatAppLog("error", "at pages/admin/email-templates.vue:172", "加载模板失败", e);
+        }
+        uni.hideLoading();
+        this.loading = false;
+      },
+      editTemplate(item) {
+        this.editForm = {
+          code: item.code,
+          name: item.name,
+          subject: item.subject,
+          content: item.content,
+          status: item.status,
+          variables: item.variables || {}
+        };
+        this.showEditModal = true;
+      },
+      async saveTemplate() {
+        if (!this.editForm.subject) {
+          uni.showToast({ title: "请输入邮件主题", icon: "none" });
+          return;
+        }
+        if (!this.editForm.content) {
+          uni.showToast({ title: "请输入邮件内容", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "保存中..." });
+          await updateEmailTemplate(this.editForm.code, {
+            subject: this.editForm.subject,
+            content: this.editForm.content,
+            status: this.editForm.status
+          });
+          uni.hideLoading();
+          uni.showToast({ title: "保存成功", icon: "success" });
+          this.showEditModal = false;
+          this.loadTemplates();
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async previewTemplate() {
+        var _a, _b;
+        if (!this.editForm.subject || !this.editForm.content) {
+          uni.showToast({ title: "请先填写主题和内容", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "生成预览..." });
+          const res = await previewEmailTemplate(this.editForm.code, {
+            subject: this.editForm.subject,
+            content: this.editForm.content
+          });
+          uni.hideLoading();
+          this.previewData = {
+            subject: ((_a = res.data) == null ? void 0 : _a.subject) || "",
+            html: ((_b = res.data) == null ? void 0 : _b.html) || ""
+          };
+          this.showPreviewModal = true;
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async sendTest(code) {
+        uni.showModal({
+          title: "发送测试邮件",
+          content: "将发送测试邮件到管理员邮箱，确定继续？",
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "发送中..." });
+                await testEmailTemplate(code);
+                uni.hideLoading();
+                uni.showToast({ title: "测试邮件已发送", icon: "success" });
+              } catch (e) {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
+      },
+      resetTemplate(code) {
+        uni.showModal({
+          title: "重置模板",
+          content: "确定要重置为默认模板吗？自定义内容将丢失。",
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "重置中..." });
+                await resetEmailTemplate(code);
+                uni.hideLoading();
+                uni.showToast({ title: "已重置", icon: "success" });
+                this.loadTemplates();
+              } catch (e) {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
+      }
+    }
+  };
+  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createCommentVNode(" 页面头部 "),
+      vue.createElementVNode("view", { class: "page-header" }, [
+        vue.createElementVNode("text", { class: "header-title" }, "邮件模板管理"),
+        vue.createElementVNode("text", { class: "header-subtitle" }, "自定义系统邮件内容")
+      ]),
+      vue.createElementVNode("view", { class: "content" }, [
+        vue.createCommentVNode(" 模板列表 "),
+        vue.createElementVNode("view", { class: "template-list" }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.templates, (item) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                class: "template-card",
+                key: item.code,
+                onClick: ($event) => $options.editTemplate(item)
+              }, [
+                vue.createElementVNode("view", { class: "template-header" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "template-name" },
+                    vue.toDisplayString(item.name),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode(
+                    "view",
+                    {
+                      class: vue.normalizeClass(["template-status", item.status === 1 ? "enabled" : "disabled"])
+                    },
+                    [
+                      vue.createElementVNode(
+                        "text",
+                        null,
+                        vue.toDisplayString(item.status === 1 ? "启用" : "禁用"),
+                        1
+                        /* TEXT */
+                      )
+                    ],
+                    2
+                    /* CLASS */
+                  )
+                ]),
+                vue.createElementVNode("view", { class: "template-info" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "template-code" },
+                    vue.toDisplayString(item.code),
+                    1
+                    /* TEXT */
+                  ),
+                  item.is_default ? (vue.openBlock(), vue.createElementBlock("text", {
+                    key: 0,
+                    class: "template-default"
+                  }, "默认模板")) : vue.createCommentVNode("v-if", true)
+                ]),
+                vue.createElementVNode("view", { class: "template-subject" }, [
+                  vue.createElementVNode("text", { class: "subject-label" }, "主题："),
+                  vue.createElementVNode(
+                    "text",
+                    { class: "subject-text" },
+                    vue.toDisplayString(item.subject),
+                    1
+                    /* TEXT */
+                  )
+                ]),
+                vue.createElementVNode("view", { class: "template-actions" }, [
+                  vue.createElementVNode("view", {
+                    class: "action-btn edit",
+                    onClick: vue.withModifiers(($event) => $options.editTemplate(item), ["stop"])
+                  }, [
+                    vue.createElementVNode("text", null, "编辑")
+                  ], 8, ["onClick"]),
+                  vue.createElementVNode("view", {
+                    class: "action-btn test",
+                    onClick: vue.withModifiers(($event) => $options.sendTest(item.code), ["stop"])
+                  }, [
+                    vue.createElementVNode("text", null, "测试")
+                  ], 8, ["onClick"]),
+                  !item.is_default ? (vue.openBlock(), vue.createElementBlock("view", {
+                    key: 0,
+                    class: "action-btn reset",
+                    onClick: vue.withModifiers(($event) => $options.resetTemplate(item.code), ["stop"])
+                  }, [
+                    vue.createElementVNode("text", null, "重置")
+                  ], 8, ["onClick"])) : vue.createCommentVNode("v-if", true)
+                ])
+              ], 8, ["onClick"]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ]),
+        vue.createCommentVNode(" 空状态 "),
+        $data.templates.length === 0 && !$data.loading ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "empty-state"
+        }, [
+          vue.createElementVNode("text", { class: "empty-icon" }, "📧"),
+          vue.createElementVNode("text", { class: "empty-text" }, "暂无邮件模板")
+        ])) : vue.createCommentVNode("v-if", true)
+      ]),
+      vue.createCommentVNode(" 编辑弹窗 "),
+      $data.showEditModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "modal",
+        onClick: _cache[7] || (_cache[7] = vue.withModifiers(($event) => $data.showEditModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content large" }, [
+          vue.createElementVNode("view", { class: "modal-header" }, [
+            vue.createElementVNode("text", { class: "modal-title" }, "编辑邮件模板"),
+            vue.createElementVNode("text", {
+              class: "modal-close",
+              onClick: _cache[0] || (_cache[0] = ($event) => $data.showEditModal = false)
+            }, "×")
+          ]),
+          vue.createElementVNode("view", { class: "form-section" }, [
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "模板名称"),
+              vue.createElementVNode(
+                "text",
+                { class: "form-value" },
+                vue.toDisplayString($data.editForm.name),
+                1
+                /* TEXT */
+              )
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "模板代码"),
+              vue.createElementVNode(
+                "text",
+                { class: "form-value code" },
+                vue.toDisplayString($data.editForm.code),
+                1
+                /* TEXT */
+              )
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "状态"),
+              vue.createElementVNode("switch", {
+                checked: $data.editForm.status === 1,
+                onChange: _cache[1] || (_cache[1] = ($event) => $data.editForm.status = $event.detail.value ? 1 : 0),
+                color: "#4C84FF"
+              }, null, 40, ["checked"])
+            ]),
+            vue.createElementVNode("view", { class: "form-item column" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "邮件主题"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "form-input",
+                  "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.editForm.subject = $event),
+                  placeholder: "请输入邮件主题"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.editForm.subject]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item column" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "邮件内容 (支持 HTML)"),
+              vue.withDirectives(vue.createElementVNode(
+                "textarea",
+                {
+                  class: "form-textarea",
+                  "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $data.editForm.content = $event),
+                  placeholder: "请输入邮件内容"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.editForm.content]
+              ])
+            ]),
+            $data.editForm.variables ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "variables-section"
+            }, [
+              vue.createElementVNode("text", { class: "variables-title" }, "可用变量"),
+              vue.createElementVNode("view", { class: "variables-list" }, [
+                (vue.openBlock(true), vue.createElementBlock(
+                  vue.Fragment,
+                  null,
+                  vue.renderList($data.editForm.variables, (desc, key) => {
+                    return vue.openBlock(), vue.createElementBlock("view", {
+                      class: "variable-item",
+                      key
+                    }, [
+                      vue.createElementVNode(
+                        "text",
+                        { class: "variable-key" },
+                        vue.toDisplayString($options.formatVariable(key)),
+                        1
+                        /* TEXT */
+                      ),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "variable-desc" },
+                        vue.toDisplayString(desc),
+                        1
+                        /* TEXT */
+                      )
+                    ]);
+                  }),
+                  128
+                  /* KEYED_FRAGMENT */
+                ))
+              ])
+            ])) : vue.createCommentVNode("v-if", true)
+          ]),
+          vue.createElementVNode("view", { class: "modal-footer" }, [
+            vue.createElementVNode("view", {
+              class: "footer-btn preview",
+              onClick: _cache[4] || (_cache[4] = (...args) => $options.previewTemplate && $options.previewTemplate(...args))
+            }, [
+              vue.createElementVNode("text", null, "预览")
+            ]),
+            vue.createElementVNode("view", {
+              class: "footer-btn cancel",
+              onClick: _cache[5] || (_cache[5] = ($event) => $data.showEditModal = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "footer-btn confirm",
+              onClick: _cache[6] || (_cache[6] = (...args) => $options.saveTemplate && $options.saveTemplate(...args))
+            }, [
+              vue.createElementVNode("text", null, "保存")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 预览弹窗 "),
+      $data.showPreviewModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 1,
+        class: "modal",
+        onClick: _cache[10] || (_cache[10] = vue.withModifiers(($event) => $data.showPreviewModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content large" }, [
+          vue.createElementVNode("view", { class: "modal-header" }, [
+            vue.createElementVNode("text", { class: "modal-title" }, "邮件预览"),
+            vue.createElementVNode("text", {
+              class: "modal-close",
+              onClick: _cache[8] || (_cache[8] = ($event) => $data.showPreviewModal = false)
+            }, "×")
+          ]),
+          vue.createElementVNode("view", { class: "preview-section" }, [
+            vue.createElementVNode("view", { class: "preview-subject" }, [
+              vue.createElementVNode("text", { class: "preview-label" }, "主题："),
+              vue.createElementVNode(
+                "text",
+                { class: "preview-text" },
+                vue.toDisplayString($data.previewData.subject),
+                1
+                /* TEXT */
+              )
+            ]),
+            vue.createElementVNode("view", { class: "preview-content" }, [
+              vue.createElementVNode("rich-text", {
+                nodes: $data.previewData.html
+              }, null, 8, ["nodes"])
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-footer" }, [
+            vue.createElementVNode("view", {
+              class: "footer-btn confirm",
+              onClick: _cache[9] || (_cache[9] = ($event) => $data.showPreviewModal = false)
+            }, [
+              vue.createElementVNode("text", null, "关闭")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const PagesAdminEmailTemplates = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/email-templates.vue"]]);
+  const _sfc_main$2 = {
+    data() {
+      return {
+        loading: false,
+        searchKey: "",
+        list: [],
+        pagination: {
+          page: 1,
+          per_page: 20,
+          total: 0,
+          pages: 0
+        },
+        showAddModal: false,
+        showCheckModal: false,
+        addForm: {
+          ip_address: "",
+          reason: "",
+          duration_days: ""
+        },
+        checkIp: "",
+        checkResult: null
+      };
+    },
+    onLoad() {
+      this.loadList();
+    },
+    methods: {
+      async loadList() {
+        var _a, _b, _c;
+        this.loading = true;
+        uni.showLoading({ title: "加载中..." });
+        try {
+          const res = await getIpBlacklist({
+            page: this.pagination.page,
+            per_page: this.pagination.per_page,
+            search: this.searchKey
+          });
+          this.list = ((_a = res.data) == null ? void 0 : _a.list) || ((_b = res.data) == null ? void 0 : _b.blacklist) || [];
+          if ((_c = res.data) == null ? void 0 : _c.pagination) {
+            this.pagination = { ...this.pagination, ...res.data.pagination };
+          }
+        } catch (e) {
+          formatAppLog("error", "at pages/admin/ip-blacklist.vue:168", "加载失败", e);
+        }
+        uni.hideLoading();
+        this.loading = false;
+      },
+      isExpired(item) {
+        if (!item.expires_at)
+          return false;
+        return new Date(item.expires_at) < /* @__PURE__ */ new Date();
+      },
+      changePage(page) {
+        if (page < 1 || page > this.pagination.pages)
+          return;
+        this.pagination.page = page;
+        this.loadList();
+      },
+      async addIp() {
+        if (!this.addForm.ip_address) {
+          uni.showToast({ title: "请输入 IP 地址", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "添加中..." });
+          const data = {
+            ip_address: this.addForm.ip_address,
+            reason: this.addForm.reason || void 0,
+            duration_days: this.addForm.duration_days ? parseInt(this.addForm.duration_days) : void 0
+          };
+          await addIpToBlacklist(data);
+          uni.hideLoading();
+          uni.showToast({ title: "添加成功", icon: "success" });
+          this.showAddModal = false;
+          this.addForm = { ip_address: "", reason: "", duration_days: "" };
+          this.loadList();
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      removeIp(item) {
+        uni.showModal({
+          title: "解除封禁",
+          content: `确定要解除 ${item.ip_address} 的封禁吗？`,
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "处理中..." });
+                await removeIpFromBlacklist(item.id);
+                uni.hideLoading();
+                uni.showToast({ title: "已解除", icon: "success" });
+                this.loadList();
+              } catch (e) {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
+      },
+      async checkIpStatus() {
+        var _a;
+        if (!this.checkIp) {
+          uni.showToast({ title: "请输入 IP 地址", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "检查中..." });
+          const res = await checkIpBlacklist(this.checkIp);
+          uni.hideLoading();
+          this.checkResult = ((_a = res.data) == null ? void 0 : _a.blocked) || false;
+        } catch (e) {
+          uni.hideLoading();
+        }
+      }
+    }
+  };
+  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createCommentVNode(" 页面头部 "),
+      vue.createElementVNode("view", { class: "page-header" }, [
+        vue.createElementVNode("text", { class: "header-title" }, "IP 黑名单"),
+        vue.createElementVNode("text", { class: "header-subtitle" }, "管理被封禁的 IP 地址")
+      ]),
+      vue.createElementVNode("view", { class: "content" }, [
+        vue.createCommentVNode(" 搜索和添加 "),
+        vue.createElementVNode("view", { class: "toolbar" }, [
+          vue.createElementVNode("view", { class: "search-box" }, [
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "search-input",
+                "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.searchKey = $event),
+                placeholder: "搜索 IP 地址",
+                onConfirm: _cache[1] || (_cache[1] = (...args) => $options.loadList && $options.loadList(...args))
+              },
+              null,
+              544
+              /* NEED_HYDRATION, NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.searchKey]
+            ]),
+            vue.createElementVNode("view", {
+              class: "search-btn",
+              onClick: _cache[2] || (_cache[2] = (...args) => $options.loadList && $options.loadList(...args))
+            }, [
+              vue.createElementVNode("text", null, "🔍")
+            ])
+          ]),
+          vue.createElementVNode("view", {
+            class: "add-btn",
+            onClick: _cache[3] || (_cache[3] = ($event) => $data.showAddModal = true)
+          }, [
+            vue.createElementVNode("text", null, "+ 添加")
+          ])
+        ]),
+        vue.createCommentVNode(" IP 列表 "),
+        vue.createElementVNode("view", { class: "ip-list" }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.list, (item) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                class: "ip-card",
+                key: item.id
+              }, [
+                vue.createElementVNode("view", { class: "ip-main" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "ip-address" },
+                    vue.toDisplayString(item.ip_address),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode(
+                    "view",
+                    {
+                      class: vue.normalizeClass(["ip-status", $options.isExpired(item) ? "expired" : "active"])
+                    },
+                    [
+                      vue.createElementVNode(
+                        "text",
+                        null,
+                        vue.toDisplayString($options.isExpired(item) ? "已过期" : "生效中"),
+                        1
+                        /* TEXT */
+                      )
+                    ],
+                    2
+                    /* CLASS */
+                  )
+                ]),
+                vue.createElementVNode("view", { class: "ip-info" }, [
+                  item.reason ? (vue.openBlock(), vue.createElementBlock(
+                    "text",
+                    {
+                      key: 0,
+                      class: "ip-reason"
+                    },
+                    "原因：" + vue.toDisplayString(item.reason),
+                    1
+                    /* TEXT */
+                  )) : vue.createCommentVNode("v-if", true),
+                  vue.createElementVNode(
+                    "text",
+                    { class: "ip-time" },
+                    "封禁时间：" + vue.toDisplayString(item.created_at),
+                    1
+                    /* TEXT */
+                  ),
+                  item.expires_at ? (vue.openBlock(), vue.createElementBlock(
+                    "text",
+                    {
+                      key: 1,
+                      class: "ip-expire"
+                    },
+                    "到期时间：" + vue.toDisplayString(item.expires_at),
+                    1
+                    /* TEXT */
+                  )) : (vue.openBlock(), vue.createElementBlock("text", {
+                    key: 2,
+                    class: "ip-expire"
+                  }, "永久封禁"))
+                ]),
+                vue.createElementVNode("view", { class: "ip-actions" }, [
+                  vue.createElementVNode("view", {
+                    class: "action-btn danger",
+                    onClick: ($event) => $options.removeIp(item)
+                  }, [
+                    vue.createElementVNode("text", null, "解除封禁")
+                  ], 8, ["onClick"])
+                ])
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ]),
+        vue.createCommentVNode(" 空状态 "),
+        $data.list.length === 0 && !$data.loading ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "empty-state"
+        }, [
+          vue.createElementVNode("text", { class: "empty-icon" }, "🛡️"),
+          vue.createElementVNode("text", { class: "empty-text" }, "暂无黑名单记录")
+        ])) : vue.createCommentVNode("v-if", true),
+        vue.createCommentVNode(" 分页 "),
+        $data.pagination.pages > 1 ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "pagination"
+        }, [
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(["page-btn", { disabled: $data.pagination.page <= 1 }]),
+              onClick: _cache[4] || (_cache[4] = ($event) => $options.changePage($data.pagination.page - 1))
+            },
+            [
+              vue.createElementVNode("text", null, "上一页")
+            ],
+            2
+            /* CLASS */
+          ),
+          vue.createElementVNode(
+            "text",
+            { class: "page-info" },
+            vue.toDisplayString($data.pagination.page) + " / " + vue.toDisplayString($data.pagination.pages),
+            1
+            /* TEXT */
+          ),
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(["page-btn", { disabled: $data.pagination.page >= $data.pagination.pages }]),
+              onClick: _cache[5] || (_cache[5] = ($event) => $options.changePage($data.pagination.page + 1))
+            },
+            [
+              vue.createElementVNode("text", null, "下一页")
+            ],
+            2
+            /* CLASS */
+          )
+        ])) : vue.createCommentVNode("v-if", true)
+      ]),
+      vue.createCommentVNode(" 添加弹窗 "),
+      $data.showAddModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "modal",
+        onClick: _cache[11] || (_cache[11] = vue.withModifiers(($event) => $data.showAddModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "添加 IP 到黑名单"),
+          vue.createElementVNode("view", { class: "form-group" }, [
+            vue.createElementVNode("text", { class: "form-label" }, "IP 地址 *"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "form-input",
+                "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $data.addForm.ip_address = $event),
+                placeholder: "如：192.168.1.1"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.addForm.ip_address]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "form-group" }, [
+            vue.createElementVNode("text", { class: "form-label" }, "封禁原因"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "form-input",
+                "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $data.addForm.reason = $event),
+                placeholder: "可选，填写封禁原因"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.addForm.reason]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "form-group" }, [
+            vue.createElementVNode("text", { class: "form-label" }, "封禁天数"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "form-input",
+                type: "number",
+                "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $data.addForm.duration_days = $event),
+                placeholder: "留空为永久封禁"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.addForm.duration_days]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[9] || (_cache[9] = ($event) => $data.showAddModal = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[10] || (_cache[10] = (...args) => $options.addIp && $options.addIp(...args))
+            }, [
+              vue.createElementVNode("text", null, "确认添加")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" IP 检查弹窗 "),
+      $data.showCheckModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 1,
+        class: "modal",
+        onClick: _cache[15] || (_cache[15] = vue.withModifiers(($event) => $data.showCheckModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "检查 IP 状态"),
+          vue.createElementVNode("view", { class: "form-group" }, [
+            vue.createElementVNode("text", { class: "form-label" }, "IP 地址"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "form-input",
+                "onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => $data.checkIp = $event),
+                placeholder: "输入要检查的 IP"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.checkIp]
+            ])
+          ]),
+          $data.checkResult !== null ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "check-result"
+          }, [
+            vue.createElementVNode(
+              "text",
+              {
+                class: vue.normalizeClass(["result-text", $data.checkResult ? "blocked" : "normal"])
+              },
+              vue.toDisplayString($data.checkResult ? "⛔ 该 IP 已被封禁" : "✅ 该 IP 未被封禁"),
+              3
+              /* TEXT, CLASS */
+            )
+          ])) : vue.createCommentVNode("v-if", true),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[13] || (_cache[13] = ($event) => $data.showCheckModal = false)
+            }, [
+              vue.createElementVNode("text", null, "关闭")
+            ]),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[14] || (_cache[14] = (...args) => $options.checkIpStatus && $options.checkIpStatus(...args))
+            }, [
+              vue.createElementVNode("text", null, "检查")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const PagesAdminIpBlacklist = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/ip-blacklist.vue"]]);
+  const _sfc_main$1 = {
+    data() {
+      return {
+        userInfo: null,
+        showUserModal: false,
+        showRedeemModal: false,
+        importUserData: "",
+        importRedeemData: "",
+        defaultPassword: ""
+      };
+    },
+    computed: {
+      isDemo() {
+        var _a;
+        return ((_a = this.userInfo) == null ? void 0 : _a.role) === "demo";
+      }
+    },
+    onLoad() {
+      this.userInfo = getUserInfo$1();
+    },
+    methods: {
+      async handleExportUsers() {
+        var _a;
+        try {
+          uni.showLoading({ title: "导出中..." });
+          const res = await exportUsers();
+          uni.hideLoading();
+          this.downloadCsv(((_a = res.data) == null ? void 0 : _a.csv) || res.data, "users.csv");
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async handleExportSubdomains() {
+        var _a;
+        try {
+          uni.showLoading({ title: "导出中..." });
+          const res = await exportSubdomains();
+          uni.hideLoading();
+          this.downloadCsv(((_a = res.data) == null ? void 0 : _a.csv) || res.data, "subdomains.csv");
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async handleExportRedeemCodes() {
+        var _a;
+        try {
+          uni.showLoading({ title: "导出中..." });
+          const res = await exportRedeemCodes();
+          uni.hideLoading();
+          this.downloadCsv(((_a = res.data) == null ? void 0 : _a.csv) || res.data, "redeem-codes.csv");
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      downloadCsv(content, filename) {
+        uni.setClipboardData({
+          data: content,
+          success: () => {
+            uni.showToast({ title: "已复制到剪贴板", icon: "success" });
+          }
+        });
+      },
+      showImportUsers() {
+        if (this.isDemo) {
+          uni.showToast({ title: "演示模式下无法导入", icon: "none" });
+          return;
+        }
+        this.importUserData = "";
+        this.defaultPassword = "";
+        this.showUserModal = true;
+      },
+      showImportRedeemCodes() {
+        if (this.isDemo) {
+          uni.showToast({ title: "演示模式下无法导入", icon: "none" });
+          return;
+        }
+        this.importRedeemData = "";
+        this.showRedeemModal = true;
+      },
+      async handleImportUsers() {
+        var _a;
+        if (!this.importUserData.trim()) {
+          uni.showToast({ title: "请输入 CSV 数据", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "导入中..." });
+          const res = await importUsers({
+            csv_content: this.importUserData,
+            default_password: this.defaultPassword || "123456"
+          });
+          uni.hideLoading();
+          const count = ((_a = res.data) == null ? void 0 : _a.imported_count) || 0;
+          uni.showToast({ title: `成功导入 ${count} 条`, icon: "success" });
+          this.showUserModal = false;
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async handleImportRedeemCodes() {
+        var _a;
+        if (!this.importRedeemData.trim()) {
+          uni.showToast({ title: "请输入 CSV 数据", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "导入中..." });
+          const res = await importRedeemCodes({
+            csv_content: this.importRedeemData
+          });
+          uni.hideLoading();
+          const count = ((_a = res.data) == null ? void 0 : _a.imported_count) || 0;
+          uni.showToast({ title: `成功导入 ${count} 条`, icon: "success" });
+          this.showRedeemModal = false;
+        } catch (e) {
+          uni.hideLoading();
+        }
+      }
+    }
+  };
+  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createCommentVNode(" 页面头部 "),
+      vue.createElementVNode("view", { class: "page-header" }, [
+        vue.createElementVNode("text", { class: "header-title" }, "数据管理"),
+        vue.createElementVNode("text", { class: "header-subtitle" }, "导入导出系统数据")
+      ]),
+      vue.createElementVNode("view", { class: "content" }, [
+        vue.createCommentVNode(" 数据导出 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "📤 数据导出")
+          ]),
+          vue.createElementVNode("view", { class: "section-body" }, [
+            vue.createElementVNode("view", {
+              class: "export-item",
+              onClick: _cache[0] || (_cache[0] = (...args) => $options.handleExportUsers && $options.handleExportUsers(...args))
+            }, [
+              vue.createElementVNode("view", { class: "export-icon" }, "👥"),
+              vue.createElementVNode("view", { class: "export-info" }, [
+                vue.createElementVNode("text", { class: "export-name" }, "导出用户数据"),
+                vue.createElementVNode("text", { class: "export-desc" }, "导出所有用户信息为 CSV 格式")
+              ]),
+              vue.createElementVNode("text", { class: "export-arrow" }, "›")
+            ]),
+            vue.createElementVNode("view", {
+              class: "export-item",
+              onClick: _cache[1] || (_cache[1] = (...args) => $options.handleExportSubdomains && $options.handleExportSubdomains(...args))
+            }, [
+              vue.createElementVNode("view", { class: "export-icon" }, "🔗"),
+              vue.createElementVNode("view", { class: "export-info" }, [
+                vue.createElementVNode("text", { class: "export-name" }, "导出二级域名"),
+                vue.createElementVNode("text", { class: "export-desc" }, "导出所有二级域名数据为 CSV 格式")
+              ]),
+              vue.createElementVNode("text", { class: "export-arrow" }, "›")
+            ]),
+            vue.createElementVNode("view", {
+              class: "export-item",
+              onClick: _cache[2] || (_cache[2] = (...args) => $options.handleExportRedeemCodes && $options.handleExportRedeemCodes(...args))
+            }, [
+              vue.createElementVNode("view", { class: "export-icon" }, "🎫"),
+              vue.createElementVNode("view", { class: "export-info" }, [
+                vue.createElementVNode("text", { class: "export-name" }, "导出卡密"),
+                vue.createElementVNode("text", { class: "export-desc" }, "导出卡密数据为 CSV 格式")
+              ]),
+              vue.createElementVNode("text", { class: "export-arrow" }, "›")
+            ])
+          ])
+        ]),
+        vue.createCommentVNode(" 数据导入 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "📥 数据导入")
+          ]),
+          vue.createElementVNode("view", { class: "section-body" }, [
+            vue.createElementVNode("view", {
+              class: "export-item",
+              onClick: _cache[3] || (_cache[3] = (...args) => $options.showImportUsers && $options.showImportUsers(...args))
+            }, [
+              vue.createElementVNode("view", { class: "export-icon" }, "👥"),
+              vue.createElementVNode("view", { class: "export-info" }, [
+                vue.createElementVNode("text", { class: "export-name" }, "导入用户数据"),
+                vue.createElementVNode("text", { class: "export-desc" }, "从 CSV 批量导入用户")
+              ]),
+              vue.createElementVNode("text", { class: "export-arrow" }, "›")
+            ]),
+            vue.createElementVNode("view", {
+              class: "export-item",
+              onClick: _cache[4] || (_cache[4] = (...args) => $options.showImportRedeemCodes && $options.showImportRedeemCodes(...args))
+            }, [
+              vue.createElementVNode("view", { class: "export-icon" }, "🎫"),
+              vue.createElementVNode("view", { class: "export-info" }, [
+                vue.createElementVNode("text", { class: "export-name" }, "导入卡密"),
+                vue.createElementVNode("text", { class: "export-desc" }, "从 CSV 批量导入卡密")
+              ]),
+              vue.createElementVNode("text", { class: "export-arrow" }, "›")
+            ])
+          ])
+        ]),
+        vue.createCommentVNode(" 格式说明 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "📋 CSV 格式说明")
+          ]),
+          vue.createElementVNode("view", { class: "section-body" }, [
+            vue.createElementVNode("view", { class: "format-item" }, [
+              vue.createElementVNode("text", { class: "format-title" }, "用户导入格式"),
+              vue.createElementVNode("text", { class: "format-code" }, "username,email,password,max_domains"),
+              vue.createElementVNode("text", { class: "format-example" }, "示例: user1,user1@example.com,123456,10")
+            ]),
+            vue.createElementVNode("view", { class: "format-item" }, [
+              vue.createElementVNode("text", { class: "format-title" }, "卡密导入格式"),
+              vue.createElementVNode("text", { class: "format-code" }, "code,amount,expires_days"),
+              vue.createElementVNode("text", { class: "format-example" }, "示例: ABC123,100,30")
+            ])
+          ])
+        ])
+      ]),
+      vue.createCommentVNode(" 导入用户弹窗 "),
+      $data.showUserModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "modal",
+        onClick: _cache[9] || (_cache[9] = vue.withModifiers(($event) => $data.showUserModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "导入用户"),
+          vue.createElementVNode("view", { class: "form-item column" }, [
+            vue.createElementVNode("text", { class: "label" }, "CSV 数据"),
+            vue.withDirectives(vue.createElementVNode(
+              "textarea",
+              {
+                class: "textarea",
+                "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.importUserData = $event),
+                placeholder: "username,email,password,max_domains\nuser1,user1@example.com,123456,10"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.importUserData]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "form-item" }, [
+            vue.createElementVNode("text", { class: "label" }, "默认密码（可选）"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "input",
+                "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $data.defaultPassword = $event),
+                placeholder: "未设置密码时使用"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.defaultPassword]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[7] || (_cache[7] = ($event) => $data.showUserModal = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[8] || (_cache[8] = (...args) => $options.handleImportUsers && $options.handleImportUsers(...args))
+            }, [
+              vue.createElementVNode("text", null, "导入")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 导入卡密弹窗 "),
+      $data.showRedeemModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 1,
+        class: "modal",
+        onClick: _cache[13] || (_cache[13] = vue.withModifiers(($event) => $data.showRedeemModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "导入卡密"),
+          vue.createElementVNode("view", { class: "form-item column" }, [
+            vue.createElementVNode("text", { class: "label" }, "CSV 数据"),
+            vue.withDirectives(vue.createElementVNode(
+              "textarea",
+              {
+                class: "textarea",
+                "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => $data.importRedeemData = $event),
+                placeholder: "code,amount,expires_days\nABC123,100,30"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.importRedeemData]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[11] || (_cache[11] = ($event) => $data.showRedeemModal = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[12] || (_cache[12] = (...args) => $options.handleImportRedeemCodes && $options.handleImportRedeemCodes(...args))
+            }, [
+              vue.createElementVNode("text", null, "导入")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const PagesAdminDataManage = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/data-manage.vue"]]);
   __definePage("pages/index/index", PagesIndexIndex);
   __definePage("pages/mine/mine", PagesMineMine);
   __definePage("pages/login/login", PagesLoginLogin);
@@ -10187,6 +13001,7 @@ if (uni.restoreGlobal) {
   __definePage("pages/record/record", PagesRecordRecord);
   __definePage("pages/announcement/list", PagesAnnouncementList);
   __definePage("pages/settings/settings", PagesSettingsSettings);
+  __definePage("pages/settings/security", PagesSettingsSecurity);
   __definePage("pages/admin/index", PagesAdminIndex);
   __definePage("pages/admin/users", PagesAdminUsers);
   __definePage("pages/admin/domains", PagesAdminDomains);
@@ -10201,6 +13016,9 @@ if (uni.restoreGlobal) {
   __definePage("pages/admin/logs", PagesAdminLogs);
   __definePage("pages/admin/coupons", PagesAdminCoupons);
   __definePage("pages/admin/app-versions", PagesAdminAppVersions);
+  __definePage("pages/admin/email-templates", PagesAdminEmailTemplates);
+  __definePage("pages/admin/ip-blacklist", PagesAdminIpBlacklist);
+  __definePage("pages/admin/data-manage", PagesAdminDataManage);
   function checkAppUpdate(params) {
     return request({
       url: "/app/check-update",
@@ -10281,9 +13099,9 @@ ${updateInfo.update_log || "修复已知问题，提升用户体验"}`;
       }
     }
   };
-  const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "C:/Users/liu/Desktop/app/app/App.vue"]]);
+  const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/App.vue"]]);
   var define_process_env_UNI_STATISTICS_CONFIG_default = { enable: true, version: "1" };
-  var define_process_env_UNI_STAT_TITLE_JSON_default = { "pages/index/index": "首页", "pages/mine/mine": "我的", "pages/login/login": "登录", "pages/register/register": "注册", "pages/forgot-password/forgot-password": "忘记密码", "pages/domain/list": "我的域名", "pages/domain/purchase": "购买域名", "pages/domain/detail": "域名详情", "pages/recharge/recharge": "充值", "pages/record/record": "购买记录", "pages/announcement/list": "公告", "pages/settings/settings": "设置", "pages/admin/index": "管理中心", "pages/admin/users": "用户管理", "pages/admin/domains": "域名管理", "pages/admin/plans": "套餐管理", "pages/admin/redeem": "卡密管理", "pages/admin/orders": "订单管理", "pages/admin/announcements": "公告管理", "pages/admin/settings": "系统设置", "pages/admin/cf-accounts": "渠道管理", "pages/admin/dns-records": "DNS记录管理", "pages/admin/subdomains": "二级域名管理", "pages/admin/logs": "操作日志", "pages/admin/coupons": "优惠券管理", "pages/admin/app-versions": "APP版本管理" };
+  var define_process_env_UNI_STAT_TITLE_JSON_default = { "pages/index/index": "首页", "pages/mine/mine": "我的", "pages/login/login": "登录", "pages/register/register": "注册", "pages/forgot-password/forgot-password": "忘记密码", "pages/domain/list": "我的域名", "pages/domain/purchase": "购买域名", "pages/domain/detail": "域名详情", "pages/recharge/recharge": "充值", "pages/record/record": "购买记录", "pages/announcement/list": "公告", "pages/settings/settings": "设置", "pages/settings/security": "安全设置", "pages/admin/index": "管理中心", "pages/admin/users": "用户管理", "pages/admin/domains": "域名管理", "pages/admin/plans": "套餐管理", "pages/admin/redeem": "卡密管理", "pages/admin/orders": "订单管理", "pages/admin/announcements": "公告管理", "pages/admin/settings": "系统设置", "pages/admin/cf-accounts": "渠道管理", "pages/admin/dns-records": "DNS记录管理", "pages/admin/subdomains": "二级域名管理", "pages/admin/logs": "操作日志", "pages/admin/coupons": "优惠券管理", "pages/admin/app-versions": "APP版本管理", "pages/admin/email-templates": "邮件模板管理", "pages/admin/ip-blacklist": "IP黑名单", "pages/admin/data-manage": "数据管理" };
   const sys = uni.getSystemInfoSync();
   const STAT_VERSION = "4.75";
   const STAT_URL = "https://tongji.dcloud.io/uni/stat";

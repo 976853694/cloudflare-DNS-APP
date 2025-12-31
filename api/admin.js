@@ -140,6 +140,17 @@ export function deleteAdminUser(userId) {
   })
 }
 
+/**
+ * 解绑用户 OAuth 账号
+ * @param {number} userId - 用户 ID
+ * @param {string} provider - OAuth 提供商 (github/google/nodeloc)
+ */
+export function unbindUserOAuth(userId, provider) {
+  return request({
+    url: `/admin/users/${userId}/oauth/${provider}`,
+    method: 'DELETE'
+  })
+}
 
 // ==================== 主域名管理模块 ====================
 
@@ -1174,6 +1185,82 @@ export function getMachineCode() {
 export function clearLocalLicense() {
   return request({
     url: '/license/clear',
+    method: 'POST'
+  })
+}
+
+// ==================== 邮件模板管理模块 ====================
+
+/**
+ * 获取所有邮件模板
+ */
+export function getEmailTemplates() {
+  return request({
+    url: '/admin/email-templates',
+    method: 'GET'
+  })
+}
+
+/**
+ * 获取单个邮件模板
+ * @param {string} code - 模板代码
+ */
+export function getEmailTemplate(code) {
+  return request({
+    url: `/admin/email-templates/${code}`,
+    method: 'GET'
+  })
+}
+
+/**
+ * 更新邮件模板
+ * @param {string} code - 模板代码
+ * @param {Object} data - 模板数据
+ * @param {string} [data.subject] - 邮件主题
+ * @param {string} [data.content] - 邮件内容
+ * @param {number} [data.status] - 状态
+ */
+export function updateEmailTemplate(code, data) {
+  return request({
+    url: `/admin/email-templates/${code}`,
+    method: 'PUT',
+    data
+  })
+}
+
+/**
+ * 重置邮件模板为默认
+ * @param {string} code - 模板代码
+ */
+export function resetEmailTemplate(code) {
+  return request({
+    url: `/admin/email-templates/${code}/reset`,
+    method: 'POST'
+  })
+}
+
+/**
+ * 预览邮件模板
+ * @param {string} code - 模板代码
+ * @param {Object} data - 预览数据
+ * @param {string} data.subject - 邮件主题
+ * @param {string} data.content - 邮件内容
+ */
+export function previewEmailTemplate(code, data) {
+  return request({
+    url: `/admin/email-templates/${code}/preview`,
+    method: 'POST',
+    data
+  })
+}
+
+/**
+ * 发送测试邮件
+ * @param {string} code - 模板代码
+ */
+export function testEmailTemplate(code) {
+  return request({
+    url: `/admin/email-templates/${code}/test`,
     method: 'POST'
   })
 }

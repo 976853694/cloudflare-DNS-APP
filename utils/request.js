@@ -1,4 +1,4 @@
-const BASE_URL = 'http://192.168.20.190:5000/api'
+const BASE_URL = 'https://dns.6qu.cc/api'
 
 // 请求拦截
 const request = (options) => {
@@ -9,6 +9,11 @@ const request = (options) => {
 			'Content-Type': 'application/json',
 			...options.header
 		}
+		
+		// APP 端添加客户端类型标识，用于后端区分验证码类型
+		// #ifdef APP-PLUS
+		header['X-Client-Type'] = 'app'
+		// #endif
 		
 		if (token) {
 			header['Authorization'] = `Bearer ${token}`

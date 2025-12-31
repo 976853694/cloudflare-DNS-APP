@@ -19,6 +19,31 @@ export function getCaptcha(id) {
 }
 
 /**
+ * 获取验证码配置
+ * 前端根据此接口决定显示哪种验证码
+ * APP 端会自动带上 X-Client-Type: app 请求头，返回 type: "image"
+ * H5 端返回 type: "turnstile"
+ * @returns {Promise<{type: string, turnstile_site_key: string}>}
+ */
+export function getCaptchaConfig() {
+  return request({
+    url: '/auth/captcha-config',
+    method: 'GET'
+  })
+}
+
+/**
+ * 检查是否开放注册
+ * @returns {Promise<{allowed: boolean}>}
+ */
+export function checkRegisterStatus() {
+  return request({
+    url: '/auth/register-status',
+    method: 'GET'
+  })
+}
+
+/**
  * 检查登录是否需要验证码
  * 当前版本始终返回需要验证码
  * @param {string} [email] - 用户邮箱（当前版本忽略此参数）

@@ -102,3 +102,67 @@ export function getLoginHistory() {
     method: 'GET'
   })
 }
+
+// ==================== API 密钥管理 ====================
+
+/**
+ * 获取 API 密钥信息
+ */
+export function getApiKeys() {
+  return request({
+    url: '/security/api-keys',
+    method: 'GET'
+  })
+}
+
+/**
+ * 生成/重置 API 密钥
+ * @param {Object} data - 参数
+ * @param {string} [data.password] - 已有密钥时需要验证密码
+ */
+export function generateApiKeys(data = {}) {
+  return request({
+    url: '/security/api-keys/generate',
+    method: 'POST',
+    data
+  })
+}
+
+/**
+ * 启用/禁用 API
+ * @param {Object} data - 参数
+ * @param {boolean} [data.enabled] - 是否启用
+ */
+export function toggleApiKeys(data = {}) {
+  return request({
+    url: '/security/api-keys/toggle',
+    method: 'POST',
+    data
+  })
+}
+
+/**
+ * 更新 API IP 白名单
+ * @param {Object} data - 参数
+ * @param {Array} data.ip_whitelist - IP 地址列表
+ */
+export function updateApiWhitelist(data) {
+  return request({
+    url: '/security/api-keys/whitelist',
+    method: 'PUT',
+    data
+  })
+}
+
+/**
+ * 查看 API Secret
+ * @param {Object} data - 参数
+ * @param {string} data.password - 账户密码
+ */
+export function viewApiSecret(data) {
+  return request({
+    url: '/security/api-keys/secret',
+    method: 'POST',
+    data
+  })
+}

@@ -116,14 +116,23 @@
 						<view class="menu-icon-wrap indigo">📱</view>
 						<text class="menu-text">APP版本</text>
 					</view>
-					<view class="menu-item" style="visibility: hidden;">
-						<view class="menu-icon-wrap"></view>
-						<text class="menu-text"></text>
+					<view class="menu-item" @click="goTo('/pages/admin/email-templates')">
+						<view class="menu-icon-wrap pink">📧</view>
+						<text class="menu-text">邮件模板</text>
 					</view>
-					<view class="menu-item" style="visibility: hidden;">
-						<view class="menu-icon-wrap"></view>
-						<text class="menu-text"></text>
+					<view class="menu-item" @click="goTo('/pages/admin/ip-blacklist')">
+						<view class="menu-icon-wrap gray">🚫</view>
+						<text class="menu-text">IP黑名单</text>
 					</view>
+				</view>
+				<view class="menu-row">
+					<view class="menu-item" @click="goTo('/pages/admin/data-manage')">
+						<view class="menu-icon-wrap brown">📦</view>
+						<text class="menu-text">数据管理</text>
+					</view>
+					<view class="menu-item"></view>
+					<view class="menu-item"></view>
+					<view class="menu-item"></view>
 				</view>
 			</view>
 		</view>
@@ -436,6 +445,8 @@ export default {
 .menu-icon-wrap.red { background: linear-gradient(135deg, #ff7675 0%, #fab1a0 100%); }
 .menu-icon-wrap.pink { background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%); }
 .menu-icon-wrap.indigo { background: linear-gradient(135deg, #5c6bc0 0%, #7986cb 100%); }
+.menu-icon-wrap.gray { background: linear-gradient(135deg, #636e72 0%, #b2bec3 100%); }
+.menu-icon-wrap.brown { background: linear-gradient(135deg, #a0826d 0%, #795548 100%); }
 
 .menu-text {
 	font-size: 24rpx;

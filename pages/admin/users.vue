@@ -75,7 +75,7 @@
 				<view class="detail-item">
 					<text class="detail-label">角色</text>
 					<picker :range="roles" :range-key="'label'" @change="onRoleChange">
-						<view class="picker">{{ currentUser.role === 'admin' ? '管理员' : '用户' }}</view>
+						<view class="picker">{{ currentUser.role === 'admin' ? '管理员' : (currentUser.role === 'demo' ? '演示' : '用户') }}</view>
 					</picker>
 				</view>
 				<view class="detail-item">
@@ -89,6 +89,24 @@
 				<view class="detail-item">
 					<text class="detail-label">域名上限</text>
 					<input class="detail-input" type="number" v-model="editMaxDomains" placeholder="输入上限" />
+				</view>
+				
+				<!-- OAuth 绑定信息 -->
+				<view class="oauth-section" v-if="currentUser.oauth_bindings">
+					<text class="section-label">OAuth 绑定</text>
+					<view class="oauth-list">
+						<view class="oauth-item" v-for="provider in oauthProviders" :key="provider">
+							<view class="oauth-info">
+								<text class="oauth-icon">{{ provider === 'github' ? '🐙' : (provider === 'google' ? '🔍' : '🌐') }}</text>
+								<text class="oauth-name">{{ getOAuthLabel(provider) }}</text>
+							</view>
+							<view class="oauth-status" v-if="currentUser.oauth_bindings && currentUser.oauth_bindings[provider]">
+								<text class="bound-text">已绑定</text>
+								<view class="unbind-btn" @click="handleUnbindOAuth(provider)">解绑</view>
+							</view>
+							<text class="unbound-text" v-else>未绑定</text>
+						</view>
+					</view>
 				</view>
 				
 				<view class="modal-btns">
@@ -108,7 +126,7 @@
 </template>
 
 <script>
-import { getAdminUsers, updateAdminUser, deleteAdminUser } from '@/api/admin'
+import { getAdminUsers, updateAdminUser, deleteAdminUser, unbindUserOAuth, getAdminUser } from '@/api/admin'
 import { getUserInfo as getStoredUserInfo } from '@/utils/storage'
 
 export default {
@@ -128,7 +146,8 @@ export default {
 				{ value: 'user', label: '用户' },
 				{ value: 'admin', label: '管理员' },
 				{ value: 'demo', label: '演示' }
-			]
+			],
+			oauthProviders: ['github', 'google', 'nodeloc']
 		}
 	},
 	computed: {
@@ -182,6 +201,47 @@ export default {
 			this.editBalance = String(user.balance || 0)
 			this.editMaxDomains = String(user.max_domains || 0)
 			this.showModal = true
+			// 加载用户详情获取 OAuth 绑定信息
+			this.loadUserDetail(user.id)
+		},
+		async loadUserDetail(userId) {
+			try {
+				const res = await getAdminUser(userId)
+				if (res.data) {
+					this.currentUser = { ...this.currentUser, ...res.data }
+				}
+			} catch (e) {
+				// 忽略错误
+			}
+		},
+		getOAuthLabel(provider) {
+			const labels = {
+				github: 'GitHub',
+				google: 'Google',
+				nodeloc: 'NodeLoc'
+			}
+			return labels[provider] || provider
+		},
+		async handleUnbindOAuth(provider) {
+			uni.showModal({
+				title: '确认解绑',
+				content: `确定要解绑该用户的 ${this.getOAuthLabel(provider)} 账号吗？`,
+				confirmColor: '#ff4d4f',
+				success: async (res) => {
+					if (res.confirm) {
+						try {
+							uni.showLoading({ title: '解绑中...' })
+							await unbindUserOAuth(this.currentUser.id, provider)
+							uni.hideLoading()
+							uni.showToast({ title: '解绑成功', icon: 'success' })
+							// 刷新用户详情
+							this.loadUserDetail(this.currentUser.id)
+						} catch (e) {
+							uni.hideLoading()
+						}
+					}
+				}
+			})
 		},
 		onRoleChange(e) {
 			this.currentUser.role = this.roles[e.detail.value].value
@@ -529,5 +589,76 @@ export default {
 .modal-btn.confirm {
 	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
 	color: #fff;
+}
+
+/* OAuth 绑定样式 */
+.oauth-section {
+	margin-top: 24rpx;
+	padding-top: 24rpx;
+	border-top: 1rpx solid #f0f0f0;
+}
+
+.section-label {
+	font-size: 26rpx;
+	color: #8e8e93;
+	margin-bottom: 16rpx;
+	display: block;
+}
+
+.oauth-list {
+	background: #f8f9fa;
+	border-radius: 12rpx;
+	overflow: hidden;
+}
+
+.oauth-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20rpx 16rpx;
+	border-bottom: 1rpx solid #eee;
+}
+
+.oauth-item:last-child {
+	border-bottom: none;
+}
+
+.oauth-info {
+	display: flex;
+	align-items: center;
+	gap: 12rpx;
+}
+
+.oauth-icon {
+	font-size: 28rpx;
+}
+
+.oauth-name {
+	font-size: 26rpx;
+	color: #1a1a2e;
+}
+
+.oauth-status {
+	display: flex;
+	align-items: center;
+	gap: 12rpx;
+}
+
+.bound-text {
+	font-size: 24rpx;
+	color: #00b894;
+}
+
+.unbound-text {
+	font-size: 24rpx;
+	color: #8e8e93;
+}
+
+.unbind-btn {
+	font-size: 22rpx;
+	color: #ff4d4f;
+	padding: 6rpx 16rpx;
+	background: rgba(255,77,79,0.1);
+	border-radius: 6rpx;
 }
 </style>
