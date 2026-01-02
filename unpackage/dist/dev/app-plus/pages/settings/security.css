@@ -171,6 +171,49 @@
 	font-size: 0.8125rem;
 	color: #8e8e93;
 }
+
+/* OAuth 绑定样式 */
+.oauth-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.625rem 0;
+	border-bottom: 0.03125rem solid #f0f0f0;
+}
+.oauth-item:last-child {
+	border-bottom: none;
+}
+.oauth-info {
+	display: flex;
+	align-items: center;
+}
+.oauth-icon {
+	font-size: 1.25rem;
+	margin-right: 0.5rem;
+}
+.oauth-detail {
+	display: flex;
+	flex-direction: column;
+}
+.oauth-name {
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: #1a1a2e;
+}
+.oauth-status {
+	font-size: 0.75rem;
+	margin-top: 0.125rem;
+}
+.oauth-status.bound {
+	color: #00b894;
+}
+.oauth-status.unbound {
+	color: #8e8e93;
+}
+.oauth-action .action-btn {
+	padding: 0.375rem 0.75rem;
+	font-size: 0.75rem;
+}
 .add-ip-row {
 	display: flex;
 	gap: 0.5rem;

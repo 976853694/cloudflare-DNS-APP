@@ -147,6 +147,11 @@
 	font-size: 0.875rem;
 	color: #4C84FF;
 }
+.picker-value {
+	font-size: 0.875rem;
+	color: #4C84FF;
+	text-align: right;
+}
 .save-bar {
 	position: fixed;
 	left: 0;

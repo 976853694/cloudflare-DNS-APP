@@ -183,6 +183,30 @@
 			"style": {
 				"navigationBarTitleText": "数据管理"
 			}
+		},
+		{
+			"path": "pages/admin/vhost",
+			"style": {
+				"navigationBarTitleText": "虚拟主机管理"
+			}
+		},
+		{
+			"path": "pages/vhost/list",
+			"style": {
+				"navigationBarTitleText": "虚拟主机"
+			}
+		},
+		{
+			"path": "pages/vhost/detail",
+			"style": {
+				"navigationBarTitleText": "主机详情"
+			}
+		},
+		{
+			"path": "pages/vhost/purchase",
+			"style": {
+				"navigationBarTitleText": "购买主机"
+			}
 		}
 	],
 	"globalStyle": {

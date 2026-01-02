@@ -182,6 +182,41 @@
 				</view>
 			</view>
 			
+			<!-- 阿里云邮件推送 -->
+			<view class="section">
+				<view class="section-header">
+					<text class="section-title">☁️ 阿里云邮件推送</text>
+					<text class="section-tip">使用阿里云 DirectMail 服务发送邮件</text>
+				</view>
+				<view class="section-body">
+					<view class="form-item">
+						<text class="label">启用阿里云邮件</text>
+						<switch :checked="settings.aliyun_dm_enabled === '1'" @change="e => settings.aliyun_dm_enabled = e.detail.value ? '1' : '0'" color="#4C84FF" />
+					</view>
+					<view class="form-item">
+						<text class="label">Access Key</text>
+						<input class="input" v-model="settings.aliyun_dm_access_key" placeholder="Access Key ID" :disabled="settings.aliyun_dm_enabled !== '1'" />
+					</view>
+					<view class="form-item">
+						<text class="label">Access Secret</text>
+						<input class="input" type="password" v-model="settings.aliyun_dm_access_secret" placeholder="Access Key Secret" :disabled="settings.aliyun_dm_enabled !== '1'" />
+					</view>
+					<view class="form-item">
+						<text class="label">区域</text>
+						<picker :range="aliyunRegions" :range-key="'label'" :value="aliyunRegionIndex" @change="onAliyunRegionChange" :disabled="settings.aliyun_dm_enabled !== '1'">
+							<view class="picker-value">{{ currentAliyunRegionLabel }}</view>
+						</picker>
+					</view>
+					<view class="form-item">
+						<text class="label">发信地址</text>
+						<input class="input" v-model="settings.aliyun_dm_account" placeholder="noreply@example.com" :disabled="settings.aliyun_dm_enabled !== '1'" />
+					</view>
+					<view class="action-btn" @click="testAliyunDMConfig" v-if="settings.aliyun_dm_enabled === '1'">
+						<text>📤 测试阿里云邮件</text>
+					</view>
+				</view>
+			</view>
+			
 			<!-- 卡密渠道 -->
 			<view class="section">
 				<view class="section-header">
@@ -223,13 +258,20 @@
 </template>
 
 <script>
-import { getAdminSettings, updateAdminSettings, testSmtp } from '@/api/admin'
+import { getAdminSettings, updateAdminSettings, testSmtp, testAliyunDM } from '@/api/admin'
 import { getUserInfo as getStoredUserInfo } from '@/utils/storage'
 
 export default {
 	data() {
 		return {
 			userInfo: null,
+			// 阿里云区域选项
+			aliyunRegions: [
+				{ value: 'cn-hangzhou', label: '华东1-杭州' },
+				{ value: 'cn-beijing', label: '华北2-北京' },
+				{ value: 'cn-shanghai', label: '华东2-上海' },
+				{ value: 'ap-southeast-1', label: '新加坡' }
+			],
 			settings: {
 				// 站点设置
 				site_name: '',
@@ -262,6 +304,12 @@ export default {
 				smtp_user: '',
 				smtp_password: '',
 				smtp_ssl: '1',
+				// 阿里云邮件推送
+				aliyun_dm_enabled: '0',
+				aliyun_dm_access_key: '',
+				aliyun_dm_access_secret: '',
+				aliyun_dm_region: 'cn-hangzhou',
+				aliyun_dm_account: '',
 				// 卡密渠道
 				redeem_channel_text: '',
 				redeem_channel_url: '',
@@ -273,6 +321,14 @@ export default {
 	computed: {
 		isDemo() {
 			return this.userInfo?.role === 'demo'
+		},
+		aliyunRegionIndex() {
+			const index = this.aliyunRegions.findIndex(r => r.value === this.settings.aliyun_dm_region)
+			return index >= 0 ? index : 0
+		},
+		currentAliyunRegionLabel() {
+			const region = this.aliyunRegions.find(r => r.value === this.settings.aliyun_dm_region)
+			return region ? region.label : '华东1-杭州'
 		}
 	},
 	onLoad() {
@@ -323,6 +379,36 @@ export default {
 						try {
 							uni.showLoading({ title: '发送中...' })
 							await testSmtp(res.content)
+							uni.hideLoading()
+							uni.showToast({ title: '发送成功', icon: 'success' })
+						} catch (e) {
+							uni.hideLoading()
+						}
+					}
+				}
+			})
+		},
+		
+		onAliyunRegionChange(e) {
+			this.settings.aliyun_dm_region = this.aliyunRegions[e.detail.value].value
+		},
+		
+		testAliyunDMConfig() {
+			// 验证必填字段
+			if (!this.settings.aliyun_dm_access_key || !this.settings.aliyun_dm_access_secret || !this.settings.aliyun_dm_account) {
+				uni.showToast({ title: '请先填写完整配置', icon: 'none' })
+				return
+			}
+			
+			uni.showModal({
+				title: '测试阿里云邮件',
+				editable: true,
+				placeholderText: '输入测试邮箱（留空使用管理员邮箱）',
+				success: async (res) => {
+					if (res.confirm) {
+						try {
+							uni.showLoading({ title: '发送中...' })
+							await testAliyunDM(res.content || '')
 							uni.hideLoading()
 							uni.showToast({ title: '发送成功', icon: 'success' })
 						} catch (e) {
@@ -512,6 +598,12 @@ export default {
 .action-btn text {
 	font-size: 28rpx;
 	color: #4C84FF;
+}
+
+.picker-value {
+	font-size: 28rpx;
+	color: #4C84FF;
+	text-align: right;
 }
 
 .save-bar {

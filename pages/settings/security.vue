@@ -120,6 +120,84 @@
 				</view>
 			</view>
 			
+			<!-- 第三方账号绑定 -->
+			<view class="section">
+				<view class="section-header">
+					<text class="section-title">🔗 第三方账号绑定</text>
+				</view>
+				<view class="section-content">
+					<text class="section-desc">绑定第三方账号后，可以使用该账号快速登录。</text>
+					
+					<!-- GitHub -->
+					<view class="oauth-item" v-if="oauthStatus.github.enabled">
+						<view class="oauth-info">
+							<text class="oauth-icon">🐙</text>
+							<view class="oauth-detail">
+								<text class="oauth-name">GitHub</text>
+								<text class="oauth-status" :class="oauthStatus.github.bound ? 'bound' : 'unbound'">
+									{{ oauthStatus.github.bound ? '已绑定' : '未绑定' }}
+								</text>
+							</view>
+						</view>
+						<view class="oauth-action">
+							<view class="action-btn primary" v-if="!oauthStatus.github.bound" @click="handleBindOAuth('github')">
+								<text>绑定</text>
+							</view>
+							<view class="action-btn danger" v-else @click="handleUnbindOAuth('github')">
+								<text>解绑</text>
+							</view>
+						</view>
+					</view>
+					
+					<!-- Google -->
+					<view class="oauth-item" v-if="oauthStatus.google.enabled">
+						<view class="oauth-info">
+							<text class="oauth-icon">🔍</text>
+							<view class="oauth-detail">
+								<text class="oauth-name">Google</text>
+								<text class="oauth-status" :class="oauthStatus.google.bound ? 'bound' : 'unbound'">
+									{{ oauthStatus.google.bound ? '已绑定' : '未绑定' }}
+								</text>
+							</view>
+						</view>
+						<view class="oauth-action">
+							<view class="action-btn primary" v-if="!oauthStatus.google.bound" @click="handleBindOAuth('google')">
+								<text>绑定</text>
+							</view>
+							<view class="action-btn danger" v-else @click="handleUnbindOAuth('google')">
+								<text>解绑</text>
+							</view>
+						</view>
+					</view>
+					
+					<!-- NodeLoc -->
+					<view class="oauth-item" v-if="oauthStatus.nodeloc.enabled">
+						<view class="oauth-info">
+							<text class="oauth-icon">🌐</text>
+							<view class="oauth-detail">
+								<text class="oauth-name">NodeLoc</text>
+								<text class="oauth-status" :class="oauthStatus.nodeloc.bound ? 'bound' : 'unbound'">
+									{{ oauthStatus.nodeloc.bound ? '已绑定' : '未绑定' }}
+								</text>
+							</view>
+						</view>
+						<view class="oauth-action">
+							<view class="action-btn primary" v-if="!oauthStatus.nodeloc.bound" @click="handleBindOAuth('nodeloc')">
+								<text>绑定</text>
+							</view>
+							<view class="action-btn danger" v-else @click="handleUnbindOAuth('nodeloc')">
+								<text>解绑</text>
+							</view>
+						</view>
+					</view>
+					
+					<!-- 无可用的第三方登录 -->
+					<view class="empty-tip" v-if="!oauthStatus.github.enabled && !oauthStatus.google.enabled && !oauthStatus.nodeloc.enabled">
+						<text>暂无可用的第三方登录方式</text>
+					</view>
+				</view>
+			</view>
+			
 			<!-- 登录历史 -->
 			<view class="section">
 				<view class="section-header">
@@ -294,10 +372,18 @@ import {
 	getIpRestriction, updateIpRestriction, getLoginHistory,
 	getApiKeys, generateApiKeys, toggleApiKeys, updateApiWhitelist, viewApiSecret
 } from '@/api/security'
+import { getOAuthBindable, bindOAuth, unbindOAuth } from '@/api/auth'
 
 export default {
 	data() {
 		return {
+			// OAuth 第三方账号绑定
+			oauthStatus: {
+				github: { enabled: false, bound: false },
+				google: { enabled: false, bound: false },
+				nodeloc: { enabled: false, bound: false }
+			},
+			
 			// 2FA
 			twoFAEnabled: false,
 			showSetup2FAModal: false,
@@ -335,12 +421,14 @@ export default {
 	},
 	onLoad() {
 		this.loadData()
+		this.handleOAuthCallback()
 	},
 	methods: {
 		async loadData() {
 			uni.showLoading({ title: '加载中...' })
 			try {
 				await Promise.all([
+					this.loadOAuthStatus(),
 					this.load2FAStatus(),
 					this.loadApiKeys(),
 					this.loadIpRestriction(),
@@ -350,6 +438,84 @@ export default {
 				console.error('加载数据失败', e)
 			}
 			uni.hideLoading()
+		},
+		
+		// OAuth 相关
+		async loadOAuthStatus() {
+			try {
+				const res = await getOAuthBindable()
+				if (res.data) {
+					this.oauthStatus = {
+						github: res.data.github || { enabled: false, bound: false },
+						google: res.data.google || { enabled: false, bound: false },
+						nodeloc: res.data.nodeloc || { enabled: false, bound: false }
+					}
+				}
+			} catch (e) {
+				console.error('获取OAuth状态失败', e)
+			}
+		},
+		
+		handleOAuthCallback() {
+			// 处理 OAuth 回调参数
+			const pages = getCurrentPages()
+			const currentPage = pages[pages.length - 1]
+			const options = currentPage.options || {}
+			
+			if (options.bind_success) {
+				uni.showToast({ title: '绑定成功', icon: 'success' })
+				this.loadOAuthStatus()
+			} else if (options.error) {
+				uni.showToast({ title: decodeURIComponent(options.error), icon: 'none' })
+			}
+		},
+		
+		async handleBindOAuth(provider) {
+			try {
+				uni.showLoading({ title: '跳转中...' })
+				const res = await bindOAuth(provider)
+				uni.hideLoading()
+				if (res.data?.url) {
+					// #ifdef H5
+					window.location.href = res.data.url
+					// #endif
+					// #ifdef APP-PLUS
+					plus.runtime.openURL(res.data.url)
+					// #endif
+					// #ifdef MP-WEIXIN
+					uni.showToast({ title: '请在浏览器中完成绑定', icon: 'none' })
+					// #endif
+				}
+			} catch (e) {
+				uni.hideLoading()
+				uni.showToast({ title: e.message || '获取授权链接失败', icon: 'none' })
+			}
+		},
+		
+		handleUnbindOAuth(provider) {
+			const providerNames = {
+				github: 'GitHub',
+				google: 'Google',
+				nodeloc: 'NodeLoc'
+			}
+			uni.showModal({
+				title: '确认解绑',
+				content: `确定要解绑 ${providerNames[provider]} 账号吗？`,
+				success: async (res) => {
+					if (res.confirm) {
+						try {
+							uni.showLoading({ title: '解绑中...' })
+							await unbindOAuth(provider)
+							uni.hideLoading()
+							uni.showToast({ title: '解绑成功', icon: 'success' })
+							this.loadOAuthStatus()
+						} catch (e) {
+							uni.hideLoading()
+							uni.showToast({ title: e.message || '解绑失败', icon: 'none' })
+						}
+					}
+				}
+			})
 		},
 		
 		async load2FAStatus() {
@@ -802,6 +968,58 @@ export default {
 .empty-tip text {
 	font-size: 26rpx;
 	color: #8e8e93;
+}
+
+/* OAuth 绑定样式 */
+.oauth-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20rpx 0;
+	border-bottom: 1rpx solid #f0f0f0;
+}
+
+.oauth-item:last-child {
+	border-bottom: none;
+}
+
+.oauth-info {
+	display: flex;
+	align-items: center;
+}
+
+.oauth-icon {
+	font-size: 40rpx;
+	margin-right: 16rpx;
+}
+
+.oauth-detail {
+	display: flex;
+	flex-direction: column;
+}
+
+.oauth-name {
+	font-size: 28rpx;
+	font-weight: 500;
+	color: #1a1a2e;
+}
+
+.oauth-status {
+	font-size: 24rpx;
+	margin-top: 4rpx;
+}
+
+.oauth-status.bound {
+	color: #00b894;
+}
+
+.oauth-status.unbound {
+	color: #8e8e93;
+}
+
+.oauth-action .action-btn {
+	padding: 12rpx 24rpx;
+	font-size: 24rpx;
 }
 
 .add-ip-row {

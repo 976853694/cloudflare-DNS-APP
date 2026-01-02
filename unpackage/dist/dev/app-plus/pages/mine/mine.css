@@ -335,6 +335,8 @@
 }
 .menu-icon-wrap.blue { background: linear-gradient(135deg, #4C84FF 0%, #6A9DFF 100%);
 }
+.menu-icon-wrap.purple { background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+}
 .menu-icon-wrap.green { background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);
 }
 .menu-icon-wrap.gray { background: linear-gradient(135deg, #636e72 0%, #b2bec3 100%);

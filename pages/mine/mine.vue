@@ -58,13 +58,13 @@
 					<view class="action-icon">🌐</view>
 					<text class="action-text">我的域名</text>
 				</view>
+				<view class="action-item" @click="goToVHost">
+					<view class="action-icon">🖥️</view>
+					<text class="action-text">虚拟主机</text>
+				</view>
 				<view class="action-item" @click="goToRecharge">
 					<view class="action-icon">💳</view>
 					<text class="action-text">充值</text>
-				</view>
-				<view class="action-item" @click="goToRecords">
-					<view class="action-icon">📋</view>
-					<text class="action-text">记录</text>
 				</view>
 				<view class="action-item" @click="goToAnnouncements">
 					<view class="action-icon">
@@ -88,6 +88,16 @@
 						<view class="menu-info">
 							<text class="menu-title">域名管理</text>
 							<text class="menu-desc">查看和管理您的域名</text>
+						</view>
+						<text class="menu-arrow">›</text>
+					</view>
+					<view class="menu-item" @click="goToVHost">
+						<view class="menu-icon-wrap purple">
+							<text class="menu-icon">🖥️</text>
+						</view>
+						<view class="menu-info">
+							<text class="menu-title">虚拟主机</text>
+							<text class="menu-desc">管理您的虚拟主机</text>
 						</view>
 						<text class="menu-arrow">›</text>
 					</view>
@@ -230,6 +240,13 @@ export default {
 				return
 			}
 			uni.navigateTo({ url: '/pages/domain/list' })
+		},
+		goToVHost() {
+			if (!this.isLoggedIn) {
+				uni.navigateTo({ url: '/pages/login/login' })
+				return
+			}
+			uni.navigateTo({ url: '/pages/vhost/list' })
 		},
 		goToRecords() {
 			if (!this.isLoggedIn) {
@@ -535,6 +552,7 @@ export default {
 }
 
 .menu-icon-wrap.blue { background: linear-gradient(135deg, #4C84FF 0%, #6A9DFF 100%); }
+.menu-icon-wrap.purple { background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%); }
 .menu-icon-wrap.green { background: linear-gradient(135deg, #00b894 0%, #55efc4 100%); }
 .menu-icon-wrap.gray { background: linear-gradient(135deg, #636e72 0%, #b2bec3 100%); }
 .menu-icon-wrap.red { background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%); }

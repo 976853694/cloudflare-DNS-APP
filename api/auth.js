@@ -271,3 +271,87 @@ export function verifyToken(params) {
  * @deprecated 请使用 sendChangeEmailVerification
  */
 export const sendChangeEmailCode = sendChangeEmailVerification
+
+
+// ==================== OAuth 第三方登录相关 ====================
+
+/**
+ * 获取 GitHub OAuth 状态
+ * @returns {Promise<{enabled: boolean}>}
+ */
+export function getGithubStatus() {
+  return request({
+    url: '/auth/github/status',
+    method: 'GET'
+  })
+}
+
+/**
+ * 获取 Google OAuth 状态
+ * @returns {Promise<{enabled: boolean}>}
+ */
+export function getGoogleStatus() {
+  return request({
+    url: '/auth/google/status',
+    method: 'GET'
+  })
+}
+
+/**
+ * 获取 NodeLoc OAuth 状态
+ * @returns {Promise<{enabled: boolean}>}
+ */
+export function getNodelocStatus() {
+  return request({
+    url: '/auth/nodeloc/status',
+    method: 'GET'
+  })
+}
+
+/**
+ * 获取 OAuth 可绑定状态
+ * 返回各 provider 的启用状态和当前用户的绑定状态
+ * @returns {Promise<{github: {enabled: boolean, bound: boolean}, google: {enabled: boolean, bound: boolean}, nodeloc: {enabled: boolean, bound: boolean}}>}
+ */
+export function getOAuthBindable() {
+  return request({
+    url: '/auth/oauth/bindable',
+    method: 'GET'
+  })
+}
+
+/**
+ * 获取 OAuth 授权 URL
+ * @param {string} provider - OAuth 提供商 (github/google/nodeloc)
+ * @returns {Promise<{url: string}>}
+ */
+export function getOAuthAuthUrl(provider) {
+  return request({
+    url: `/auth/${provider}`,
+    method: 'GET'
+  })
+}
+
+/**
+ * 绑定 OAuth 账号
+ * @param {string} provider - OAuth 提供商 (github/google/nodeloc)
+ * @returns {Promise<{url: string}>}
+ */
+export function bindOAuth(provider) {
+  return request({
+    url: `/auth/oauth/bind/${provider}`,
+    method: 'GET'
+  })
+}
+
+/**
+ * 解绑 OAuth 账号
+ * @param {string} provider - OAuth 提供商 (github/google/nodeloc)
+ * @returns {Promise}
+ */
+export function unbindOAuth(provider) {
+  return request({
+    url: `/auth/oauth/unbind/${provider}`,
+    method: 'POST'
+  })
+}

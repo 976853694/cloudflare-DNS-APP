@@ -48,7 +48,7 @@ if (uni.restoreGlobal) {
     }
     return target;
   };
-  const _sfc_main$v = {
+  const _sfc_main$z = {
     name: "CustomTabbar",
     props: {
       current: {
@@ -78,7 +78,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock(
       "view",
       {
@@ -152,7 +152,7 @@ if (uni.restoreGlobal) {
       /* STYLE */
     );
   }
-  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$u], ["__scopeId", "data-v-51c48e3c"], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/components/custom-tabbar/custom-tabbar.vue"]]);
+  const __easycom_0 = /* @__PURE__ */ _export_sfc(_sfc_main$z, [["render", _sfc_render$y], ["__scopeId", "data-v-51c48e3c"], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/components/custom-tabbar/custom-tabbar.vue"]]);
   const BASE_URL = "https://dns.6qu.cc/api";
   const request = (options) => {
     return new Promise((resolve, reject) => {
@@ -280,6 +280,205 @@ if (uni.restoreGlobal) {
   const getDomains = getAvailableDomains;
   const getSubdomains = getMySubdomains;
   const renewDomain = renewSubdomain;
+  function getVHostPlans() {
+    return request({
+      url: "/vhost/plans",
+      method: "GET"
+    });
+  }
+  function purchaseVHost(data) {
+    return request({
+      url: "/vhost/purchase",
+      method: "POST",
+      data
+    });
+  }
+  function getVHostInstances(params = {}) {
+    return request({
+      url: "/vhost/instances",
+      method: "GET",
+      data: params
+    });
+  }
+  function getVHostInstance(id) {
+    return request({
+      url: `/vhost/instances/${id}`,
+      method: "GET"
+    });
+  }
+  function renewVHost(id) {
+    return request({
+      url: `/vhost/instances/${id}/renew`,
+      method: "POST"
+    });
+  }
+  function getInstanceDomains(id) {
+    return request({
+      url: `/vhost/instances/${id}/domains`,
+      method: "GET"
+    });
+  }
+  function addInstanceDomain(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/domains`,
+      method: "POST",
+      data
+    });
+  }
+  function deleteInstanceDomain(id, domainId) {
+    return request({
+      url: `/vhost/instances/${id}/domains/${domainId}`,
+      method: "DELETE"
+    });
+  }
+  function getFiles(id, path = "/") {
+    const encodedPath = encodeURIComponent(path);
+    return request({
+      url: `/vhost/instances/${id}/files?path=${encodedPath}`,
+      method: "GET"
+    });
+  }
+  function readFile(id, path) {
+    const encodedPath = encodeURIComponent(path);
+    return request({
+      url: `/vhost/instances/${id}/files/read?path=${encodedPath}`,
+      method: "GET"
+    });
+  }
+  function saveFile(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/files/save`,
+      method: "POST",
+      data
+    });
+  }
+  function createFile(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/files/create`,
+      method: "POST",
+      data
+    });
+  }
+  function createDir(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/files/mkdir`,
+      method: "POST",
+      data
+    });
+  }
+  function deleteFile(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/files/delete`,
+      method: "POST",
+      data
+    });
+  }
+  function renameFile(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/files/rename`,
+      method: "POST",
+      data
+    });
+  }
+  function copyFile(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/files/copy`,
+      method: "POST",
+      data
+    });
+  }
+  function moveFile(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/files/move`,
+      method: "POST",
+      data
+    });
+  }
+  function zipFile(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/files/zip`,
+      method: "POST",
+      data
+    });
+  }
+  function unzipFile(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/files/unzip`,
+      method: "POST",
+      data
+    });
+  }
+  function getPhpVersions(id) {
+    return request({
+      url: `/vhost/instances/${id}/php-versions`,
+      method: "GET"
+    });
+  }
+  function setPhpVersion(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/php-version`,
+      method: "POST",
+      data
+    });
+  }
+  function getRunPath(id) {
+    return request({
+      url: `/vhost/instances/${id}/run-path`,
+      method: "GET"
+    });
+  }
+  function setRunPath(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/run-path`,
+      method: "POST",
+      data
+    });
+  }
+  function getRewrite(id) {
+    return request({
+      url: `/vhost/instances/${id}/rewrite`,
+      method: "GET"
+    });
+  }
+  function setRewrite(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/rewrite`,
+      method: "POST",
+      data
+    });
+  }
+  function getRewriteTemplate(id, name) {
+    return request({
+      url: `/vhost/instances/${id}/rewrite/template/${name}`,
+      method: "GET"
+    });
+  }
+  function getSslStatus(id) {
+    return request({
+      url: `/vhost/instances/${id}/ssl`,
+      method: "GET"
+    });
+  }
+  function deploySsl(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/ssl`,
+      method: "POST",
+      data
+    });
+  }
+  function closeSsl(id) {
+    return request({
+      url: `/vhost/instances/${id}/ssl`,
+      method: "DELETE"
+    });
+  }
+  function setForceHttps(id, data) {
+    return request({
+      url: `/vhost/instances/${id}/ssl/force-https`,
+      method: "POST",
+      data
+    });
+  }
   const setToken = (token) => {
     uni.setStorageSync("token", token);
   };
@@ -306,7 +505,7 @@ if (uni.restoreGlobal) {
     removeToken();
     removeUserInfo();
   };
-  const _sfc_main$u = {
+  const _sfc_main$y = {
     components: {
       CustomTabbar: __easycom_0
     },
@@ -317,9 +516,30 @@ if (uni.restoreGlobal) {
         announcements: [],
         domains: [],
         myDomains: [],
+        myVHosts: [],
+        minVHostPrice: 0,
         isLoggedIn: false,
         loading: true
       };
+    },
+    computed: {
+      totalRegistered() {
+        return this.domains.reduce((sum, d) => sum + (d.subdomains_count || 0), 0);
+      },
+      expiringItems() {
+        const items = [];
+        this.myDomains.forEach((d) => {
+          if (d.days_remaining <= 7 && d.days_remaining > 0) {
+            items.push({ id: "d_" + d.id, name: d.full_name, days: d.days_remaining, type: "domain", data: d });
+          }
+        });
+        this.myVHosts.forEach((v) => {
+          if (v.days_remaining <= 7 && v.days_remaining > 0) {
+            items.push({ id: "v_" + v.id, name: v.domain, days: v.days_remaining, type: "vhost", data: v });
+          }
+        });
+        return items.sort((a, b) => a.days - b.days);
+      }
     },
     onLoad() {
       const sysInfo = uni.getSystemInfoSync();
@@ -335,22 +555,41 @@ if (uni.restoreGlobal) {
     },
     methods: {
       async loadData() {
-        var _a, _b, _c;
+        var _a, _b, _c, _d, _e;
         this.loading = true;
         try {
           const announcementRes = await getAnnouncements();
           this.announcements = ((_a = announcementRes.data) == null ? void 0 : _a.announcements) || [];
           const domainsRes = await getDomains();
           this.domains = ((_b = domainsRes.data) == null ? void 0 : _b.domains) || [];
+          try {
+            const plansRes = await getVHostPlans();
+            const plans = ((_c = plansRes.data) == null ? void 0 : _c.plans) || [];
+            if (plans.length > 0) {
+              this.minVHostPrice = Math.min(...plans.map((p) => p.price || 0));
+            }
+          } catch (e) {
+          }
           if (this.isLoggedIn) {
-            const myDomainsRes = await getSubdomains();
-            this.myDomains = ((_c = myDomainsRes.data) == null ? void 0 : _c.subdomains) || [];
+            try {
+              const myDomainsRes = await getSubdomains();
+              this.myDomains = ((_d = myDomainsRes.data) == null ? void 0 : _d.subdomains) || [];
+            } catch (e) {
+            }
+            try {
+              const myVHostsRes = await getVHostInstances();
+              this.myVHosts = ((_e = myVHostsRes.data) == null ? void 0 : _e.instances) || [];
+            } catch (e) {
+            }
           }
         } catch (e) {
-          formatAppLog("error", "at pages/index/index.vue:243", "加载数据失败", e);
+          formatAppLog("error", "at pages/index/index.vue:346", "加载数据失败", e);
         } finally {
           this.loading = false;
         }
+      },
+      goToLogin() {
+        uni.navigateTo({ url: "/pages/login/login" });
       },
       goToAnnouncements() {
         uni.navigateTo({ url: "/pages/announcement/list" });
@@ -358,12 +597,22 @@ if (uni.restoreGlobal) {
       goToPurchase() {
         uni.navigateTo({ url: "/pages/domain/purchase" });
       },
+      goToVHostPurchase() {
+        uni.navigateTo({ url: "/pages/vhost/purchase" });
+      },
       goToMyDomains() {
         if (!this.isLoggedIn) {
           uni.navigateTo({ url: "/pages/login/login" });
           return;
         }
         uni.navigateTo({ url: "/pages/domain/list" });
+      },
+      goToVHostList() {
+        if (!this.isLoggedIn) {
+          uni.navigateTo({ url: "/pages/login/login" });
+          return;
+        }
+        uni.navigateTo({ url: "/pages/vhost/list" });
       },
       goToRecharge() {
         if (!this.isLoggedIn) {
@@ -379,15 +628,22 @@ if (uni.restoreGlobal) {
         }
         uni.navigateTo({ url: "/pages/record/record" });
       },
+      goToMine() {
+        uni.switchTab({ url: "/pages/mine/mine" });
+      },
       selectDomain(domain) {
         uni.navigateTo({ url: `/pages/domain/purchase?domainId=${domain.id}` });
       },
-      goToDomainDetail(item) {
-        uni.navigateTo({ url: `/pages/domain/detail?id=${item.id}` });
+      goToDetail(item) {
+        if (item.type === "domain") {
+          uni.navigateTo({ url: `/pages/domain/detail?id=${item.data.id}` });
+        } else {
+          uni.navigateTo({ url: `/pages/vhost/detail?id=${item.data.id}` });
+        }
       }
     }
   };
-  function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
     const _component_custom_tabbar = resolveEasycom(vue.resolveDynamicComponent("custom-tabbar"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 自定义导航栏 "),
@@ -401,7 +657,16 @@ if (uni.restoreGlobal) {
           vue.createElementVNode("view", { class: "nav-content" }, [
             vue.createElementVNode("view", { class: "nav-brand" }, [
               vue.createElementVNode("text", { class: "nav-logo" }, "六趣DNS")
-            ])
+            ]),
+            !$data.isLoggedIn ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "nav-actions"
+            }, [
+              vue.createElementVNode("text", {
+                class: "nav-btn",
+                onClick: _cache[0] || (_cache[0] = (...args) => $options.goToLogin && $options.goToLogin(...args))
+              }, "登录")
+            ])) : vue.createCommentVNode("v-if", true)
           ])
         ],
         4
@@ -416,36 +681,25 @@ if (uni.restoreGlobal) {
         [
           vue.createCommentVNode(" Hero Banner "),
           vue.createElementVNode("view", { class: "hero-section" }, [
-            vue.createElementVNode("view", { class: "hero-bg" }),
+            vue.createElementVNode("view", { class: "hero-bg-circle" }),
+            vue.createElementVNode("view", { class: "hero-bg-circle2" }),
             vue.createElementVNode("view", { class: "hero-content" }, [
-              vue.createElementVNode("text", { class: "hero-title" }, "专业DNS解析服务"),
-              vue.createElementVNode("text", { class: "hero-subtitle" }, "稳定 · 快速 · 安全"),
-              vue.createElementVNode("view", { class: "hero-stats" }, [
-                vue.createElementVNode("view", { class: "stat-item" }, [
-                  vue.createElementVNode(
-                    "text",
-                    { class: "stat-num" },
-                    vue.toDisplayString($data.domains.length),
-                    1
-                    /* TEXT */
-                  ),
-                  vue.createElementVNode("text", { class: "stat-label" }, "可用域名")
+              vue.createElementVNode("view", { class: "hero-badge" }, "🚀 专业DNS服务商"),
+              vue.createElementVNode("text", { class: "hero-title" }, "一站式域名解析"),
+              vue.createElementVNode("text", { class: "hero-title" }, "与主机托管服务"),
+              vue.createElementVNode("text", { class: "hero-subtitle" }, "基于 Cloudflare 全球网络，为您提供稳定、快速、安全的域名解析和虚拟主机服务"),
+              vue.createElementVNode("view", { class: "hero-btns" }, [
+                vue.createElementVNode("view", {
+                  class: "hero-btn primary",
+                  onClick: _cache[1] || (_cache[1] = (...args) => $options.goToPurchase && $options.goToPurchase(...args))
+                }, [
+                  vue.createElementVNode("text", null, "立即注册域名")
                 ]),
-                vue.createElementVNode("view", { class: "stat-divider" }),
-                vue.createElementVNode("view", { class: "stat-item" }, [
-                  vue.createElementVNode(
-                    "text",
-                    { class: "stat-num" },
-                    vue.toDisplayString($data.myDomains.length),
-                    1
-                    /* TEXT */
-                  ),
-                  vue.createElementVNode("text", { class: "stat-label" }, "我的域名")
-                ]),
-                vue.createElementVNode("view", { class: "stat-divider" }),
-                vue.createElementVNode("view", { class: "stat-item" }, [
-                  vue.createElementVNode("text", { class: "stat-num" }, "24/7"),
-                  vue.createElementVNode("text", { class: "stat-label" }, "全天服务")
+                vue.createElementVNode("view", {
+                  class: "hero-btn secondary",
+                  onClick: _cache[2] || (_cache[2] = (...args) => $options.goToVHostPurchase && $options.goToVHostPurchase(...args))
+                }, [
+                  vue.createElementVNode("text", null, "购买虚拟主机")
                 ])
               ])
             ])
@@ -454,9 +708,9 @@ if (uni.restoreGlobal) {
           $data.announcements.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
             key: 0,
             class: "notice-bar",
-            onClick: _cache[0] || (_cache[0] = (...args) => $options.goToAnnouncements && $options.goToAnnouncements(...args))
+            onClick: _cache[3] || (_cache[3] = (...args) => $options.goToAnnouncements && $options.goToAnnouncements(...args))
           }, [
-            vue.createElementVNode("view", { class: "notice-tag" }, "通知"),
+            vue.createElementVNode("view", { class: "notice-icon" }, "📢"),
             vue.createElementVNode("swiper", {
               class: "notice-swiper",
               vertical: "",
@@ -486,86 +740,103 @@ if (uni.restoreGlobal) {
             ]),
             vue.createElementVNode("text", { class: "notice-arrow" }, "›")
           ])) : vue.createCommentVNode("v-if", true),
-          vue.createCommentVNode(" 服务入口 "),
-          vue.createElementVNode("view", { class: "service-section" }, [
-            vue.createElementVNode("view", { class: "section-header" }, [
-              vue.createElementVNode("text", { class: "section-title" }, "快捷服务")
-            ]),
-            vue.createElementVNode("view", { class: "service-grid" }, [
-              vue.createElementVNode("view", {
-                class: "service-card",
-                onClick: _cache[1] || (_cache[1] = (...args) => $options.goToPurchase && $options.goToPurchase(...args))
-              }, [
-                vue.createElementVNode("view", { class: "service-icon-wrap blue" }, [
-                  vue.createElementVNode("text", { class: "service-icon" }, "🌐")
-                ]),
-                vue.createElementVNode("view", { class: "service-info" }, [
-                  vue.createElementVNode("text", { class: "service-name" }, "注册域名"),
-                  vue.createElementVNode("text", { class: "service-desc" }, "快速注册二级域名")
-                ]),
-                vue.createElementVNode("text", { class: "service-arrow" }, "›")
+          vue.createCommentVNode(" 数据统计 "),
+          vue.createElementVNode("view", { class: "stats-section" }, [
+            vue.createElementVNode("view", { class: "stats-card" }, [
+              vue.createElementVNode("view", { class: "stat-item" }, [
+                vue.createElementVNode(
+                  "text",
+                  { class: "stat-num" },
+                  vue.toDisplayString($data.domains.length || 0),
+                  1
+                  /* TEXT */
+                ),
+                vue.createElementVNode("text", { class: "stat-label" }, "可选后缀")
               ]),
-              vue.createElementVNode("view", {
-                class: "service-card",
-                onClick: _cache[2] || (_cache[2] = (...args) => $options.goToMyDomains && $options.goToMyDomains(...args))
-              }, [
-                vue.createElementVNode("view", { class: "service-icon-wrap green" }, [
-                  vue.createElementVNode("text", { class: "service-icon" }, "📊")
-                ]),
-                vue.createElementVNode("view", { class: "service-info" }, [
-                  vue.createElementVNode("text", { class: "service-name" }, "域名管理"),
-                  vue.createElementVNode("text", { class: "service-desc" }, "管理DNS解析记录")
-                ]),
-                vue.createElementVNode("text", { class: "service-arrow" }, "›")
+              vue.createElementVNode("view", { class: "stat-divider" }),
+              vue.createElementVNode("view", { class: "stat-item" }, [
+                vue.createElementVNode(
+                  "text",
+                  { class: "stat-num" },
+                  vue.toDisplayString($options.totalRegistered),
+                  1
+                  /* TEXT */
+                ),
+                vue.createElementVNode("text", { class: "stat-label" }, "已注册域名")
               ]),
-              vue.createElementVNode("view", {
-                class: "service-card",
-                onClick: _cache[3] || (_cache[3] = (...args) => $options.goToRecharge && $options.goToRecharge(...args))
-              }, [
-                vue.createElementVNode("view", { class: "service-icon-wrap orange" }, [
-                  vue.createElementVNode("text", { class: "service-icon" }, "💳")
-                ]),
-                vue.createElementVNode("view", { class: "service-info" }, [
-                  vue.createElementVNode("text", { class: "service-name" }, "账户充值"),
-                  vue.createElementVNode("text", { class: "service-desc" }, "使用卡密充值余额")
-                ]),
-                vue.createElementVNode("text", { class: "service-arrow" }, "›")
-              ]),
-              vue.createElementVNode("view", {
-                class: "service-card",
-                onClick: _cache[4] || (_cache[4] = (...args) => $options.goToRecords && $options.goToRecords(...args))
-              }, [
-                vue.createElementVNode("view", { class: "service-icon-wrap purple" }, [
-                  vue.createElementVNode("text", { class: "service-icon" }, "📋")
-                ]),
-                vue.createElementVNode("view", { class: "service-info" }, [
-                  vue.createElementVNode("text", { class: "service-name" }, "交易记录"),
-                  vue.createElementVNode("text", { class: "service-desc" }, "查看购买与续费记录")
-                ]),
-                vue.createElementVNode("text", { class: "service-arrow" }, "›")
+              vue.createElementVNode("view", { class: "stat-divider" }),
+              vue.createElementVNode("view", { class: "stat-item" }, [
+                vue.createElementVNode("text", { class: "stat-num" }, "99.9%"),
+                vue.createElementVNode("text", { class: "stat-label" }, "服务可用率")
               ])
             ])
           ]),
-          vue.createCommentVNode(" 可用域名 "),
+          vue.createCommentVNode(" 产品服务 "),
+          vue.createElementVNode("view", { class: "products-section" }, [
+            vue.createElementVNode("view", { class: "section-header" }, [
+              vue.createElementVNode("text", { class: "section-title" }, "产品服务"),
+              vue.createElementVNode("text", { class: "section-subtitle" }, "为您提供全方位的互联网基础服务")
+            ]),
+            vue.createElementVNode("view", { class: "product-grid" }, [
+              vue.createElementVNode("view", {
+                class: "product-card",
+                onClick: _cache[4] || (_cache[4] = (...args) => $options.goToPurchase && $options.goToPurchase(...args))
+              }, [
+                vue.createElementVNode("view", { class: "product-icon blue" }, "🌐"),
+                vue.createElementVNode("text", { class: "product-name" }, "二级域名"),
+                vue.createElementVNode("text", { class: "product-desc" }, "免费/付费二级域名注册，支持多种后缀"),
+                vue.createElementVNode("view", { class: "product-price" }, [
+                  vue.createElementVNode("text", { class: "price-from" }, "低至"),
+                  vue.createElementVNode("text", { class: "price-num" }, "¥0"),
+                  vue.createElementVNode("text", { class: "price-unit" }, "/年")
+                ]),
+                vue.createElementVNode("view", { class: "product-btn" }, "立即注册")
+              ]),
+              vue.createElementVNode("view", {
+                class: "product-card",
+                onClick: _cache[5] || (_cache[5] = (...args) => $options.goToVHostPurchase && $options.goToVHostPurchase(...args))
+              }, [
+                vue.createElementVNode("view", { class: "product-icon purple" }, "🖥️"),
+                vue.createElementVNode("text", { class: "product-name" }, "虚拟主机"),
+                vue.createElementVNode("text", { class: "product-desc" }, "高性能PHP主机，支持SSL、伪静态"),
+                vue.createElementVNode("view", { class: "product-price" }, [
+                  vue.createElementVNode("text", { class: "price-from" }, "低至"),
+                  vue.createElementVNode(
+                    "text",
+                    { class: "price-num" },
+                    "¥" + vue.toDisplayString($data.minVHostPrice || 0),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode("text", { class: "price-unit" }, "/月")
+                ]),
+                vue.createElementVNode("view", { class: "product-btn" }, "立即购买")
+              ])
+            ])
+          ]),
+          vue.createCommentVNode(" 热门域名后缀 "),
           vue.createElementVNode("view", { class: "domain-section" }, [
             vue.createElementVNode("view", { class: "section-header" }, [
-              vue.createElementVNode("text", { class: "section-title" }, "可选域名后缀"),
+              vue.createElementVNode("text", { class: "section-title" }, "热门域名后缀"),
               vue.createElementVNode("text", {
                 class: "section-more",
-                onClick: _cache[5] || (_cache[5] = (...args) => $options.goToPurchase && $options.goToPurchase(...args))
-              }, "全部 ›")
+                onClick: _cache[6] || (_cache[6] = (...args) => $options.goToPurchase && $options.goToPurchase(...args))
+              }, "查看全部 ›")
             ]),
-            vue.createElementVNode("view", { class: "domain-cards" }, [
-              (vue.openBlock(true), vue.createElementBlock(
-                vue.Fragment,
-                null,
-                vue.renderList($data.domains, (domain) => {
-                  return vue.openBlock(), vue.createElementBlock("view", {
-                    class: "domain-card",
-                    key: domain.id,
-                    onClick: ($event) => $options.selectDomain(domain)
-                  }, [
-                    vue.createElementVNode("view", { class: "domain-card-header" }, [
+            vue.createElementVNode("scroll-view", {
+              class: "domain-scroll",
+              "scroll-x": ""
+            }, [
+              vue.createElementVNode("view", { class: "domain-list" }, [
+                (vue.openBlock(true), vue.createElementBlock(
+                  vue.Fragment,
+                  null,
+                  vue.renderList($data.domains.slice(0, 6), (domain) => {
+                    return vue.openBlock(), vue.createElementBlock("view", {
+                      class: "domain-item",
+                      key: domain.id,
+                      onClick: ($event) => $options.selectDomain(domain)
+                    }, [
                       vue.createElementVNode(
                         "text",
                         { class: "domain-suffix" },
@@ -573,33 +844,37 @@ if (uni.restoreGlobal) {
                         1
                         /* TEXT */
                       ),
-                      domain.allow_register ? (vue.openBlock(), vue.createElementBlock("view", {
-                        key: 0,
-                        class: "domain-badge"
-                      }, "可注册")) : vue.createCommentVNode("v-if", true)
-                    ]),
-                    vue.createElementVNode(
-                      "text",
-                      { class: "domain-full" },
-                      vue.toDisplayString(domain.name),
-                      1
-                      /* TEXT */
-                    ),
-                    vue.createElementVNode("view", { class: "domain-card-footer" }, [
                       vue.createElementVNode(
                         "text",
-                        { class: "domain-registered" },
-                        vue.toDisplayString(domain.subdomains_count) + " 已注册",
+                        { class: "domain-full" },
+                        vue.toDisplayString(domain.name),
                         1
                         /* TEXT */
                       ),
-                      vue.createElementVNode("view", { class: "domain-register-btn" }, "立即注册")
-                    ])
-                  ], 8, ["onClick"]);
-                }),
-                128
-                /* KEYED_FRAGMENT */
-              ))
+                      vue.createElementVNode("view", { class: "domain-info" }, [
+                        vue.createElementVNode(
+                          "text",
+                          { class: "domain-count" },
+                          vue.toDisplayString(domain.subdomains_count || 0) + " 已注册",
+                          1
+                          /* TEXT */
+                        ),
+                        vue.createElementVNode(
+                          "view",
+                          {
+                            class: vue.normalizeClass(["domain-status", { open: domain.allow_register }])
+                          },
+                          vue.toDisplayString(domain.allow_register ? "开放注册" : "暂停注册"),
+                          3
+                          /* TEXT, CLASS */
+                        )
+                      ])
+                    ], 8, ["onClick"]);
+                  }),
+                  128
+                  /* KEYED_FRAGMENT */
+                ))
+              ])
             ]),
             $data.domains.length === 0 && !$data.loading ? (vue.openBlock(), vue.createElementBlock("view", {
               key: 0,
@@ -609,107 +884,185 @@ if (uni.restoreGlobal) {
               vue.createElementVNode("text", { class: "empty-text" }, "暂无可用域名")
             ])) : vue.createCommentVNode("v-if", true)
           ]),
-          vue.createCommentVNode(" 我的域名 "),
-          $data.isLoggedIn && $data.myDomains.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+          vue.createCommentVNode(" 我的资产 "),
+          $data.isLoggedIn ? (vue.openBlock(), vue.createElementBlock("view", {
             key: 1,
-            class: "my-domain-section"
+            class: "assets-section"
           }, [
             vue.createElementVNode("view", { class: "section-header" }, [
-              vue.createElementVNode("text", { class: "section-title" }, "我的域名"),
-              vue.createElementVNode("text", {
-                class: "section-more",
-                onClick: _cache[6] || (_cache[6] = (...args) => $options.goToMyDomains && $options.goToMyDomains(...args))
-              }, "管理 ›")
+              vue.createElementVNode("text", { class: "section-title" }, "我的资产")
             ]),
-            vue.createElementVNode("view", { class: "my-domain-cards" }, [
-              (vue.openBlock(true), vue.createElementBlock(
-                vue.Fragment,
-                null,
-                vue.renderList($data.myDomains.slice(0, 3), (item) => {
-                  return vue.openBlock(), vue.createElementBlock("view", {
-                    class: "my-domain-card",
-                    key: item.id,
-                    onClick: ($event) => $options.goToDomainDetail(item)
-                  }, [
-                    vue.createElementVNode("view", { class: "my-domain-left" }, [
-                      vue.createElementVNode(
-                        "view",
-                        {
-                          class: vue.normalizeClass(["my-domain-status", { expired: item.is_expired, active: !item.is_expired }])
-                        },
-                        null,
-                        2
-                        /* CLASS */
-                      ),
-                      vue.createElementVNode("view", { class: "my-domain-content" }, [
-                        vue.createElementVNode(
-                          "text",
-                          { class: "my-domain-name" },
-                          vue.toDisplayString(item.full_name),
-                          1
-                          /* TEXT */
-                        ),
-                        vue.createElementVNode(
-                          "text",
-                          { class: "my-domain-meta" },
-                          vue.toDisplayString(item.records_count) + " 条解析记录",
-                          1
-                          /* TEXT */
-                        )
-                      ])
-                    ]),
-                    vue.createElementVNode("view", { class: "my-domain-right" }, [
+            vue.createElementVNode("view", { class: "assets-grid" }, [
+              vue.createElementVNode("view", {
+                class: "asset-card",
+                onClick: _cache[7] || (_cache[7] = (...args) => $options.goToMyDomains && $options.goToMyDomains(...args))
+              }, [
+                vue.createElementVNode("view", { class: "asset-icon" }, "🌐"),
+                vue.createElementVNode("view", { class: "asset-info" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "asset-num" },
+                    vue.toDisplayString($data.myDomains.length),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode("text", { class: "asset-label" }, "我的域名")
+                ]),
+                vue.createElementVNode("text", { class: "asset-arrow" }, "›")
+              ]),
+              vue.createElementVNode("view", {
+                class: "asset-card",
+                onClick: _cache[8] || (_cache[8] = (...args) => $options.goToVHostList && $options.goToVHostList(...args))
+              }, [
+                vue.createElementVNode("view", { class: "asset-icon" }, "🖥️"),
+                vue.createElementVNode("view", { class: "asset-info" }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "asset-num" },
+                    vue.toDisplayString($data.myVHosts.length),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode("text", { class: "asset-label" }, "虚拟主机")
+                ]),
+                vue.createElementVNode("text", { class: "asset-arrow" }, "›")
+              ])
+            ]),
+            vue.createCommentVNode(" 即将到期提醒 "),
+            $options.expiringItems.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "expire-remind"
+            }, [
+              vue.createElementVNode("view", { class: "remind-header" }, [
+                vue.createElementVNode("text", { class: "remind-icon" }, "⚠️"),
+                vue.createElementVNode("text", { class: "remind-title" }, "即将到期提醒")
+              ]),
+              vue.createElementVNode("view", { class: "remind-list" }, [
+                (vue.openBlock(true), vue.createElementBlock(
+                  vue.Fragment,
+                  null,
+                  vue.renderList($options.expiringItems.slice(0, 3), (item) => {
+                    return vue.openBlock(), vue.createElementBlock("view", {
+                      class: "remind-item",
+                      key: item.id,
+                      onClick: ($event) => $options.goToDetail(item)
+                    }, [
                       vue.createElementVNode(
                         "text",
-                        {
-                          class: vue.normalizeClass(["my-domain-expire", { expired: item.is_expired }])
-                        },
-                        vue.toDisplayString(item.is_expired ? "已过期" : `${item.days_remaining}天`),
-                        3
-                        /* TEXT, CLASS */
+                        { class: "remind-name" },
+                        vue.toDisplayString(item.name),
+                        1
+                        /* TEXT */
                       ),
-                      vue.createElementVNode("text", { class: "my-domain-arrow" }, "›")
-                    ])
-                  ], 8, ["onClick"]);
-                }),
-                128
-                /* KEYED_FRAGMENT */
-              ))
-            ])
+                      vue.createElementVNode(
+                        "text",
+                        { class: "remind-days" },
+                        vue.toDisplayString(item.days) + "天后到期",
+                        1
+                        /* TEXT */
+                      )
+                    ], 8, ["onClick"]);
+                  }),
+                  128
+                  /* KEYED_FRAGMENT */
+                ))
+              ])
+            ])) : vue.createCommentVNode("v-if", true)
           ])) : vue.createCommentVNode("v-if", true),
+          vue.createCommentVNode(" 快捷入口 "),
+          vue.createElementVNode("view", { class: "quick-section" }, [
+            vue.createElementVNode("view", { class: "section-header" }, [
+              vue.createElementVNode("text", { class: "section-title" }, "快捷服务")
+            ]),
+            vue.createElementVNode("view", { class: "quick-grid" }, [
+              vue.createElementVNode("view", {
+                class: "quick-item",
+                onClick: _cache[9] || (_cache[9] = (...args) => $options.goToRecharge && $options.goToRecharge(...args))
+              }, [
+                vue.createElementVNode("view", { class: "quick-icon orange" }, "💳"),
+                vue.createElementVNode("text", { class: "quick-name" }, "充值")
+              ]),
+              vue.createElementVNode("view", {
+                class: "quick-item",
+                onClick: _cache[10] || (_cache[10] = (...args) => $options.goToRecords && $options.goToRecords(...args))
+              }, [
+                vue.createElementVNode("view", { class: "quick-icon green" }, "📋"),
+                vue.createElementVNode("text", { class: "quick-name" }, "订单")
+              ]),
+              vue.createElementVNode("view", {
+                class: "quick-item",
+                onClick: _cache[11] || (_cache[11] = (...args) => $options.goToAnnouncements && $options.goToAnnouncements(...args))
+              }, [
+                vue.createElementVNode("view", { class: "quick-icon red" }, "📢"),
+                vue.createElementVNode("text", { class: "quick-name" }, "公告")
+              ]),
+              vue.createElementVNode("view", {
+                class: "quick-item",
+                onClick: _cache[12] || (_cache[12] = (...args) => $options.goToMine && $options.goToMine(...args))
+              }, [
+                vue.createElementVNode("view", { class: "quick-icon blue" }, "👤"),
+                vue.createElementVNode("text", { class: "quick-name" }, "我的")
+              ])
+            ])
+          ]),
           vue.createCommentVNode(" 特性介绍 "),
           vue.createElementVNode("view", { class: "feature-section" }, [
             vue.createElementVNode("view", { class: "section-header" }, [
               vue.createElementVNode("text", { class: "section-title" }, "为什么选择我们")
             ]),
-            vue.createElementVNode("view", { class: "feature-list" }, [
-              vue.createElementVNode("view", { class: "feature-item" }, [
-                vue.createElementVNode("view", { class: "feature-icon" }, "⚡"),
+            vue.createElementVNode("view", { class: "feature-grid" }, [
+              vue.createElementVNode("view", { class: "feature-card blue-gradient" }, [
+                vue.createElementVNode("view", { class: "feature-icon-wrap blue" }, [
+                  vue.createElementVNode("text", { class: "feature-icon" }, "⚡")
+                ]),
                 vue.createElementVNode("view", { class: "feature-content" }, [
                   vue.createElementVNode("text", { class: "feature-title" }, "极速解析"),
-                  vue.createElementVNode("text", { class: "feature-desc" }, "基于Cloudflare全球CDN，毫秒级响应")
+                  vue.createElementVNode("text", { class: "feature-desc" }, "全球CDN加速，毫秒级响应")
                 ])
               ]),
-              vue.createElementVNode("view", { class: "feature-item" }, [
-                vue.createElementVNode("view", { class: "feature-icon" }, "🛡️"),
+              vue.createElementVNode("view", { class: "feature-card green-gradient" }, [
+                vue.createElementVNode("view", { class: "feature-icon-wrap green" }, [
+                  vue.createElementVNode("text", { class: "feature-icon" }, "🛡️")
+                ]),
                 vue.createElementVNode("view", { class: "feature-content" }, [
                   vue.createElementVNode("text", { class: "feature-title" }, "安全可靠"),
-                  vue.createElementVNode("text", { class: "feature-desc" }, "DDoS防护，SSL加密，数据安全有保障")
+                  vue.createElementVNode("text", { class: "feature-desc" }, "DDoS防护，SSL加密")
                 ])
               ]),
-              vue.createElementVNode("view", { class: "feature-item" }, [
-                vue.createElementVNode("view", { class: "feature-icon" }, "💡"),
+              vue.createElementVNode("view", { class: "feature-card orange-gradient" }, [
+                vue.createElementVNode("view", { class: "feature-icon-wrap orange" }, [
+                  vue.createElementVNode("text", { class: "feature-icon" }, "💡")
+                ]),
                 vue.createElementVNode("view", { class: "feature-content" }, [
                   vue.createElementVNode("text", { class: "feature-title" }, "简单易用"),
-                  vue.createElementVNode("text", { class: "feature-desc" }, "可视化管理界面，一键配置DNS记录")
+                  vue.createElementVNode("text", { class: "feature-desc" }, "可视化管理，一键配置")
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "feature-card purple-gradient" }, [
+                vue.createElementVNode("view", { class: "feature-icon-wrap purple" }, [
+                  vue.createElementVNode("text", { class: "feature-icon" }, "💬")
+                ]),
+                vue.createElementVNode("view", { class: "feature-content" }, [
+                  vue.createElementVNode("text", { class: "feature-title" }, "专业支持"),
+                  vue.createElementVNode("text", { class: "feature-desc" }, "7×24小时技术支持")
                 ])
               ])
             ])
           ]),
           vue.createCommentVNode(" 底部信息 "),
           vue.createElementVNode("view", { class: "footer" }, [
-            vue.createElementVNode("text", { class: "footer-text" }, "六趣DNS · 专业域名解析服务"),
-            vue.createElementVNode("text", { class: "footer-copyright" }, "© 2024 All Rights Reserved")
+            vue.createElementVNode("view", { class: "footer-links" }, [
+              vue.createElementVNode("text", {
+                class: "footer-link",
+                onClick: _cache[13] || (_cache[13] = (...args) => $options.goToAnnouncements && $options.goToAnnouncements(...args))
+              }, "公告"),
+              vue.createElementVNode("text", { class: "footer-divider" }, "|"),
+              vue.createElementVNode("text", { class: "footer-link" }, "帮助"),
+              vue.createElementVNode("text", { class: "footer-divider" }, "|"),
+              vue.createElementVNode("text", { class: "footer-link" }, "关于")
+            ]),
+            vue.createElementVNode("text", { class: "footer-brand" }, "六趣DNS · 专业域名解析服务"),
+            vue.createElementVNode("text", { class: "footer-copyright" }, "© 2024 LiuQu DNS. All Rights Reserved")
           ]),
           vue.createElementVNode("view", { class: "bottom-space" })
         ],
@@ -720,7 +1073,7 @@ if (uni.restoreGlobal) {
       vue.createVNode(_component_custom_tabbar, { current: "/pages/index/index" })
     ]);
   }
-  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$t], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/index/index.vue"]]);
+  const PagesIndexIndex = /* @__PURE__ */ _export_sfc(_sfc_main$y, [["render", _sfc_render$x], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/index/index.vue"]]);
   function getCaptcha(id) {
     return request({
       url: "/auth/captcha",
@@ -796,7 +1149,49 @@ if (uni.restoreGlobal) {
       method: "GET"
     });
   }
-  const _sfc_main$t = {
+  function getGithubStatus() {
+    return request({
+      url: "/auth/github/status",
+      method: "GET"
+    });
+  }
+  function getGoogleStatus() {
+    return request({
+      url: "/auth/google/status",
+      method: "GET"
+    });
+  }
+  function getNodelocStatus() {
+    return request({
+      url: "/auth/nodeloc/status",
+      method: "GET"
+    });
+  }
+  function getOAuthBindable() {
+    return request({
+      url: "/auth/oauth/bindable",
+      method: "GET"
+    });
+  }
+  function getOAuthAuthUrl(provider) {
+    return request({
+      url: `/auth/${provider}`,
+      method: "GET"
+    });
+  }
+  function bindOAuth(provider) {
+    return request({
+      url: `/auth/oauth/bind/${provider}`,
+      method: "GET"
+    });
+  }
+  function unbindOAuth(provider) {
+    return request({
+      url: `/auth/oauth/unbind/${provider}`,
+      method: "POST"
+    });
+  }
+  const _sfc_main$x = {
     components: {
       CustomTabbar: __easycom_0
     },
@@ -858,7 +1253,7 @@ if (uni.restoreGlobal) {
           const res = await getUnreadAnnouncements();
           this.unreadCount = ((_a = res.data) == null ? void 0 : _a.unread_count) || 0;
         } catch (e) {
-          formatAppLog("error", "at pages/mine/mine.vue:214", "获取未读公告失败", e);
+          formatAppLog("error", "at pages/mine/mine.vue:224", "获取未读公告失败", e);
         }
       },
       goToLogin() {
@@ -877,6 +1272,13 @@ if (uni.restoreGlobal) {
           return;
         }
         uni.navigateTo({ url: "/pages/domain/list" });
+      },
+      goToVHost() {
+        if (!this.isLoggedIn) {
+          uni.navigateTo({ url: "/pages/login/login" });
+          return;
+        }
+        uni.navigateTo({ url: "/pages/vhost/list" });
       },
       goToRecords() {
         if (!this.isLoggedIn) {
@@ -913,7 +1315,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     var _a, _b, _c, _d, _e, _f, _g, _h;
     const _component_custom_tabbar = resolveEasycom(vue.resolveDynamicComponent("custom-tabbar"), __easycom_0);
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
@@ -1055,17 +1457,17 @@ if (uni.restoreGlobal) {
             ]),
             vue.createElementVNode("view", {
               class: "action-item",
-              onClick: _cache[2] || (_cache[2] = (...args) => $options.goToRecharge && $options.goToRecharge(...args))
+              onClick: _cache[2] || (_cache[2] = (...args) => $options.goToVHost && $options.goToVHost(...args))
             }, [
-              vue.createElementVNode("view", { class: "action-icon" }, "💳"),
-              vue.createElementVNode("text", { class: "action-text" }, "充值")
+              vue.createElementVNode("view", { class: "action-icon" }, "🖥️"),
+              vue.createElementVNode("text", { class: "action-text" }, "虚拟主机")
             ]),
             vue.createElementVNode("view", {
               class: "action-item",
-              onClick: _cache[3] || (_cache[3] = (...args) => $options.goToRecords && $options.goToRecords(...args))
+              onClick: _cache[3] || (_cache[3] = (...args) => $options.goToRecharge && $options.goToRecharge(...args))
             }, [
-              vue.createElementVNode("view", { class: "action-icon" }, "📋"),
-              vue.createElementVNode("text", { class: "action-text" }, "记录")
+              vue.createElementVNode("view", { class: "action-icon" }, "💳"),
+              vue.createElementVNode("text", { class: "action-text" }, "充值")
             ]),
             vue.createElementVNode("view", {
               class: "action-item",
@@ -1108,7 +1510,20 @@ if (uni.restoreGlobal) {
               ]),
               vue.createElementVNode("view", {
                 class: "menu-item",
-                onClick: _cache[6] || (_cache[6] = (...args) => $options.goToRecords && $options.goToRecords(...args))
+                onClick: _cache[6] || (_cache[6] = (...args) => $options.goToVHost && $options.goToVHost(...args))
+              }, [
+                vue.createElementVNode("view", { class: "menu-icon-wrap purple" }, [
+                  vue.createElementVNode("text", { class: "menu-icon" }, "🖥️")
+                ]),
+                vue.createElementVNode("view", { class: "menu-info" }, [
+                  vue.createElementVNode("text", { class: "menu-title" }, "虚拟主机"),
+                  vue.createElementVNode("text", { class: "menu-desc" }, "管理您的虚拟主机")
+                ]),
+                vue.createElementVNode("text", { class: "menu-arrow" }, "›")
+              ]),
+              vue.createElementVNode("view", {
+                class: "menu-item",
+                onClick: _cache[7] || (_cache[7] = (...args) => $options.goToRecords && $options.goToRecords(...args))
               }, [
                 vue.createElementVNode("view", { class: "menu-icon-wrap green" }, [
                   vue.createElementVNode("text", { class: "menu-icon" }, "📝")
@@ -1121,7 +1536,7 @@ if (uni.restoreGlobal) {
               ]),
               vue.createElementVNode("view", {
                 class: "menu-item",
-                onClick: _cache[7] || (_cache[7] = (...args) => $options.goToSettings && $options.goToSettings(...args))
+                onClick: _cache[8] || (_cache[8] = (...args) => $options.goToSettings && $options.goToSettings(...args))
               }, [
                 vue.createElementVNode("view", { class: "menu-icon-wrap gray" }, [
                   vue.createElementVNode("text", { class: "menu-icon" }, "⚙️")
@@ -1143,7 +1558,7 @@ if (uni.restoreGlobal) {
               [
                 vue.createElementVNode("view", {
                   class: "menu-item",
-                  onClick: _cache[8] || (_cache[8] = (...args) => $options.goToAdmin && $options.goToAdmin(...args))
+                  onClick: _cache[9] || (_cache[9] = (...args) => $options.goToAdmin && $options.goToAdmin(...args))
                 }, [
                   vue.createElementVNode(
                     "view",
@@ -1192,7 +1607,7 @@ if (uni.restoreGlobal) {
           }, [
             vue.createElementVNode("view", {
               class: "logout-btn",
-              onClick: _cache[9] || (_cache[9] = (...args) => $options.handleLogout && $options.handleLogout(...args))
+              onClick: _cache[10] || (_cache[10] = (...args) => $options.handleLogout && $options.handleLogout(...args))
             }, [
               vue.createElementVNode("text", { class: "logout-text" }, "退出登录")
             ])
@@ -1210,8 +1625,8 @@ if (uni.restoreGlobal) {
       vue.createVNode(_component_custom_tabbar, { current: "/pages/mine/mine" })
     ]);
   }
-  const PagesMineMine = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$s], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/mine/mine.vue"]]);
-  const _sfc_main$s = {
+  const PagesMineMine = /* @__PURE__ */ _export_sfc(_sfc_main$x, [["render", _sfc_render$w], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/mine/mine.vue"]]);
+  const _sfc_main$w = {
     data() {
       return {
         form: {
@@ -1222,11 +1637,24 @@ if (uni.restoreGlobal) {
         },
         needCaptcha: true,
         // 始终需要验证码
-        captchaUrl: ""
+        captchaUrl: "",
+        // OAuth 第三方登录
+        oauthProviders: {
+          github: { enabled: false },
+          google: { enabled: false },
+          nodeloc: { enabled: false }
+        }
       };
+    },
+    computed: {
+      hasOAuthProvider() {
+        return this.oauthProviders.github.enabled || this.oauthProviders.google.enabled || this.oauthProviders.nodeloc.enabled;
+      }
     },
     onLoad() {
       this.refreshCaptcha();
+      this.checkOAuthProviders();
+      this.handleOAuthCallback();
     },
     methods: {
       async refreshCaptcha() {
@@ -1236,7 +1664,7 @@ if (uni.restoreGlobal) {
           this.form.captcha_id = ((_a = res.data) == null ? void 0 : _a.id) || "";
           this.captchaUrl = ((_b = res.data) == null ? void 0 : _b.image) || "";
         } catch (e) {
-          formatAppLog("error", "at pages/login/login.vue:96", "获取验证码失败", e);
+          formatAppLog("error", "at pages/login/login.vue:136", "获取验证码失败", e);
         }
       },
       async handleLogin() {
@@ -1281,10 +1709,62 @@ if (uni.restoreGlobal) {
       },
       goToForgotPassword() {
         uni.navigateTo({ url: "/pages/forgot-password/forgot-password" });
+      },
+      // OAuth 相关方法
+      async checkOAuthProviders() {
+        var _a, _b, _c;
+        try {
+          const [githubRes, googleRes, nodelocRes] = await Promise.all([
+            getGithubStatus().catch(() => ({ data: { enabled: false } })),
+            getGoogleStatus().catch(() => ({ data: { enabled: false } })),
+            getNodelocStatus().catch(() => ({ data: { enabled: false } }))
+          ]);
+          this.oauthProviders = {
+            github: { enabled: ((_a = githubRes.data) == null ? void 0 : _a.enabled) || false },
+            google: { enabled: ((_b = googleRes.data) == null ? void 0 : _b.enabled) || false },
+            nodeloc: { enabled: ((_c = nodelocRes.data) == null ? void 0 : _c.enabled) || false }
+          };
+        } catch (e) {
+          formatAppLog("error", "at pages/login/login.vue:202", "检查OAuth状态失败", e);
+        }
+      },
+      handleOAuthCallback() {
+        const pages = getCurrentPages();
+        const currentPage = pages[pages.length - 1];
+        const options = currentPage.options || {};
+        const providers = ["github", "google", "nodeloc"];
+        for (const provider of providers) {
+          const tokenKey = `${provider}_token`;
+          if (options[tokenKey]) {
+            setToken(options[tokenKey]);
+            uni.showToast({ title: "登录成功", icon: "success" });
+            setTimeout(() => {
+              uni.reLaunch({ url: "/pages/mine/mine" });
+            }, 1500);
+            return;
+          }
+        }
+        if (options.error) {
+          uni.showToast({ title: decodeURIComponent(options.error), icon: "none" });
+        }
+      },
+      async handleOAuthLogin(provider) {
+        var _a;
+        try {
+          uni.showLoading({ title: "跳转中..." });
+          const res = await getOAuthAuthUrl(provider);
+          uni.hideLoading();
+          if ((_a = res.data) == null ? void 0 : _a.url) {
+            plus.runtime.openURL(res.data.url);
+          }
+        } catch (e) {
+          uni.hideLoading();
+          uni.showToast({ title: e.message || "获取授权链接失败", icon: "none" });
+        }
       }
     }
   };
-  function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 顶部装饰 "),
       vue.createElementVNode("view", { class: "header-bg" }, [
@@ -1391,14 +1871,51 @@ if (uni.restoreGlobal) {
           onClick: _cache[6] || (_cache[6] = (...args) => $options.goToRegister && $options.goToRegister(...args))
         }, "立即注册")
       ]),
+      vue.createCommentVNode(" 第三方登录 "),
+      $options.hasOAuthProvider ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "oauth-section"
+      }, [
+        vue.createElementVNode("view", { class: "oauth-divider" }, [
+          vue.createElementVNode("view", { class: "divider-line" }),
+          vue.createElementVNode("text", { class: "divider-text" }, "其他登录方式"),
+          vue.createElementVNode("view", { class: "divider-line" })
+        ]),
+        vue.createElementVNode("view", { class: "oauth-buttons" }, [
+          $data.oauthProviders.github.enabled ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "oauth-btn",
+            onClick: _cache[7] || (_cache[7] = ($event) => $options.handleOAuthLogin("github"))
+          }, [
+            vue.createElementVNode("text", { class: "oauth-btn-icon" }, "🐙"),
+            vue.createElementVNode("text", { class: "oauth-btn-text" }, "GitHub")
+          ])) : vue.createCommentVNode("v-if", true),
+          $data.oauthProviders.google.enabled ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 1,
+            class: "oauth-btn",
+            onClick: _cache[8] || (_cache[8] = ($event) => $options.handleOAuthLogin("google"))
+          }, [
+            vue.createElementVNode("text", { class: "oauth-btn-icon" }, "🔍"),
+            vue.createElementVNode("text", { class: "oauth-btn-text" }, "Google")
+          ])) : vue.createCommentVNode("v-if", true),
+          $data.oauthProviders.nodeloc.enabled ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 2,
+            class: "oauth-btn",
+            onClick: _cache[9] || (_cache[9] = ($event) => $options.handleOAuthLogin("nodeloc"))
+          }, [
+            vue.createElementVNode("text", { class: "oauth-btn-icon" }, "🌐"),
+            vue.createElementVNode("text", { class: "oauth-btn-text" }, "NodeLoc")
+          ])) : vue.createCommentVNode("v-if", true)
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
       vue.createCommentVNode(" 底部信息 "),
       vue.createElementVNode("view", { class: "footer" }, [
         vue.createElementVNode("text", { class: "footer-text" }, "© 2024 六趣DNS · 安全可靠的DNS服务")
       ])
     ]);
   }
-  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$r], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/login/login.vue"]]);
-  const _sfc_main$r = {
+  const PagesLoginLogin = /* @__PURE__ */ _export_sfc(_sfc_main$w, [["render", _sfc_render$v], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/login/login.vue"]]);
+  const _sfc_main$v = {
     data() {
       return {
         smtpConfigured: true,
@@ -1548,7 +2065,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 顶部装饰 "),
       vue.createElementVNode("view", { class: "header-bg" }, [
@@ -1834,8 +2351,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$q], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/register/register.vue"]]);
-  const _sfc_main$q = {
+  const PagesRegisterRegister = /* @__PURE__ */ _export_sfc(_sfc_main$v, [["render", _sfc_render$u], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/register/register.vue"]]);
+  const _sfc_main$u = {
     data() {
       return {
         hasToken: false,
@@ -1927,7 +2444,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 顶部装饰 "),
       vue.createElementVNode("view", { class: "header-bg" }, [
@@ -2142,8 +2659,8 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesForgotPasswordForgotPassword = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$p], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/forgot-password/forgot-password.vue"]]);
-  const _sfc_main$p = {
+  const PagesForgotPasswordForgotPassword = /* @__PURE__ */ _export_sfc(_sfc_main$u, [["render", _sfc_render$t], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/forgot-password/forgot-password.vue"]]);
+  const _sfc_main$t = {
     data() {
       return {
         subdomains: [],
@@ -2180,7 +2697,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -2300,7 +2817,7 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesDomainList = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$o], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/domain/list.vue"]]);
+  const PagesDomainList = /* @__PURE__ */ _export_sfc(_sfc_main$t, [["render", _sfc_render$s], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/domain/list.vue"]]);
   function validateCoupon(data) {
     return request({
       url: "/coupon/validate",
@@ -2308,7 +2825,7 @@ if (uni.restoreGlobal) {
       data
     });
   }
-  const _sfc_main$o = {
+  const _sfc_main$s = {
     data() {
       return {
         domains: [],
@@ -2431,7 +2948,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -2764,7 +3281,7 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesDomainPurchase = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$n], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/domain/purchase.vue"]]);
+  const PagesDomainPurchase = /* @__PURE__ */ _export_sfc(_sfc_main$s, [["render", _sfc_render$r], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/domain/purchase.vue"]]);
   function getDnsRecords(subdomainId) {
     return request({
       url: `/subdomains/${subdomainId}/records`,
@@ -2791,7 +3308,7 @@ if (uni.restoreGlobal) {
       method: "DELETE"
     });
   }
-  const _sfc_main$n = {
+  const _sfc_main$r = {
     data() {
       return {
         subdomainId: null,
@@ -2952,7 +3469,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -3323,7 +3840,7 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesDomainDetail = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$m], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/domain/detail.vue"]]);
+  const PagesDomainDetail = /* @__PURE__ */ _export_sfc(_sfc_main$r, [["render", _sfc_render$q], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/domain/detail.vue"]]);
   function verifyRedeemCode(data) {
     return request({
       url: "/redeem/verify",
@@ -3339,7 +3856,7 @@ if (uni.restoreGlobal) {
     });
   }
   const redeemCode = useRedeemCode;
-  const _sfc_main$m = {
+  const _sfc_main$q = {
     data() {
       return {
         userInfo: null,
@@ -3403,7 +3920,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     var _a, _b;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 余额展示区 "),
@@ -3516,7 +4033,7 @@ if (uni.restoreGlobal) {
       ])
     ]);
   }
-  const PagesRechargeRecharge = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/recharge/recharge.vue"]]);
+  const PagesRechargeRecharge = /* @__PURE__ */ _export_sfc(_sfc_main$q, [["render", _sfc_render$p], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/recharge/recharge.vue"]]);
   function getPurchaseRecords(params = {}) {
     return request({
       url: "/purchase-records",
@@ -3524,7 +4041,7 @@ if (uni.restoreGlobal) {
       data: params
     });
   }
-  const _sfc_main$l = {
+  const _sfc_main$p = {
     data() {
       return {
         records: [],
@@ -3581,7 +4098,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -3700,8 +4217,8 @@ if (uni.restoreGlobal) {
       ], 40, ["refresher-triggered"])
     ]);
   }
-  const PagesRecordRecord = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/record/record.vue"]]);
-  const _sfc_main$k = {
+  const PagesRecordRecord = /* @__PURE__ */ _export_sfc(_sfc_main$p, [["render", _sfc_render$o], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/record/record.vue"]]);
+  const _sfc_main$o = {
     data() {
       return {
         announcements: [],
@@ -3750,7 +4267,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -3874,8 +4391,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAnnouncementList = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/announcement/list.vue"]]);
-  const _sfc_main$j = {
+  const PagesAnnouncementList = /* @__PURE__ */ _export_sfc(_sfc_main$o, [["render", _sfc_render$n], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/announcement/list.vue"]]);
+  const _sfc_main$n = {
     data() {
       return {
         isLoggedIn: false,
@@ -4011,7 +4528,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -4192,7 +4709,7 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesSettingsSettings = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/settings/settings.vue"]]);
+  const PagesSettingsSettings = /* @__PURE__ */ _export_sfc(_sfc_main$n, [["render", _sfc_render$m], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/settings/settings.vue"]]);
   function setup2FA() {
     return request({
       url: "/security/2fa/setup",
@@ -4279,9 +4796,15 @@ if (uni.restoreGlobal) {
       data
     });
   }
-  const _sfc_main$i = {
+  const _sfc_main$m = {
     data() {
       return {
+        // OAuth 第三方账号绑定
+        oauthStatus: {
+          github: { enabled: false, bound: false },
+          google: { enabled: false, bound: false },
+          nodeloc: { enabled: false, bound: false }
+        },
         // 2FA
         twoFAEnabled: false,
         showSetup2FAModal: false,
@@ -4316,21 +4839,88 @@ if (uni.restoreGlobal) {
     },
     onLoad() {
       this.loadData();
+      this.handleOAuthCallback();
     },
     methods: {
       async loadData() {
         uni.showLoading({ title: "加载中..." });
         try {
           await Promise.all([
+            this.loadOAuthStatus(),
             this.load2FAStatus(),
             this.loadApiKeys(),
             this.loadIpRestriction(),
             this.loadLoginHistory()
           ]);
         } catch (e) {
-          formatAppLog("error", "at pages/settings/security.vue:350", "加载数据失败", e);
+          formatAppLog("error", "at pages/settings/security.vue:438", "加载数据失败", e);
         }
         uni.hideLoading();
+      },
+      // OAuth 相关
+      async loadOAuthStatus() {
+        try {
+          const res = await getOAuthBindable();
+          if (res.data) {
+            this.oauthStatus = {
+              github: res.data.github || { enabled: false, bound: false },
+              google: res.data.google || { enabled: false, bound: false },
+              nodeloc: res.data.nodeloc || { enabled: false, bound: false }
+            };
+          }
+        } catch (e) {
+          formatAppLog("error", "at pages/settings/security.vue:455", "获取OAuth状态失败", e);
+        }
+      },
+      handleOAuthCallback() {
+        const pages = getCurrentPages();
+        const currentPage = pages[pages.length - 1];
+        const options = currentPage.options || {};
+        if (options.bind_success) {
+          uni.showToast({ title: "绑定成功", icon: "success" });
+          this.loadOAuthStatus();
+        } else if (options.error) {
+          uni.showToast({ title: decodeURIComponent(options.error), icon: "none" });
+        }
+      },
+      async handleBindOAuth(provider) {
+        var _a;
+        try {
+          uni.showLoading({ title: "跳转中..." });
+          const res = await bindOAuth(provider);
+          uni.hideLoading();
+          if ((_a = res.data) == null ? void 0 : _a.url) {
+            plus.runtime.openURL(res.data.url);
+          }
+        } catch (e) {
+          uni.hideLoading();
+          uni.showToast({ title: e.message || "获取授权链接失败", icon: "none" });
+        }
+      },
+      handleUnbindOAuth(provider) {
+        const providerNames = {
+          github: "GitHub",
+          google: "Google",
+          nodeloc: "NodeLoc"
+        };
+        uni.showModal({
+          title: "确认解绑",
+          content: `确定要解绑 ${providerNames[provider]} 账号吗？`,
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "解绑中..." });
+                await unbindOAuth(provider);
+                uni.hideLoading();
+                uni.showToast({ title: "解绑成功", icon: "success" });
+                this.loadOAuthStatus();
+              } catch (e) {
+                uni.hideLoading();
+                uni.showToast({ title: e.message || "解绑失败", icon: "none" });
+              }
+            }
+          }
+        });
       },
       async load2FAStatus() {
         var _a;
@@ -4338,7 +4928,7 @@ if (uni.restoreGlobal) {
           const res = await get2FAStatus();
           this.twoFAEnabled = ((_a = res.data) == null ? void 0 : _a.enabled) || false;
         } catch (e) {
-          formatAppLog("error", "at pages/settings/security.vue:360", "获取2FA状态失败", e);
+          formatAppLog("error", "at pages/settings/security.vue:526", "获取2FA状态失败", e);
         }
       },
       async loadApiKeys() {
@@ -4349,7 +4939,7 @@ if (uni.restoreGlobal) {
           this.apiEnabled = ((_b = res.data) == null ? void 0 : _b.api_enabled) || false;
           this.apiIpWhitelist = ((_c = res.data) == null ? void 0 : _c.api_ip_whitelist) || [];
         } catch (e) {
-          formatAppLog("error", "at pages/settings/security.vue:371", "获取API密钥失败", e);
+          formatAppLog("error", "at pages/settings/security.vue:537", "获取API密钥失败", e);
         }
       },
       async loadIpRestriction() {
@@ -4358,7 +4948,7 @@ if (uni.restoreGlobal) {
           const res = await getIpRestriction();
           this.allowedIps = ((_a = res.data) == null ? void 0 : _a.allowed_ips) || [];
         } catch (e) {
-          formatAppLog("error", "at pages/settings/security.vue:380", "获取IP限制失败", e);
+          formatAppLog("error", "at pages/settings/security.vue:546", "获取IP限制失败", e);
         }
       },
       async loadLoginHistory() {
@@ -4367,7 +4957,7 @@ if (uni.restoreGlobal) {
           const res = await getLoginHistory();
           this.loginHistory = ((_a = res.data) == null ? void 0 : _a.sessions) || res.data || [];
         } catch (e) {
-          formatAppLog("error", "at pages/settings/security.vue:389", "获取登录历史失败", e);
+          formatAppLog("error", "at pages/settings/security.vue:555", "获取登录历史失败", e);
         }
       },
       // 2FA 相关
@@ -4533,7 +5123,7 @@ if (uni.restoreGlobal) {
           await updateApiWhitelist({ ip_whitelist: this.apiIpWhitelist });
           uni.showToast({ title: "已保存", icon: "success" });
         } catch (e) {
-          formatAppLog("error", "at pages/settings/security.vue:563", "保存失败", e);
+          formatAppLog("error", "at pages/settings/security.vue:729", "保存失败", e);
         }
       },
       // 登录 IP 限制相关
@@ -4559,12 +5149,12 @@ if (uni.restoreGlobal) {
           await updateIpRestriction({ allowed_ips: this.allowedIps });
           uni.showToast({ title: "已保存", icon: "success" });
         } catch (e) {
-          formatAppLog("error", "at pages/settings/security.vue:592", "保存失败", e);
+          formatAppLog("error", "at pages/settings/security.vue:758", "保存失败", e);
         }
       }
     }
   };
-  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -4845,13 +5435,137 @@ if (uni.restoreGlobal) {
             ])
           ])
         ]),
+        vue.createCommentVNode(" 第三方账号绑定 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "🔗 第三方账号绑定")
+          ]),
+          vue.createElementVNode("view", { class: "section-content" }, [
+            vue.createElementVNode("text", { class: "section-desc" }, "绑定第三方账号后，可以使用该账号快速登录。"),
+            vue.createCommentVNode(" GitHub "),
+            $data.oauthStatus.github.enabled ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "oauth-item"
+            }, [
+              vue.createElementVNode("view", { class: "oauth-info" }, [
+                vue.createElementVNode("text", { class: "oauth-icon" }, "🐙"),
+                vue.createElementVNode("view", { class: "oauth-detail" }, [
+                  vue.createElementVNode("text", { class: "oauth-name" }, "GitHub"),
+                  vue.createElementVNode(
+                    "text",
+                    {
+                      class: vue.normalizeClass(["oauth-status", $data.oauthStatus.github.bound ? "bound" : "unbound"])
+                    },
+                    vue.toDisplayString($data.oauthStatus.github.bound ? "已绑定" : "未绑定"),
+                    3
+                    /* TEXT, CLASS */
+                  )
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "oauth-action" }, [
+                !$data.oauthStatus.github.bound ? (vue.openBlock(), vue.createElementBlock("view", {
+                  key: 0,
+                  class: "action-btn primary",
+                  onClick: _cache[11] || (_cache[11] = ($event) => $options.handleBindOAuth("github"))
+                }, [
+                  vue.createElementVNode("text", null, "绑定")
+                ])) : (vue.openBlock(), vue.createElementBlock("view", {
+                  key: 1,
+                  class: "action-btn danger",
+                  onClick: _cache[12] || (_cache[12] = ($event) => $options.handleUnbindOAuth("github"))
+                }, [
+                  vue.createElementVNode("text", null, "解绑")
+                ]))
+              ])
+            ])) : vue.createCommentVNode("v-if", true),
+            vue.createCommentVNode(" Google "),
+            $data.oauthStatus.google.enabled ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 1,
+              class: "oauth-item"
+            }, [
+              vue.createElementVNode("view", { class: "oauth-info" }, [
+                vue.createElementVNode("text", { class: "oauth-icon" }, "🔍"),
+                vue.createElementVNode("view", { class: "oauth-detail" }, [
+                  vue.createElementVNode("text", { class: "oauth-name" }, "Google"),
+                  vue.createElementVNode(
+                    "text",
+                    {
+                      class: vue.normalizeClass(["oauth-status", $data.oauthStatus.google.bound ? "bound" : "unbound"])
+                    },
+                    vue.toDisplayString($data.oauthStatus.google.bound ? "已绑定" : "未绑定"),
+                    3
+                    /* TEXT, CLASS */
+                  )
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "oauth-action" }, [
+                !$data.oauthStatus.google.bound ? (vue.openBlock(), vue.createElementBlock("view", {
+                  key: 0,
+                  class: "action-btn primary",
+                  onClick: _cache[13] || (_cache[13] = ($event) => $options.handleBindOAuth("google"))
+                }, [
+                  vue.createElementVNode("text", null, "绑定")
+                ])) : (vue.openBlock(), vue.createElementBlock("view", {
+                  key: 1,
+                  class: "action-btn danger",
+                  onClick: _cache[14] || (_cache[14] = ($event) => $options.handleUnbindOAuth("google"))
+                }, [
+                  vue.createElementVNode("text", null, "解绑")
+                ]))
+              ])
+            ])) : vue.createCommentVNode("v-if", true),
+            vue.createCommentVNode(" NodeLoc "),
+            $data.oauthStatus.nodeloc.enabled ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 2,
+              class: "oauth-item"
+            }, [
+              vue.createElementVNode("view", { class: "oauth-info" }, [
+                vue.createElementVNode("text", { class: "oauth-icon" }, "🌐"),
+                vue.createElementVNode("view", { class: "oauth-detail" }, [
+                  vue.createElementVNode("text", { class: "oauth-name" }, "NodeLoc"),
+                  vue.createElementVNode(
+                    "text",
+                    {
+                      class: vue.normalizeClass(["oauth-status", $data.oauthStatus.nodeloc.bound ? "bound" : "unbound"])
+                    },
+                    vue.toDisplayString($data.oauthStatus.nodeloc.bound ? "已绑定" : "未绑定"),
+                    3
+                    /* TEXT, CLASS */
+                  )
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "oauth-action" }, [
+                !$data.oauthStatus.nodeloc.bound ? (vue.openBlock(), vue.createElementBlock("view", {
+                  key: 0,
+                  class: "action-btn primary",
+                  onClick: _cache[15] || (_cache[15] = ($event) => $options.handleBindOAuth("nodeloc"))
+                }, [
+                  vue.createElementVNode("text", null, "绑定")
+                ])) : (vue.openBlock(), vue.createElementBlock("view", {
+                  key: 1,
+                  class: "action-btn danger",
+                  onClick: _cache[16] || (_cache[16] = ($event) => $options.handleUnbindOAuth("nodeloc"))
+                }, [
+                  vue.createElementVNode("text", null, "解绑")
+                ]))
+              ])
+            ])) : vue.createCommentVNode("v-if", true),
+            vue.createCommentVNode(" 无可用的第三方登录 "),
+            !$data.oauthStatus.github.enabled && !$data.oauthStatus.google.enabled && !$data.oauthStatus.nodeloc.enabled ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 3,
+              class: "empty-tip"
+            }, [
+              vue.createElementVNode("text", null, "暂无可用的第三方登录方式")
+            ])) : vue.createCommentVNode("v-if", true)
+          ])
+        ]),
         vue.createCommentVNode(" 登录历史 "),
         vue.createElementVNode("view", { class: "section" }, [
           vue.createElementVNode("view", { class: "section-header" }, [
             vue.createElementVNode("text", { class: "section-title" }, "📋 登录历史"),
             vue.createElementVNode("view", {
               class: "refresh-btn",
-              onClick: _cache[11] || (_cache[11] = (...args) => $options.loadLoginHistory && $options.loadLoginHistory(...args))
+              onClick: _cache[17] || (_cache[17] = (...args) => $options.loadLoginHistory && $options.loadLoginHistory(...args))
             }, [
               vue.createElementVNode("text", null, "刷新")
             ])
@@ -4912,7 +5626,7 @@ if (uni.restoreGlobal) {
       $data.showSetup2FAModal ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 0,
         class: "modal",
-        onClick: _cache[15] || (_cache[15] = vue.withModifiers(($event) => $data.showSetup2FAModal = false, ["self"]))
+        onClick: _cache[21] || (_cache[21] = vue.withModifiers(($event) => $data.showSetup2FAModal = false, ["self"]))
       }, [
         vue.createElementVNode("view", { class: "modal-content large" }, [
           vue.createElementVNode("text", { class: "modal-title" }, "启用双因素认证"),
@@ -4942,7 +5656,7 @@ if (uni.restoreGlobal) {
               {
                 class: "modal-input",
                 type: "number",
-                "onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => $data.verifyCode = $event),
+                "onUpdate:modelValue": _cache[18] || (_cache[18] = ($event) => $data.verifyCode = $event),
                 placeholder: "6位验证码",
                 maxlength: "6"
               },
@@ -4956,13 +5670,13 @@ if (uni.restoreGlobal) {
           vue.createElementVNode("view", { class: "modal-btns" }, [
             vue.createElementVNode("view", {
               class: "modal-btn cancel",
-              onClick: _cache[13] || (_cache[13] = ($event) => $data.showSetup2FAModal = false)
+              onClick: _cache[19] || (_cache[19] = ($event) => $data.showSetup2FAModal = false)
             }, [
               vue.createElementVNode("text", null, "取消")
             ]),
             vue.createElementVNode("view", {
               class: "modal-btn confirm",
-              onClick: _cache[14] || (_cache[14] = (...args) => $options.enable2FA && $options.enable2FA(...args))
+              onClick: _cache[20] || (_cache[20] = (...args) => $options.enable2FA && $options.enable2FA(...args))
             }, [
               vue.createElementVNode("text", null, "确认启用")
             ])
@@ -4973,7 +5687,7 @@ if (uni.restoreGlobal) {
       $data.showDisable2FAModal ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 1,
         class: "modal",
-        onClick: _cache[20] || (_cache[20] = vue.withModifiers(($event) => $data.showDisable2FAModal = false, ["self"]))
+        onClick: _cache[26] || (_cache[26] = vue.withModifiers(($event) => $data.showDisable2FAModal = false, ["self"]))
       }, [
         vue.createElementVNode("view", { class: "modal-content" }, [
           vue.createElementVNode("text", { class: "modal-title" }, "禁用双因素认证"),
@@ -4984,7 +5698,7 @@ if (uni.restoreGlobal) {
               {
                 class: "modal-input",
                 type: "password",
-                "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => $data.disableForm.password = $event),
+                "onUpdate:modelValue": _cache[22] || (_cache[22] = ($event) => $data.disableForm.password = $event),
                 placeholder: "请输入密码"
               },
               null,
@@ -5001,7 +5715,7 @@ if (uni.restoreGlobal) {
               {
                 class: "modal-input",
                 type: "number",
-                "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => $data.disableForm.code = $event),
+                "onUpdate:modelValue": _cache[23] || (_cache[23] = ($event) => $data.disableForm.code = $event),
                 placeholder: "6位验证码",
                 maxlength: "6"
               },
@@ -5015,13 +5729,13 @@ if (uni.restoreGlobal) {
           vue.createElementVNode("view", { class: "modal-btns" }, [
             vue.createElementVNode("view", {
               class: "modal-btn cancel",
-              onClick: _cache[18] || (_cache[18] = ($event) => $data.showDisable2FAModal = false)
+              onClick: _cache[24] || (_cache[24] = ($event) => $data.showDisable2FAModal = false)
             }, [
               vue.createElementVNode("text", null, "取消")
             ]),
             vue.createElementVNode("view", {
               class: "modal-btn confirm danger",
-              onClick: _cache[19] || (_cache[19] = (...args) => $options.disable2FA && $options.disable2FA(...args))
+              onClick: _cache[25] || (_cache[25] = (...args) => $options.disable2FA && $options.disable2FA(...args))
             }, [
               vue.createElementVNode("text", null, "确认禁用")
             ])
@@ -5032,7 +5746,7 @@ if (uni.restoreGlobal) {
       $data.showBackupCodesModal ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 2,
         class: "modal",
-        onClick: _cache[24] || (_cache[24] = vue.withModifiers(($event) => $data.showBackupCodesModal = false, ["self"]))
+        onClick: _cache[30] || (_cache[30] = vue.withModifiers(($event) => $data.showBackupCodesModal = false, ["self"]))
       }, [
         vue.createElementVNode("view", { class: "modal-content" }, [
           vue.createElementVNode("text", { class: "modal-title" }, "备用码管理"),
@@ -5070,7 +5784,7 @@ if (uni.restoreGlobal) {
               {
                 class: "modal-input",
                 type: "number",
-                "onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => $data.backupCodeVerify = $event),
+                "onUpdate:modelValue": _cache[27] || (_cache[27] = ($event) => $data.backupCodeVerify = $event),
                 placeholder: "6位验证码",
                 maxlength: "6"
               },
@@ -5084,7 +5798,7 @@ if (uni.restoreGlobal) {
           vue.createElementVNode("view", { class: "modal-btns" }, [
             vue.createElementVNode("view", {
               class: "modal-btn cancel",
-              onClick: _cache[22] || (_cache[22] = ($event) => {
+              onClick: _cache[28] || (_cache[28] = ($event) => {
                 $data.showBackupCodesModal = false;
                 $data.backupCodes = [];
               })
@@ -5094,7 +5808,7 @@ if (uni.restoreGlobal) {
             !$data.backupCodes.length ? (vue.openBlock(), vue.createElementBlock("view", {
               key: 0,
               class: "modal-btn confirm",
-              onClick: _cache[23] || (_cache[23] = (...args) => $options.regenerateBackupCodes && $options.regenerateBackupCodes(...args))
+              onClick: _cache[29] || (_cache[29] = (...args) => $options.regenerateBackupCodes && $options.regenerateBackupCodes(...args))
             }, [
               vue.createElementVNode("text", null, "生成备用码")
             ])) : vue.createCommentVNode("v-if", true)
@@ -5105,7 +5819,7 @@ if (uni.restoreGlobal) {
       $data.showViewSecretModal ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 3,
         class: "modal",
-        onClick: _cache[28] || (_cache[28] = vue.withModifiers(($event) => $data.showViewSecretModal = false, ["self"]))
+        onClick: _cache[34] || (_cache[34] = vue.withModifiers(($event) => $data.showViewSecretModal = false, ["self"]))
       }, [
         vue.createElementVNode("view", { class: "modal-content" }, [
           vue.createElementVNode("text", { class: "modal-title" }, "查看 API Secret"),
@@ -5119,7 +5833,7 @@ if (uni.restoreGlobal) {
               {
                 class: "modal-input",
                 type: "password",
-                "onUpdate:modelValue": _cache[25] || (_cache[25] = ($event) => $data.viewSecretPassword = $event),
+                "onUpdate:modelValue": _cache[31] || (_cache[31] = ($event) => $data.viewSecretPassword = $event),
                 placeholder: "请输入密码"
               },
               null,
@@ -5143,14 +5857,14 @@ if (uni.restoreGlobal) {
           vue.createElementVNode("view", { class: "modal-btns" }, [
             vue.createElementVNode("view", {
               class: "modal-btn cancel",
-              onClick: _cache[26] || (_cache[26] = (...args) => $options.closeViewSecret && $options.closeViewSecret(...args))
+              onClick: _cache[32] || (_cache[32] = (...args) => $options.closeViewSecret && $options.closeViewSecret(...args))
             }, [
               vue.createElementVNode("text", null, "关闭")
             ]),
             !$data.viewedSecret ? (vue.openBlock(), vue.createElementBlock("view", {
               key: 0,
               class: "modal-btn confirm",
-              onClick: _cache[27] || (_cache[27] = (...args) => $options.viewSecret && $options.viewSecret(...args))
+              onClick: _cache[33] || (_cache[33] = (...args) => $options.viewSecret && $options.viewSecret(...args))
             }, [
               vue.createElementVNode("text", null, "查看")
             ])) : vue.createCommentVNode("v-if", true)
@@ -5161,7 +5875,7 @@ if (uni.restoreGlobal) {
       $data.showResetApiModal ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 4,
         class: "modal",
-        onClick: _cache[32] || (_cache[32] = vue.withModifiers(($event) => $data.showResetApiModal = false, ["self"]))
+        onClick: _cache[38] || (_cache[38] = vue.withModifiers(($event) => $data.showResetApiModal = false, ["self"]))
       }, [
         vue.createElementVNode("view", { class: "modal-content" }, [
           vue.createElementVNode("text", { class: "modal-title" }, "重置 API 密钥"),
@@ -5173,7 +5887,7 @@ if (uni.restoreGlobal) {
               {
                 class: "modal-input",
                 type: "password",
-                "onUpdate:modelValue": _cache[29] || (_cache[29] = ($event) => $data.resetApiPassword = $event),
+                "onUpdate:modelValue": _cache[35] || (_cache[35] = ($event) => $data.resetApiPassword = $event),
                 placeholder: "请输入密码"
               },
               null,
@@ -5186,13 +5900,13 @@ if (uni.restoreGlobal) {
           vue.createElementVNode("view", { class: "modal-btns" }, [
             vue.createElementVNode("view", {
               class: "modal-btn cancel",
-              onClick: _cache[30] || (_cache[30] = ($event) => $data.showResetApiModal = false)
+              onClick: _cache[36] || (_cache[36] = ($event) => $data.showResetApiModal = false)
             }, [
               vue.createElementVNode("text", null, "取消")
             ]),
             vue.createElementVNode("view", {
               class: "modal-btn confirm danger",
-              onClick: _cache[31] || (_cache[31] = (...args) => $options.resetApiKey && $options.resetApiKey(...args))
+              onClick: _cache[37] || (_cache[37] = (...args) => $options.resetApiKey && $options.resetApiKey(...args))
             }, [
               vue.createElementVNode("text", null, "确认重置")
             ])
@@ -5203,7 +5917,7 @@ if (uni.restoreGlobal) {
       $data.showNewKeyModal ? (vue.openBlock(), vue.createElementBlock("view", {
         key: 5,
         class: "modal",
-        onClick: _cache[34] || (_cache[34] = vue.withModifiers((...args) => $options.closeNewKeyModal && $options.closeNewKeyModal(...args), ["self"]))
+        onClick: _cache[40] || (_cache[40] = vue.withModifiers((...args) => $options.closeNewKeyModal && $options.closeNewKeyModal(...args), ["self"]))
       }, [
         vue.createElementVNode("view", { class: "modal-content" }, [
           vue.createElementVNode("text", { class: "modal-title" }, "🎉 API 密钥已生成"),
@@ -5233,7 +5947,7 @@ if (uni.restoreGlobal) {
           vue.createElementVNode("view", { class: "modal-btns" }, [
             vue.createElementVNode("view", {
               class: "modal-btn confirm",
-              onClick: _cache[33] || (_cache[33] = (...args) => $options.closeNewKeyModal && $options.closeNewKeyModal(...args))
+              onClick: _cache[39] || (_cache[39] = (...args) => $options.closeNewKeyModal && $options.closeNewKeyModal(...args))
             }, [
               vue.createElementVNode("text", null, "我已保存")
             ])
@@ -5242,7 +5956,7 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesSettingsSecurity = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/settings/security.vue"]]);
+  const PagesSettingsSecurity = /* @__PURE__ */ _export_sfc(_sfc_main$m, [["render", _sfc_render$l], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/settings/security.vue"]]);
   function getAdminStats() {
     return request({
       url: "/admin/stats",
@@ -5508,6 +6222,13 @@ if (uni.restoreGlobal) {
       data: { email }
     });
   }
+  function testAliyunDM(email) {
+    return request({
+      url: "/admin/settings/test-aliyun-dm",
+      method: "POST",
+      data: email ? { email } : {}
+    });
+  }
   function getAdminLogs(params = {}) {
     return request({
       url: "/admin/logs",
@@ -5672,7 +6393,118 @@ if (uni.restoreGlobal) {
       method: "DELETE"
     });
   }
-  const _sfc_main$h = {
+  function getVHostServers() {
+    return request({
+      url: "/admin/vhost/servers",
+      method: "GET"
+    });
+  }
+  function addVHostServer(data) {
+    return request({
+      url: "/admin/vhost/servers",
+      method: "POST",
+      data
+    });
+  }
+  function updateVHostServer(serverId, data) {
+    return request({
+      url: `/admin/vhost/servers/${serverId}`,
+      method: "PUT",
+      data
+    });
+  }
+  function deleteVHostServer(serverId) {
+    return request({
+      url: `/admin/vhost/servers/${serverId}`,
+      method: "DELETE"
+    });
+  }
+  function testVHostServer(serverId) {
+    return request({
+      url: `/admin/vhost/servers/${serverId}/test`,
+      method: "POST"
+    });
+  }
+  function getAdminVHostPlans() {
+    return request({
+      url: "/admin/vhost/plans",
+      method: "GET"
+    });
+  }
+  function createVHostPlan(data) {
+    return request({
+      url: "/admin/vhost/plans",
+      method: "POST",
+      data
+    });
+  }
+  function updateVHostPlan(planId, data) {
+    return request({
+      url: `/admin/vhost/plans/${planId}`,
+      method: "PUT",
+      data
+    });
+  }
+  function deleteVHostPlan(planId) {
+    return request({
+      url: `/admin/vhost/plans/${planId}`,
+      method: "DELETE"
+    });
+  }
+  function getAdminVHostInstances(params = {}) {
+    return request({
+      url: "/admin/vhost/instances",
+      method: "GET",
+      data: params
+    });
+  }
+  function updateVHostInstance(instanceId, data) {
+    return request({
+      url: `/admin/vhost/instances/${instanceId}`,
+      method: "PUT",
+      data
+    });
+  }
+  function deleteVHostInstance(instanceId) {
+    return request({
+      url: `/admin/vhost/instances/${instanceId}`,
+      method: "DELETE"
+    });
+  }
+  function batchDeleteVHostInstances(ids) {
+    return request({
+      url: "/admin/vhost/instances/batch-delete",
+      method: "POST",
+      data: { ids }
+    });
+  }
+  function getAdminVHostOrders(params = {}) {
+    return request({
+      url: "/admin/vhost/orders",
+      method: "GET",
+      data: params
+    });
+  }
+  function deleteVHostOrder(orderId) {
+    return request({
+      url: `/admin/vhost/orders/${orderId}`,
+      method: "DELETE"
+    });
+  }
+  function batchDeleteVHostOrders(ids) {
+    return request({
+      url: "/admin/vhost/orders/batch-delete",
+      method: "POST",
+      data: { ids }
+    });
+  }
+  function getVHostStats() {
+    return request({
+      url: "/admin/vhost/stats",
+      method: "GET"
+    });
+  }
+  const _sfc_main$l = {
     data() {
       return {
         stats: {},
@@ -5702,7 +6534,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -5923,7 +6755,13 @@ if (uni.restoreGlobal) {
               vue.createElementVNode("view", { class: "menu-icon-wrap brown" }, "📦"),
               vue.createElementVNode("text", { class: "menu-text" }, "数据管理")
             ]),
-            vue.createElementVNode("view", { class: "menu-item" }),
+            vue.createElementVNode("view", {
+              class: "menu-item",
+              onClick: _cache[13] || (_cache[13] = ($event) => $options.goTo("/pages/admin/vhost"))
+            }, [
+              vue.createElementVNode("view", { class: "menu-icon-wrap teal" }, "🖥️"),
+              vue.createElementVNode("text", { class: "menu-text" }, "虚拟主机")
+            ]),
             vue.createElementVNode("view", { class: "menu-item" }),
             vue.createElementVNode("view", { class: "menu-item" })
           ])
@@ -5935,7 +6773,7 @@ if (uni.restoreGlobal) {
         vue.createElementVNode("view", { class: "func-list" }, [
           vue.createElementVNode("view", {
             class: "func-item",
-            onClick: _cache[13] || (_cache[13] = ($event) => $options.goTo("/pages/admin/announcements"))
+            onClick: _cache[14] || (_cache[14] = ($event) => $options.goTo("/pages/admin/announcements"))
           }, [
             vue.createElementVNode("view", { class: "func-left" }, [
               vue.createElementVNode("view", { class: "func-icon pink" }, "📢"),
@@ -5948,7 +6786,7 @@ if (uni.restoreGlobal) {
           ]),
           vue.createElementVNode("view", {
             class: "func-item",
-            onClick: _cache[14] || (_cache[14] = ($event) => $options.goTo("/pages/admin/logs"))
+            onClick: _cache[15] || (_cache[15] = ($event) => $options.goTo("/pages/admin/logs"))
           }, [
             vue.createElementVNode("view", { class: "func-left" }, [
               vue.createElementVNode("view", { class: "func-icon brown" }, "📜"),
@@ -5961,7 +6799,7 @@ if (uni.restoreGlobal) {
           ]),
           vue.createElementVNode("view", {
             class: "func-item",
-            onClick: _cache[15] || (_cache[15] = ($event) => $options.goTo("/pages/admin/settings"))
+            onClick: _cache[16] || (_cache[16] = ($event) => $options.goTo("/pages/admin/settings"))
           }, [
             vue.createElementVNode("view", { class: "func-left" }, [
               vue.createElementVNode("view", { class: "func-icon gray" }, "⚙️"),
@@ -5977,8 +6815,8 @@ if (uni.restoreGlobal) {
       vue.createElementVNode("view", { class: "bottom-space" })
     ]);
   }
-  const PagesAdminIndex = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/index.vue"]]);
-  const _sfc_main$g = {
+  const PagesAdminIndex = /* @__PURE__ */ _export_sfc(_sfc_main$l, [["render", _sfc_render$k], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/index.vue"]]);
+  const _sfc_main$k = {
     data() {
       return {
         users: [],
@@ -6136,7 +6974,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -6452,8 +7290,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminUsers = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/users.vue"]]);
-  const _sfc_main$f = {
+  const PagesAdminUsers = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$j], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/users.vue"]]);
+  const _sfc_main$j = {
     data() {
       return {
         domains: [],
@@ -6627,7 +7465,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     var _a, _b;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -6856,8 +7694,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminDomains = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/domains.vue"]]);
-  const _sfc_main$e = {
+  const PagesAdminDomains = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$i], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/domains.vue"]]);
+  const _sfc_main$i = {
     data() {
       return {
         plans: [],
@@ -7067,7 +7905,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -7563,8 +8401,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminPlans = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/plans.vue"]]);
-  const _sfc_main$d = {
+  const PagesAdminPlans = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$h], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/plans.vue"]]);
+  const _sfc_main$h = {
     data() {
       return {
         codes: [],
@@ -7694,7 +8532,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -7957,8 +8795,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminRedeem = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/redeem.vue"]]);
-  const _sfc_main$c = {
+  const PagesAdminRedeem = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$g], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/redeem.vue"]]);
+  const _sfc_main$g = {
     data() {
       return {
         orders: [],
@@ -8013,7 +8851,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -8144,8 +8982,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminOrders = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/orders.vue"]]);
-  const _sfc_main$b = {
+  const PagesAdminOrders = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$f], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/orders.vue"]]);
+  const _sfc_main$f = {
     data() {
       return {
         announcements: [],
@@ -8250,7 +9088,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -8423,11 +9261,18 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminAnnouncements = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/announcements.vue"]]);
-  const _sfc_main$a = {
+  const PagesAdminAnnouncements = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$e], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/announcements.vue"]]);
+  const _sfc_main$e = {
     data() {
       return {
         userInfo: null,
+        // 阿里云区域选项
+        aliyunRegions: [
+          { value: "cn-hangzhou", label: "华东1-杭州" },
+          { value: "cn-beijing", label: "华北2-北京" },
+          { value: "cn-shanghai", label: "华东2-上海" },
+          { value: "ap-southeast-1", label: "新加坡" }
+        ],
         settings: {
           // 站点设置
           site_name: "",
@@ -8460,6 +9305,12 @@ if (uni.restoreGlobal) {
           smtp_user: "",
           smtp_password: "",
           smtp_ssl: "1",
+          // 阿里云邮件推送
+          aliyun_dm_enabled: "0",
+          aliyun_dm_access_key: "",
+          aliyun_dm_access_secret: "",
+          aliyun_dm_region: "cn-hangzhou",
+          aliyun_dm_account: "",
           // 卡密渠道
           redeem_channel_text: "",
           redeem_channel_url: "",
@@ -8472,6 +9323,14 @@ if (uni.restoreGlobal) {
       isDemo() {
         var _a;
         return ((_a = this.userInfo) == null ? void 0 : _a.role) === "demo";
+      },
+      aliyunRegionIndex() {
+        const index = this.aliyunRegions.findIndex((r) => r.value === this.settings.aliyun_dm_region);
+        return index >= 0 ? index : 0;
+      },
+      currentAliyunRegionLabel() {
+        const region = this.aliyunRegions.find((r) => r.value === this.settings.aliyun_dm_region);
+        return region ? region.label : "华东1-杭州";
       }
     },
     onLoad() {
@@ -8496,7 +9355,7 @@ if (uni.restoreGlobal) {
             }
           });
         } catch (e) {
-          formatAppLog("error", "at pages/admin/settings.vue:300", "加载设置失败", e);
+          formatAppLog("error", "at pages/admin/settings.vue:356", "加载设置失败", e);
         }
         uni.hideLoading();
       },
@@ -8528,10 +9387,36 @@ if (uni.restoreGlobal) {
             }
           }
         });
+      },
+      onAliyunRegionChange(e) {
+        this.settings.aliyun_dm_region = this.aliyunRegions[e.detail.value].value;
+      },
+      testAliyunDMConfig() {
+        if (!this.settings.aliyun_dm_access_key || !this.settings.aliyun_dm_access_secret || !this.settings.aliyun_dm_account) {
+          uni.showToast({ title: "请先填写完整配置", icon: "none" });
+          return;
+        }
+        uni.showModal({
+          title: "测试阿里云邮件",
+          editable: true,
+          placeholderText: "输入测试邮箱（留空使用管理员邮箱）",
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "发送中..." });
+                await testAliyunDM(res.content || "");
+                uni.hideLoading();
+                uni.showToast({ title: "发送成功", icon: "success" });
+              } catch (e) {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
       }
     }
   };
-  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -8999,6 +9884,82 @@ if (uni.restoreGlobal) {
             ])
           ])
         ]),
+        vue.createCommentVNode(" 阿里云邮件推送 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "☁️ 阿里云邮件推送"),
+            vue.createElementVNode("text", { class: "section-tip" }, "使用阿里云 DirectMail 服务发送邮件")
+          ]),
+          vue.createElementVNode("view", { class: "section-body" }, [
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "启用阿里云邮件"),
+              vue.createElementVNode("switch", {
+                checked: $data.settings.aliyun_dm_enabled === "1",
+                onChange: _cache[28] || (_cache[28] = (e) => $data.settings.aliyun_dm_enabled = e.detail.value ? "1" : "0"),
+                color: "#4C84FF"
+              }, null, 40, ["checked"])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "Access Key"),
+              vue.withDirectives(vue.createElementVNode("input", {
+                class: "input",
+                "onUpdate:modelValue": _cache[29] || (_cache[29] = ($event) => $data.settings.aliyun_dm_access_key = $event),
+                placeholder: "Access Key ID",
+                disabled: $data.settings.aliyun_dm_enabled !== "1"
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.settings.aliyun_dm_access_key]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "Access Secret"),
+              vue.withDirectives(vue.createElementVNode("input", {
+                class: "input",
+                type: "password",
+                "onUpdate:modelValue": _cache[30] || (_cache[30] = ($event) => $data.settings.aliyun_dm_access_secret = $event),
+                placeholder: "Access Key Secret",
+                disabled: $data.settings.aliyun_dm_enabled !== "1"
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.settings.aliyun_dm_access_secret]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "区域"),
+              vue.createElementVNode("picker", {
+                range: $data.aliyunRegions,
+                "range-key": "label",
+                value: $options.aliyunRegionIndex,
+                onChange: _cache[31] || (_cache[31] = (...args) => $options.onAliyunRegionChange && $options.onAliyunRegionChange(...args)),
+                disabled: $data.settings.aliyun_dm_enabled !== "1"
+              }, [
+                vue.createElementVNode(
+                  "view",
+                  { class: "picker-value" },
+                  vue.toDisplayString($options.currentAliyunRegionLabel),
+                  1
+                  /* TEXT */
+                )
+              ], 40, ["range", "value", "disabled"])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "label" }, "发信地址"),
+              vue.withDirectives(vue.createElementVNode("input", {
+                class: "input",
+                "onUpdate:modelValue": _cache[32] || (_cache[32] = ($event) => $data.settings.aliyun_dm_account = $event),
+                placeholder: "noreply@example.com",
+                disabled: $data.settings.aliyun_dm_enabled !== "1"
+              }, null, 8, ["disabled"]), [
+                [vue.vModelText, $data.settings.aliyun_dm_account]
+              ])
+            ]),
+            $data.settings.aliyun_dm_enabled === "1" ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "action-btn",
+              onClick: _cache[33] || (_cache[33] = (...args) => $options.testAliyunDMConfig && $options.testAliyunDMConfig(...args))
+            }, [
+              vue.createElementVNode("text", null, "📤 测试阿里云邮件")
+            ])) : vue.createCommentVNode("v-if", true)
+          ])
+        ]),
         vue.createCommentVNode(" 卡密渠道 "),
         vue.createElementVNode("view", { class: "section" }, [
           vue.createElementVNode("view", { class: "section-header" }, [
@@ -9011,7 +9972,7 @@ if (uni.restoreGlobal) {
                 "input",
                 {
                   class: "input",
-                  "onUpdate:modelValue": _cache[28] || (_cache[28] = ($event) => $data.settings.redeem_channel_text = $event),
+                  "onUpdate:modelValue": _cache[34] || (_cache[34] = ($event) => $data.settings.redeem_channel_text = $event),
                   placeholder: "购买卡密"
                 },
                 null,
@@ -9027,7 +9988,7 @@ if (uni.restoreGlobal) {
                 "input",
                 {
                   class: "input",
-                  "onUpdate:modelValue": _cache[29] || (_cache[29] = ($event) => $data.settings.redeem_channel_url = $event),
+                  "onUpdate:modelValue": _cache[35] || (_cache[35] = ($event) => $data.settings.redeem_channel_url = $event),
                   placeholder: "https://..."
                 },
                 null,
@@ -9051,7 +10012,7 @@ if (uni.restoreGlobal) {
                 "textarea",
                 {
                   class: "textarea code",
-                  "onUpdate:modelValue": _cache[30] || (_cache[30] = ($event) => $data.settings.analytics_code = $event),
+                  "onUpdate:modelValue": _cache[36] || (_cache[36] = ($event) => $data.settings.analytics_code = $event),
                   placeholder: "<script>...<\/script>"
                 },
                 null,
@@ -9068,15 +10029,15 @@ if (uni.restoreGlobal) {
       vue.createElementVNode("view", { class: "save-bar" }, [
         vue.createElementVNode("view", {
           class: "save-btn",
-          onClick: _cache[31] || (_cache[31] = (...args) => $options.handleSave && $options.handleSave(...args))
+          onClick: _cache[37] || (_cache[37] = (...args) => $options.handleSave && $options.handleSave(...args))
         }, [
           vue.createElementVNode("text", null, "保存设置")
         ])
       ])
     ]);
   }
-  const PagesAdminSettings = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/settings.vue"]]);
-  const _sfc_main$9 = {
+  const PagesAdminSettings = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$d], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/settings.vue"]]);
+  const _sfc_main$d = {
     data() {
       return {
         channels: [],
@@ -9326,7 +10287,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -9577,8 +10538,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminCfAccounts = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/cf-accounts.vue"]]);
-  const _sfc_main$8 = {
+  const PagesAdminCfAccounts = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$c], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/cf-accounts.vue"]]);
+  const _sfc_main$c = {
     data() {
       return {
         records: [],
@@ -9709,7 +10670,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -9902,8 +10863,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminDnsRecords = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/dns-records.vue"]]);
-  const _sfc_main$7 = {
+  const PagesAdminDnsRecords = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$b], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/dns-records.vue"]]);
+  const _sfc_main$b = {
     data() {
       return {
         subdomains: [],
@@ -10103,7 +11064,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -10360,8 +11321,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminSubdomains = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/subdomains.vue"]]);
-  const _sfc_main$6 = {
+  const PagesAdminSubdomains = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$a], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/subdomains.vue"]]);
+  const _sfc_main$a = {
     data() {
       return {
         logs: [],
@@ -10486,7 +11447,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -10619,8 +11580,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminLogs = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/logs.vue"]]);
-  const _sfc_main$5 = {
+  const PagesAdminLogs = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$9], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/logs.vue"]]);
+  const _sfc_main$9 = {
     data() {
       return {
         coupons: [],
@@ -10855,7 +11816,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     var _a;
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
@@ -11313,8 +12274,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminCoupons = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/coupons.vue"]]);
-  const _sfc_main$4 = {
+  const PagesAdminCoupons = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$8], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/coupons.vue"]]);
+  const _sfc_main$8 = {
     data() {
       return {
         versions: [],
@@ -11459,7 +12420,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -11840,8 +12801,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminAppVersions = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/app-versions.vue"]]);
-  const _sfc_main$3 = {
+  const PagesAdminAppVersions = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$7], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/app-versions.vue"]]);
+  const _sfc_main$7 = {
     data() {
       return {
         loading: false,
@@ -11978,7 +12939,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -12258,8 +13219,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminEmailTemplates = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/email-templates.vue"]]);
-  const _sfc_main$2 = {
+  const PagesAdminEmailTemplates = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$6], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/email-templates.vue"]]);
+  const _sfc_main$6 = {
     data() {
       return {
         loading: false,
@@ -12375,7 +13336,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -12671,8 +13632,8 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminIpBlacklist = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/ip-blacklist.vue"]]);
-  const _sfc_main$1 = {
+  const PagesAdminIpBlacklist = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$5], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/ip-blacklist.vue"]]);
+  const _sfc_main$5 = {
     data() {
       return {
         userInfo: null,
@@ -12792,7 +13753,7 @@ if (uni.restoreGlobal) {
       }
     }
   };
-  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
       vue.createCommentVNode(" 页面头部 "),
       vue.createElementVNode("view", { class: "page-header" }, [
@@ -12988,7 +13949,3951 @@ if (uni.restoreGlobal) {
       ])) : vue.createCommentVNode("v-if", true)
     ]);
   }
-  const PagesAdminDataManage = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/data-manage.vue"]]);
+  const PagesAdminDataManage = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$4], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/data-manage.vue"]]);
+  const _sfc_main$4 = {
+    data() {
+      return {
+        activeTab: "stats",
+        // 统计
+        stats: {},
+        // 服务器
+        servers: [],
+        showServerModal: false,
+        showApiKey: false,
+        serverForm: {
+          name: "",
+          panel_url: "",
+          api_key: "",
+          ip_address: "",
+          max_sites: 100,
+          status: 1
+        },
+        // 套餐
+        plans: [],
+        showPlanModal: false,
+        planForm: {
+          name: "",
+          description: "",
+          server_id: null,
+          disk_space: 0,
+          bandwidth: 0,
+          max_domains: 1,
+          max_databases: 1,
+          max_ftp: 1,
+          price: 0,
+          duration_days: 30,
+          sort_order: 0,
+          status: 1
+        },
+        // 主机实例
+        instances: [],
+        instanceFilters: {
+          domain: "",
+          server_id: null,
+          status: null
+        },
+        selectedInstances: [],
+        instancePage: 1,
+        instancePageSize: 10,
+        instanceTotal: 0,
+        // 修改到期时间
+        showExpiryModalFlag: false,
+        currentInstance: {},
+        expiryDate: "",
+        // 订单
+        orders: [],
+        orderFilters: {
+          user_id: "",
+          order_type: ""
+        },
+        selectedOrders: [],
+        orderPage: 1,
+        orderPageSize: 10,
+        orderTotal: 0,
+        // 筛选选项
+        statusOptions: [
+          { name: "全部状态", value: null },
+          { name: "正常", value: 1 },
+          { name: "已暂停", value: 2 },
+          { name: "已过期", value: 3 }
+        ],
+        orderTypeOptions: [
+          { name: "全部类型", value: "" },
+          { name: "新购", value: "new" },
+          { name: "续费", value: "renew" }
+        ]
+      };
+    },
+    computed: {
+      serverOptions() {
+        return [{ name: "全部服务器", value: null }, ...this.servers.map((s) => ({ name: s.name, value: s.id }))];
+      },
+      serverOptionsWithAll() {
+        return [{ name: "不指定", value: null }, ...this.servers.map((s) => ({ name: s.name, value: s.id }))];
+      },
+      selectedServerName() {
+        if (!this.instanceFilters.server_id)
+          return "";
+        const server = this.servers.find((s) => s.id === this.instanceFilters.server_id);
+        return server ? server.name : "";
+      },
+      selectedStatusName() {
+        if (this.instanceFilters.status === null)
+          return "";
+        const status = this.statusOptions.find((s) => s.value === this.instanceFilters.status);
+        return status ? status.name : "";
+      },
+      selectedOrderTypeName() {
+        if (!this.orderFilters.order_type)
+          return "";
+        const type = this.orderTypeOptions.find((t) => t.value === this.orderFilters.order_type);
+        return type ? type.name : "";
+      }
+    },
+    onLoad() {
+      this.loadStats();
+    },
+    methods: {
+      switchTab(tab) {
+        this.activeTab = tab;
+        if (tab === "stats")
+          this.loadStats();
+        else if (tab === "servers")
+          this.loadServers();
+        else if (tab === "plans")
+          this.loadPlans();
+        else if (tab === "instances")
+          this.loadInstances();
+        else if (tab === "orders")
+          this.loadOrders();
+      },
+      // ========== 统计 ==========
+      async loadStats() {
+        try {
+          uni.showLoading({ title: "加载中" });
+          const res = await getVHostStats();
+          this.stats = res.data || {};
+        } catch (e) {
+          formatAppLog("error", "at pages/admin/vhost.vue:623", e);
+        } finally {
+          uni.hideLoading();
+        }
+      },
+      // ========== 服务器管理 ==========
+      async loadServers() {
+        try {
+          uni.showLoading({ title: "加载中" });
+          const res = await getVHostServers();
+          this.servers = res.data || [];
+        } catch (e) {
+          uni.showToast({ title: "加载失败", icon: "none" });
+        } finally {
+          uni.hideLoading();
+        }
+      },
+      showAddServer() {
+        this.serverForm = { name: "", panel_url: "", api_key: "", ip_address: "", max_sites: 100, status: 1 };
+        this.showServerModal = true;
+      },
+      editServer(server) {
+        this.serverForm = { ...server };
+        this.showServerModal = true;
+      },
+      async saveServer() {
+        if (!this.serverForm.name || !this.serverForm.panel_url || !this.serverForm.api_key) {
+          return uni.showToast({ title: "请填写必填项", icon: "none" });
+        }
+        try {
+          uni.showLoading({ title: "保存中" });
+          if (this.serverForm.id) {
+            await updateVHostServer(this.serverForm.id, this.serverForm);
+          } else {
+            await addVHostServer(this.serverForm);
+          }
+          uni.showToast({ title: "保存成功", icon: "success" });
+          this.showServerModal = false;
+          this.loadServers();
+        } catch (e) {
+          uni.showToast({ title: e.message || "保存失败", icon: "none" });
+        } finally {
+          uni.hideLoading();
+        }
+      },
+      async testServer(server) {
+        try {
+          uni.showLoading({ title: "测试中" });
+          await testVHostServer(server.id);
+          uni.showToast({ title: "连接成功", icon: "success" });
+        } catch (e) {
+          uni.showToast({ title: e.message || "连接失败", icon: "none" });
+        } finally {
+          uni.hideLoading();
+        }
+      },
+      deleteServer(server) {
+        uni.showModal({
+          title: "确认删除",
+          content: `确定要删除服务器"${server.name}"吗？`,
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "删除中" });
+                await deleteVHostServer(server.id);
+                uni.showToast({ title: "删除成功", icon: "success" });
+                this.loadServers();
+              } catch (e) {
+                uni.showToast({ title: e.message || "删除失败", icon: "none" });
+              } finally {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
+      },
+      // ========== 套餐管理 ==========
+      async loadPlans() {
+        try {
+          uni.showLoading({ title: "加载中" });
+          const res = await getAdminVHostPlans();
+          this.plans = res.data || [];
+        } catch (e) {
+          uni.showToast({ title: "加载失败", icon: "none" });
+        } finally {
+          uni.hideLoading();
+        }
+      },
+      showAddPlan() {
+        this.planForm = {
+          name: "",
+          description: "",
+          server_id: null,
+          disk_space: 0,
+          bandwidth: 0,
+          max_domains: 1,
+          max_databases: 1,
+          max_ftp: 1,
+          price: 0,
+          duration_days: 30,
+          sort_order: 0,
+          status: 1
+        };
+        this.showPlanModal = true;
+      },
+      editPlan(plan) {
+        this.planForm = { ...plan };
+        this.showPlanModal = true;
+      },
+      async savePlan() {
+        if (!this.planForm.name) {
+          return uni.showToast({ title: "请填写套餐名称", icon: "none" });
+        }
+        try {
+          uni.showLoading({ title: "保存中" });
+          if (this.planForm.id) {
+            await updateVHostPlan(this.planForm.id, this.planForm);
+          } else {
+            await createVHostPlan(this.planForm);
+          }
+          uni.showToast({ title: "保存成功", icon: "success" });
+          this.showPlanModal = false;
+          this.loadPlans();
+        } catch (e) {
+          uni.showToast({ title: e.message || "保存失败", icon: "none" });
+        } finally {
+          uni.hideLoading();
+        }
+      },
+      deletePlan(plan) {
+        uni.showModal({
+          title: "确认删除",
+          content: `确定要删除套餐"${plan.name}"吗？`,
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "删除中" });
+                await deleteVHostPlan(plan.id);
+                uni.showToast({ title: "删除成功", icon: "success" });
+                this.loadPlans();
+              } catch (e) {
+                uni.showToast({ title: e.message || "删除失败", icon: "none" });
+              } finally {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
+      },
+      getServerIndex() {
+        if (!this.planForm.server_id)
+          return 0;
+        const idx = this.servers.findIndex((s) => s.id === this.planForm.server_id);
+        return idx >= 0 ? idx + 1 : 0;
+      },
+      getServerName(serverId) {
+        if (!serverId)
+          return "不指定";
+        const server = this.servers.find((s) => s.id === serverId);
+        return server ? server.name : "不指定";
+      },
+      onPlanServerChange(e) {
+        const idx = e.detail.value;
+        this.planForm.server_id = idx === 0 ? null : this.servers[idx - 1].id;
+      },
+      // ========== 主机实例管理 ==========
+      async loadInstances() {
+        var _a, _b;
+        try {
+          uni.showLoading({ title: "加载中" });
+          const params = {
+            page: this.instancePage,
+            per_page: this.instancePageSize
+          };
+          if (this.instanceFilters.domain)
+            params.domain = this.instanceFilters.domain;
+          if (this.instanceFilters.server_id)
+            params.server_id = this.instanceFilters.server_id;
+          if (this.instanceFilters.status !== null)
+            params.status = this.instanceFilters.status;
+          const res = await getAdminVHostInstances(params);
+          this.instances = ((_a = res.data) == null ? void 0 : _a.list) || res.data || [];
+          this.instanceTotal = ((_b = res.data) == null ? void 0 : _b.total) || this.instances.length;
+        } catch (e) {
+          uni.showToast({ title: "加载失败", icon: "none" });
+        } finally {
+          uni.hideLoading();
+        }
+      },
+      onServerFilterChange(e) {
+        const idx = e.detail.value;
+        this.instanceFilters.server_id = idx === 0 ? null : this.servers[idx - 1].id;
+        this.instancePage = 1;
+        this.loadInstances();
+      },
+      onStatusFilterChange(e) {
+        this.instanceFilters.status = this.statusOptions[e.detail.value].value;
+        this.instancePage = 1;
+        this.loadInstances();
+      },
+      toggleInstanceSelect(instance) {
+        const idx = this.selectedInstances.indexOf(instance.id);
+        if (idx >= 0) {
+          this.selectedInstances.splice(idx, 1);
+        } else {
+          this.selectedInstances.push(instance.id);
+        }
+      },
+      async toggleInstanceStatus(instance) {
+        const action = instance.status === 1 ? "suspend" : "resume";
+        const actionText = instance.status === 1 ? "暂停" : "恢复";
+        try {
+          uni.showLoading({ title: "处理中" });
+          await updateVHostInstance(instance.id, { action });
+          uni.showToast({ title: `${actionText}成功`, icon: "success" });
+          this.loadInstances();
+        } catch (e) {
+          uni.showToast({ title: e.message || `${actionText}失败`, icon: "none" });
+        } finally {
+          uni.hideLoading();
+        }
+      },
+      showExpiryModal(instance) {
+        this.currentInstance = instance;
+        this.expiryDate = instance.expires_at ? instance.expires_at.split("T")[0] : "";
+        this.showExpiryModalFlag = true;
+      },
+      async saveExpiry() {
+        if (!this.expiryDate) {
+          return uni.showToast({ title: "请选择日期", icon: "none" });
+        }
+        try {
+          uni.showLoading({ title: "保存中" });
+          await updateVHostInstance(this.currentInstance.id, { expires_at: this.expiryDate });
+          uni.showToast({ title: "保存成功", icon: "success" });
+          this.showExpiryModalFlag = false;
+          this.loadInstances();
+        } catch (e) {
+          uni.showToast({ title: e.message || "保存失败", icon: "none" });
+        } finally {
+          uni.hideLoading();
+        }
+      },
+      deleteInstance(instance) {
+        uni.showModal({
+          title: "确认删除",
+          content: `确定要删除主机"${instance.domain}"吗？`,
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "删除中" });
+                await deleteVHostInstance(instance.id);
+                uni.showToast({ title: "删除成功", icon: "success" });
+                this.loadInstances();
+              } catch (e) {
+                uni.showToast({ title: e.message || "删除失败", icon: "none" });
+              } finally {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
+      },
+      batchDeleteInstances() {
+        if (this.selectedInstances.length === 0)
+          return;
+        uni.showModal({
+          title: "确认批量删除",
+          content: `确定要删除选中的 ${this.selectedInstances.length} 个主机吗？`,
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "删除中" });
+                await batchDeleteVHostInstances(this.selectedInstances);
+                uni.showToast({ title: "删除成功", icon: "success" });
+                this.selectedInstances = [];
+                this.loadInstances();
+              } catch (e) {
+                uni.showToast({ title: e.message || "删除失败", icon: "none" });
+              } finally {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
+      },
+      prevInstancePage() {
+        if (this.instancePage > 1) {
+          this.instancePage--;
+          this.loadInstances();
+        }
+      },
+      nextInstancePage() {
+        if (this.instancePage < Math.ceil(this.instanceTotal / this.instancePageSize)) {
+          this.instancePage++;
+          this.loadInstances();
+        }
+      },
+      // ========== 订单管理 ==========
+      async loadOrders() {
+        var _a, _b;
+        try {
+          uni.showLoading({ title: "加载中" });
+          const params = {
+            page: this.orderPage,
+            per_page: this.orderPageSize
+          };
+          if (this.orderFilters.user_id)
+            params.user_id = this.orderFilters.user_id;
+          if (this.orderFilters.order_type)
+            params.order_type = this.orderFilters.order_type;
+          const res = await getAdminVHostOrders(params);
+          this.orders = ((_a = res.data) == null ? void 0 : _a.list) || res.data || [];
+          this.orderTotal = ((_b = res.data) == null ? void 0 : _b.total) || this.orders.length;
+        } catch (e) {
+          uni.showToast({ title: "加载失败", icon: "none" });
+        } finally {
+          uni.hideLoading();
+        }
+      },
+      onOrderTypeFilterChange(e) {
+        this.orderFilters.order_type = this.orderTypeOptions[e.detail.value].value;
+        this.orderPage = 1;
+        this.loadOrders();
+      },
+      toggleOrderSelect(order) {
+        const idx = this.selectedOrders.indexOf(order.id);
+        if (idx >= 0) {
+          this.selectedOrders.splice(idx, 1);
+        } else {
+          this.selectedOrders.push(order.id);
+        }
+      },
+      deleteOrder(order) {
+        uni.showModal({
+          title: "确认删除",
+          content: "确定要删除该订单吗？",
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "删除中" });
+                await deleteVHostOrder(order.id);
+                uni.showToast({ title: "删除成功", icon: "success" });
+                this.loadOrders();
+              } catch (e) {
+                uni.showToast({ title: e.message || "删除失败", icon: "none" });
+              } finally {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
+      },
+      batchDeleteOrders() {
+        if (this.selectedOrders.length === 0)
+          return;
+        uni.showModal({
+          title: "确认批量删除",
+          content: `确定要删除选中的 ${this.selectedOrders.length} 个订单吗？`,
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "删除中" });
+                await batchDeleteVHostOrders(this.selectedOrders);
+                uni.showToast({ title: "删除成功", icon: "success" });
+                this.selectedOrders = [];
+                this.loadOrders();
+              } catch (e) {
+                uni.showToast({ title: e.message || "删除失败", icon: "none" });
+              } finally {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
+      },
+      prevOrderPage() {
+        if (this.orderPage > 1) {
+          this.orderPage--;
+          this.loadOrders();
+        }
+      },
+      nextOrderPage() {
+        if (this.orderPage < Math.ceil(this.orderTotal / this.orderPageSize)) {
+          this.orderPage++;
+          this.loadOrders();
+        }
+      },
+      // ========== 工具方法 ==========
+      getStatusClass(status) {
+        const map = { 1: "active", 2: "suspended", 3: "expired" };
+        return map[status] || "";
+      },
+      getStatusName(status) {
+        const map = { 1: "正常", 2: "已暂停", 3: "已过期", 0: "已删除" };
+        return map[status] || "未知";
+      },
+      formatDate(dateStr) {
+        if (!dateStr)
+          return "-";
+        const date = new Date(dateStr);
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      }
+    }
+  };
+  function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createCommentVNode(" 页面头部 "),
+      vue.createElementVNode("view", { class: "page-header" }, [
+        vue.createElementVNode("text", { class: "header-title" }, "虚拟主机管理"),
+        vue.createElementVNode("text", { class: "header-subtitle" }, "管理服务器、套餐、主机和订单")
+      ]),
+      vue.createCommentVNode(" 标签页 "),
+      vue.createElementVNode("view", { class: "tabs-wrapper" }, [
+        vue.createElementVNode("scroll-view", {
+          "scroll-x": "",
+          class: "tabs-scroll"
+        }, [
+          vue.createElementVNode("view", { class: "tabs" }, [
+            vue.createElementVNode(
+              "view",
+              {
+                class: vue.normalizeClass(["tab-item", { active: $data.activeTab === "stats" }]),
+                onClick: _cache[0] || (_cache[0] = ($event) => $options.switchTab("stats"))
+              },
+              [
+                vue.createElementVNode("text", { class: "tab-icon" }, "📊"),
+                vue.createElementVNode("text", { class: "tab-text" }, "统计")
+              ],
+              2
+              /* CLASS */
+            ),
+            vue.createElementVNode(
+              "view",
+              {
+                class: vue.normalizeClass(["tab-item", { active: $data.activeTab === "servers" }]),
+                onClick: _cache[1] || (_cache[1] = ($event) => $options.switchTab("servers"))
+              },
+              [
+                vue.createElementVNode("text", { class: "tab-icon" }, "🖥️"),
+                vue.createElementVNode("text", { class: "tab-text" }, "服务器")
+              ],
+              2
+              /* CLASS */
+            ),
+            vue.createElementVNode(
+              "view",
+              {
+                class: vue.normalizeClass(["tab-item", { active: $data.activeTab === "plans" }]),
+                onClick: _cache[2] || (_cache[2] = ($event) => $options.switchTab("plans"))
+              },
+              [
+                vue.createElementVNode("text", { class: "tab-icon" }, "📦"),
+                vue.createElementVNode("text", { class: "tab-text" }, "套餐")
+              ],
+              2
+              /* CLASS */
+            ),
+            vue.createElementVNode(
+              "view",
+              {
+                class: vue.normalizeClass(["tab-item", { active: $data.activeTab === "instances" }]),
+                onClick: _cache[3] || (_cache[3] = ($event) => $options.switchTab("instances"))
+              },
+              [
+                vue.createElementVNode("text", { class: "tab-icon" }, "🌐"),
+                vue.createElementVNode("text", { class: "tab-text" }, "主机")
+              ],
+              2
+              /* CLASS */
+            ),
+            vue.createElementVNode(
+              "view",
+              {
+                class: vue.normalizeClass(["tab-item", { active: $data.activeTab === "orders" }]),
+                onClick: _cache[4] || (_cache[4] = ($event) => $options.switchTab("orders"))
+              },
+              [
+                vue.createElementVNode("text", { class: "tab-icon" }, "📋"),
+                vue.createElementVNode("text", { class: "tab-text" }, "订单")
+              ],
+              2
+              /* CLASS */
+            )
+          ])
+        ])
+      ]),
+      vue.createCommentVNode(" 统计标签页 "),
+      $data.activeTab === "stats" ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "tab-content"
+      }, [
+        vue.createElementVNode("view", { class: "stats-grid" }, [
+          vue.createElementVNode("view", { class: "stat-card" }, [
+            vue.createElementVNode("view", { class: "stat-icon green" }, "💰"),
+            vue.createElementVNode("view", { class: "stat-info" }, [
+              vue.createElementVNode(
+                "text",
+                { class: "stat-value" },
+                "¥" + vue.toDisplayString($data.stats.total_revenue || 0),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", { class: "stat-label" }, "总收入")
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "stat-card" }, [
+            vue.createElementVNode("view", { class: "stat-icon blue" }, "📅"),
+            vue.createElementVNode("view", { class: "stat-info" }, [
+              vue.createElementVNode(
+                "text",
+                { class: "stat-value" },
+                "¥" + vue.toDisplayString($data.stats.month_revenue || 0),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", { class: "stat-label" }, "本月收入")
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "stat-card" }, [
+            vue.createElementVNode("view", { class: "stat-icon purple" }, "🌐"),
+            vue.createElementVNode("view", { class: "stat-info" }, [
+              vue.createElementVNode(
+                "text",
+                { class: "stat-value" },
+                vue.toDisplayString($data.stats.total_instances || 0),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", { class: "stat-label" }, "总主机数")
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "stat-card" }, [
+            vue.createElementVNode("view", { class: "stat-icon teal" }, "✅"),
+            vue.createElementVNode("view", { class: "stat-info" }, [
+              vue.createElementVNode(
+                "text",
+                { class: "stat-value" },
+                vue.toDisplayString($data.stats.active_instances || 0),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", { class: "stat-label" }, "活跃主机")
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "stat-card" }, [
+            vue.createElementVNode("view", { class: "stat-icon orange" }, "⏰"),
+            vue.createElementVNode("view", { class: "stat-info" }, [
+              vue.createElementVNode(
+                "text",
+                { class: "stat-value" },
+                vue.toDisplayString($data.stats.expired_instances || 0),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", { class: "stat-label" }, "过期主机")
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "stat-card" }, [
+            vue.createElementVNode("view", { class: "stat-icon cyan" }, "🖥️"),
+            vue.createElementVNode("view", { class: "stat-info" }, [
+              vue.createElementVNode(
+                "text",
+                { class: "stat-value" },
+                vue.toDisplayString($data.stats.total_servers || 0),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", { class: "stat-label" }, "服务器总数")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 服务器标签页 "),
+      $data.activeTab === "servers" ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 1,
+        class: "tab-content"
+      }, [
+        vue.createElementVNode("view", { class: "action-bar" }, [
+          vue.createElementVNode("view", {
+            class: "add-btn",
+            onClick: _cache[5] || (_cache[5] = (...args) => $options.showAddServer && $options.showAddServer(...args))
+          }, [
+            vue.createElementVNode("text", { class: "add-icon" }, "+"),
+            vue.createElementVNode("text", null, "添加服务器")
+          ])
+        ]),
+        $data.servers.length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "empty-state"
+        }, [
+          vue.createElementVNode("text", { class: "empty-icon" }, "🖥️"),
+          vue.createElementVNode("text", { class: "empty-text" }, "暂无服务器")
+        ])) : (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "card-list"
+        }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.servers, (server) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                class: "server-card",
+                key: server.id
+              }, [
+                vue.createElementVNode("view", { class: "server-header" }, [
+                  vue.createElementVNode(
+                    "view",
+                    { class: "server-name" },
+                    vue.toDisplayString(server.name),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode(
+                    "view",
+                    {
+                      class: vue.normalizeClass(["server-status", server.status === 1 ? "active" : "inactive"])
+                    },
+                    vue.toDisplayString(server.status === 1 ? "正常" : "停用"),
+                    3
+                    /* TEXT, CLASS */
+                  )
+                ]),
+                vue.createElementVNode("view", { class: "server-info" }, [
+                  vue.createElementVNode("view", { class: "info-row" }, [
+                    vue.createElementVNode("text", { class: "info-label" }, "面板地址"),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "info-value" },
+                      vue.toDisplayString(server.panel_url),
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "info-row" }, [
+                    vue.createElementVNode("text", { class: "info-label" }, "IP地址"),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "info-value" },
+                      vue.toDisplayString(server.ip_address || "-"),
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "info-row" }, [
+                    vue.createElementVNode("text", { class: "info-label" }, "站点数"),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "info-value" },
+                      vue.toDisplayString(server.current_sites || 0) + " / " + vue.toDisplayString(server.max_sites || 100),
+                      1
+                      /* TEXT */
+                    )
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "server-actions" }, [
+                  vue.createElementVNode("view", {
+                    class: "action-btn test",
+                    onClick: ($event) => $options.testServer(server)
+                  }, "测试连接", 8, ["onClick"]),
+                  vue.createElementVNode("view", {
+                    class: "action-btn edit",
+                    onClick: ($event) => $options.editServer(server)
+                  }, "编辑", 8, ["onClick"]),
+                  vue.createElementVNode("view", {
+                    class: "action-btn delete",
+                    onClick: ($event) => $options.deleteServer(server)
+                  }, "删除", 8, ["onClick"])
+                ])
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ]))
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 套餐标签页 "),
+      $data.activeTab === "plans" ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 2,
+        class: "tab-content"
+      }, [
+        vue.createElementVNode("view", { class: "action-bar" }, [
+          vue.createElementVNode("view", {
+            class: "add-btn",
+            onClick: _cache[6] || (_cache[6] = (...args) => $options.showAddPlan && $options.showAddPlan(...args))
+          }, [
+            vue.createElementVNode("text", { class: "add-icon" }, "+"),
+            vue.createElementVNode("text", null, "创建套餐")
+          ])
+        ]),
+        $data.plans.length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "empty-state"
+        }, [
+          vue.createElementVNode("text", { class: "empty-icon" }, "📦"),
+          vue.createElementVNode("text", { class: "empty-text" }, "暂无套餐")
+        ])) : (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "card-list"
+        }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.plans, (plan) => {
+              return vue.openBlock(), vue.createElementBlock("view", {
+                class: "plan-card",
+                key: plan.id
+              }, [
+                vue.createElementVNode("view", { class: "plan-header" }, [
+                  vue.createElementVNode(
+                    "view",
+                    { class: "plan-name" },
+                    vue.toDisplayString(plan.name),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode(
+                    "view",
+                    { class: "plan-price" },
+                    "¥" + vue.toDisplayString(plan.price || 0),
+                    1
+                    /* TEXT */
+                  )
+                ]),
+                plan.description ? (vue.openBlock(), vue.createElementBlock(
+                  "view",
+                  {
+                    key: 0,
+                    class: "plan-desc"
+                  },
+                  vue.toDisplayString(plan.description),
+                  1
+                  /* TEXT */
+                )) : vue.createCommentVNode("v-if", true),
+                vue.createElementVNode("view", { class: "plan-specs" }, [
+                  vue.createElementVNode("view", { class: "spec-item" }, [
+                    vue.createElementVNode("text", { class: "spec-label" }, "磁盘"),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "spec-value" },
+                      vue.toDisplayString(plan.disk_space || 0) + "MB",
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "spec-item" }, [
+                    vue.createElementVNode("text", { class: "spec-label" }, "流量"),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "spec-value" },
+                      vue.toDisplayString(plan.bandwidth || 0) + "GB/月",
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "spec-item" }, [
+                    vue.createElementVNode("text", { class: "spec-label" }, "域名"),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "spec-value" },
+                      vue.toDisplayString(plan.max_domains || 1) + "个",
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "spec-item" }, [
+                    vue.createElementVNode("text", { class: "spec-label" }, "数据库"),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "spec-value" },
+                      vue.toDisplayString(plan.max_databases || 1) + "个",
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "spec-item" }, [
+                    vue.createElementVNode("text", { class: "spec-label" }, "FTP"),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "spec-value" },
+                      vue.toDisplayString(plan.max_ftp || 1) + "个",
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "spec-item" }, [
+                    vue.createElementVNode("text", { class: "spec-label" }, "有效期"),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "spec-value" },
+                      vue.toDisplayString(plan.duration_days === -1 ? "永久" : plan.duration_days + "天"),
+                      1
+                      /* TEXT */
+                    )
+                  ])
+                ]),
+                vue.createElementVNode("view", { class: "plan-actions" }, [
+                  vue.createElementVNode("view", {
+                    class: "action-btn edit",
+                    onClick: ($event) => $options.editPlan(plan)
+                  }, "编辑", 8, ["onClick"]),
+                  vue.createElementVNode("view", {
+                    class: "action-btn delete",
+                    onClick: ($event) => $options.deletePlan(plan)
+                  }, "删除", 8, ["onClick"])
+                ])
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ]))
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 主机标签页 "),
+      $data.activeTab === "instances" ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 3,
+        class: "tab-content"
+      }, [
+        vue.createCommentVNode(" 筛选栏 "),
+        vue.createElementVNode("view", { class: "filter-bar" }, [
+          vue.withDirectives(vue.createElementVNode(
+            "input",
+            {
+              class: "filter-input",
+              "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $data.instanceFilters.domain = $event),
+              placeholder: "搜索域名",
+              onConfirm: _cache[8] || (_cache[8] = (...args) => $options.loadInstances && $options.loadInstances(...args))
+            },
+            null,
+            544
+            /* NEED_HYDRATION, NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.instanceFilters.domain]
+          ]),
+          vue.createElementVNode("picker", {
+            mode: "selector",
+            range: $options.serverOptions,
+            "range-key": "name",
+            onChange: _cache[9] || (_cache[9] = (...args) => $options.onServerFilterChange && $options.onServerFilterChange(...args))
+          }, [
+            vue.createElementVNode(
+              "view",
+              { class: "filter-picker" },
+              vue.toDisplayString($options.selectedServerName || "全部服务器"),
+              1
+              /* TEXT */
+            )
+          ], 40, ["range"]),
+          vue.createElementVNode("picker", {
+            mode: "selector",
+            range: $data.statusOptions,
+            "range-key": "name",
+            onChange: _cache[10] || (_cache[10] = (...args) => $options.onStatusFilterChange && $options.onStatusFilterChange(...args))
+          }, [
+            vue.createElementVNode(
+              "view",
+              { class: "filter-picker" },
+              vue.toDisplayString($options.selectedStatusName || "全部状态"),
+              1
+              /* TEXT */
+            )
+          ], 40, ["range"])
+        ]),
+        vue.createCommentVNode(" 批量操作 "),
+        $data.selectedInstances.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "batch-bar"
+        }, [
+          vue.createElementVNode(
+            "text",
+            { class: "batch-text" },
+            "已选 " + vue.toDisplayString($data.selectedInstances.length) + " 项",
+            1
+            /* TEXT */
+          ),
+          vue.createElementVNode("view", {
+            class: "batch-btn delete",
+            onClick: _cache[11] || (_cache[11] = (...args) => $options.batchDeleteInstances && $options.batchDeleteInstances(...args))
+          }, "批量删除")
+        ])) : vue.createCommentVNode("v-if", true),
+        $data.instances.length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "empty-state"
+        }, [
+          vue.createElementVNode("text", { class: "empty-icon" }, "🌐"),
+          vue.createElementVNode("text", { class: "empty-text" }, "暂无主机")
+        ])) : (vue.openBlock(), vue.createElementBlock("view", {
+          key: 2,
+          class: "card-list"
+        }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.instances, (instance) => {
+              var _a, _b, _c;
+              return vue.openBlock(), vue.createElementBlock("view", {
+                class: "instance-card",
+                key: instance.id
+              }, [
+                vue.createElementVNode("view", {
+                  class: "instance-checkbox",
+                  onClick: ($event) => $options.toggleInstanceSelect(instance)
+                }, [
+                  vue.createElementVNode(
+                    "view",
+                    {
+                      class: vue.normalizeClass(["checkbox", { checked: $data.selectedInstances.includes(instance.id) }])
+                    },
+                    [
+                      $data.selectedInstances.includes(instance.id) ? (vue.openBlock(), vue.createElementBlock("text", { key: 0 }, "✓")) : vue.createCommentVNode("v-if", true)
+                    ],
+                    2
+                    /* CLASS */
+                  )
+                ], 8, ["onClick"]),
+                vue.createElementVNode("view", { class: "instance-content" }, [
+                  vue.createElementVNode("view", { class: "instance-header" }, [
+                    vue.createElementVNode(
+                      "view",
+                      { class: "instance-domain" },
+                      vue.toDisplayString(instance.domain),
+                      1
+                      /* TEXT */
+                    ),
+                    vue.createElementVNode(
+                      "view",
+                      {
+                        class: vue.normalizeClass(["instance-status", $options.getStatusClass(instance.status)])
+                      },
+                      vue.toDisplayString(instance.status_name || $options.getStatusName(instance.status)),
+                      3
+                      /* TEXT, CLASS */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "instance-info" }, [
+                    vue.createElementVNode("view", { class: "info-item" }, [
+                      vue.createElementVNode("text", { class: "info-label" }, "用户"),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "info-value" },
+                        vue.toDisplayString(((_a = instance.user) == null ? void 0 : _a.username) || instance.user_id),
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    vue.createElementVNode("view", { class: "info-item" }, [
+                      vue.createElementVNode("text", { class: "info-label" }, "服务器"),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "info-value" },
+                        vue.toDisplayString(((_b = instance.server) == null ? void 0 : _b.name) || "-"),
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    vue.createElementVNode("view", { class: "info-item" }, [
+                      vue.createElementVNode("text", { class: "info-label" }, "套餐"),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "info-value" },
+                        vue.toDisplayString(((_c = instance.plan) == null ? void 0 : _c.name) || "-"),
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    vue.createElementVNode("view", { class: "info-item" }, [
+                      vue.createElementVNode("text", { class: "info-label" }, "到期时间"),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "info-value" },
+                        vue.toDisplayString($options.formatDate(instance.expires_at)),
+                        1
+                        /* TEXT */
+                      )
+                    ])
+                  ]),
+                  vue.createElementVNode("view", { class: "instance-actions" }, [
+                    vue.createElementVNode("view", {
+                      class: vue.normalizeClass(["action-btn", instance.status === 1 ? "warning" : "success"]),
+                      onClick: ($event) => $options.toggleInstanceStatus(instance)
+                    }, vue.toDisplayString(instance.status === 1 ? "暂停" : "恢复"), 11, ["onClick"]),
+                    vue.createElementVNode("view", {
+                      class: "action-btn edit",
+                      onClick: ($event) => $options.showExpiryModal(instance)
+                    }, "修改到期", 8, ["onClick"]),
+                    vue.createElementVNode("view", {
+                      class: "action-btn delete",
+                      onClick: ($event) => $options.deleteInstance(instance)
+                    }, "删除", 8, ["onClick"])
+                  ])
+                ])
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ])),
+        vue.createCommentVNode(" 分页 "),
+        $data.instanceTotal > $data.instancePageSize ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 3,
+          class: "pagination"
+        }, [
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(["page-btn", { disabled: $data.instancePage <= 1 }]),
+              onClick: _cache[12] || (_cache[12] = (...args) => $options.prevInstancePage && $options.prevInstancePage(...args))
+            },
+            "上一页",
+            2
+            /* CLASS */
+          ),
+          vue.createElementVNode(
+            "text",
+            { class: "page-info" },
+            vue.toDisplayString($data.instancePage) + " / " + vue.toDisplayString(Math.ceil($data.instanceTotal / $data.instancePageSize)),
+            1
+            /* TEXT */
+          ),
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(["page-btn", { disabled: $data.instancePage >= Math.ceil($data.instanceTotal / $data.instancePageSize) }]),
+              onClick: _cache[13] || (_cache[13] = (...args) => $options.nextInstancePage && $options.nextInstancePage(...args))
+            },
+            "下一页",
+            2
+            /* CLASS */
+          )
+        ])) : vue.createCommentVNode("v-if", true)
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 订单标签页 "),
+      $data.activeTab === "orders" ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 4,
+        class: "tab-content"
+      }, [
+        vue.createCommentVNode(" 筛选栏 "),
+        vue.createElementVNode("view", { class: "filter-bar" }, [
+          vue.withDirectives(vue.createElementVNode(
+            "input",
+            {
+              class: "filter-input",
+              "onUpdate:modelValue": _cache[14] || (_cache[14] = ($event) => $data.orderFilters.user_id = $event),
+              placeholder: "用户ID",
+              onConfirm: _cache[15] || (_cache[15] = (...args) => $options.loadOrders && $options.loadOrders(...args))
+            },
+            null,
+            544
+            /* NEED_HYDRATION, NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.orderFilters.user_id]
+          ]),
+          vue.createElementVNode("picker", {
+            mode: "selector",
+            range: $data.orderTypeOptions,
+            "range-key": "name",
+            onChange: _cache[16] || (_cache[16] = (...args) => $options.onOrderTypeFilterChange && $options.onOrderTypeFilterChange(...args))
+          }, [
+            vue.createElementVNode(
+              "view",
+              { class: "filter-picker" },
+              vue.toDisplayString($options.selectedOrderTypeName || "全部类型"),
+              1
+              /* TEXT */
+            )
+          ], 40, ["range"])
+        ]),
+        vue.createCommentVNode(" 批量操作 "),
+        $data.selectedOrders.length > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "batch-bar"
+        }, [
+          vue.createElementVNode(
+            "text",
+            { class: "batch-text" },
+            "已选 " + vue.toDisplayString($data.selectedOrders.length) + " 项",
+            1
+            /* TEXT */
+          ),
+          vue.createElementVNode("view", {
+            class: "batch-btn delete",
+            onClick: _cache[17] || (_cache[17] = (...args) => $options.batchDeleteOrders && $options.batchDeleteOrders(...args))
+          }, "批量删除")
+        ])) : vue.createCommentVNode("v-if", true),
+        $data.orders.length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "empty-state"
+        }, [
+          vue.createElementVNode("text", { class: "empty-icon" }, "📋"),
+          vue.createElementVNode("text", { class: "empty-text" }, "暂无订单")
+        ])) : (vue.openBlock(), vue.createElementBlock("view", {
+          key: 2,
+          class: "card-list"
+        }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.orders, (order) => {
+              var _a;
+              return vue.openBlock(), vue.createElementBlock("view", {
+                class: "order-card",
+                key: order.id
+              }, [
+                vue.createElementVNode("view", {
+                  class: "order-checkbox",
+                  onClick: ($event) => $options.toggleOrderSelect(order)
+                }, [
+                  vue.createElementVNode(
+                    "view",
+                    {
+                      class: vue.normalizeClass(["checkbox", { checked: $data.selectedOrders.includes(order.id) }])
+                    },
+                    [
+                      $data.selectedOrders.includes(order.id) ? (vue.openBlock(), vue.createElementBlock("text", { key: 0 }, "✓")) : vue.createCommentVNode("v-if", true)
+                    ],
+                    2
+                    /* CLASS */
+                  )
+                ], 8, ["onClick"]),
+                vue.createElementVNode("view", { class: "order-content" }, [
+                  vue.createElementVNode("view", { class: "order-header" }, [
+                    vue.createElementVNode(
+                      "view",
+                      {
+                        class: vue.normalizeClass(["order-type", order.order_type])
+                      },
+                      vue.toDisplayString(order.order_type === "new" ? "新购" : "续费"),
+                      3
+                      /* TEXT, CLASS */
+                    ),
+                    vue.createElementVNode(
+                      "view",
+                      { class: "order-amount" },
+                      "¥" + vue.toDisplayString(order.amount || 0),
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "order-info" }, [
+                    vue.createElementVNode("view", { class: "info-item" }, [
+                      vue.createElementVNode("text", { class: "info-label" }, "用户"),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "info-value" },
+                        vue.toDisplayString(((_a = order.user) == null ? void 0 : _a.username) || order.user_id),
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    vue.createElementVNode("view", { class: "info-item" }, [
+                      vue.createElementVNode("text", { class: "info-label" }, "时间"),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "info-value" },
+                        vue.toDisplayString($options.formatDate(order.created_at)),
+                        1
+                        /* TEXT */
+                      )
+                    ])
+                  ]),
+                  vue.createElementVNode("view", { class: "order-actions" }, [
+                    vue.createElementVNode("view", {
+                      class: "action-btn delete",
+                      onClick: ($event) => $options.deleteOrder(order)
+                    }, "删除", 8, ["onClick"])
+                  ])
+                ])
+              ]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ])),
+        vue.createCommentVNode(" 分页 "),
+        $data.orderTotal > $data.orderPageSize ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 3,
+          class: "pagination"
+        }, [
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(["page-btn", { disabled: $data.orderPage <= 1 }]),
+              onClick: _cache[18] || (_cache[18] = (...args) => $options.prevOrderPage && $options.prevOrderPage(...args))
+            },
+            "上一页",
+            2
+            /* CLASS */
+          ),
+          vue.createElementVNode(
+            "text",
+            { class: "page-info" },
+            vue.toDisplayString($data.orderPage) + " / " + vue.toDisplayString(Math.ceil($data.orderTotal / $data.orderPageSize)),
+            1
+            /* TEXT */
+          ),
+          vue.createElementVNode(
+            "view",
+            {
+              class: vue.normalizeClass(["page-btn", { disabled: $data.orderPage >= Math.ceil($data.orderTotal / $data.orderPageSize) }]),
+              onClick: _cache[19] || (_cache[19] = (...args) => $options.nextOrderPage && $options.nextOrderPage(...args))
+            },
+            "下一页",
+            2
+            /* CLASS */
+          )
+        ])) : vue.createCommentVNode("v-if", true)
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 服务器弹窗 "),
+      $data.showServerModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 5,
+        class: "modal",
+        onClick: _cache[30] || (_cache[30] = vue.withModifiers(($event) => $data.showServerModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("view", { class: "modal-header" }, [
+            vue.createElementVNode(
+              "text",
+              { class: "modal-title" },
+              vue.toDisplayString($data.serverForm.id ? "编辑服务器" : "添加服务器"),
+              1
+              /* TEXT */
+            ),
+            vue.createElementVNode("text", {
+              class: "modal-close",
+              onClick: _cache[20] || (_cache[20] = ($event) => $data.showServerModal = false)
+            }, "×")
+          ]),
+          vue.createElementVNode("view", { class: "modal-body" }, [
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "服务器名称 *"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "form-input",
+                  "onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => $data.serverForm.name = $event),
+                  placeholder: "请输入服务器名称"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.serverForm.name]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "面板地址 *"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "form-input",
+                  "onUpdate:modelValue": _cache[22] || (_cache[22] = ($event) => $data.serverForm.panel_url = $event),
+                  placeholder: "如: https://bt.example.com:8888"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.serverForm.panel_url]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "API密钥 *"),
+              vue.withDirectives(vue.createElementVNode("input", {
+                class: "form-input",
+                "onUpdate:modelValue": _cache[23] || (_cache[23] = ($event) => $data.serverForm.api_key = $event),
+                placeholder: "宝塔面板API密钥",
+                password: !$data.showApiKey
+              }, null, 8, ["password"]), [
+                [vue.vModelText, $data.serverForm.api_key]
+              ]),
+              vue.createElementVNode(
+                "text",
+                {
+                  class: "toggle-password",
+                  onClick: _cache[24] || (_cache[24] = ($event) => $data.showApiKey = !$data.showApiKey)
+                },
+                vue.toDisplayString($data.showApiKey ? "隐藏" : "显示"),
+                1
+                /* TEXT */
+              )
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "服务器IP"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "form-input",
+                  "onUpdate:modelValue": _cache[25] || (_cache[25] = ($event) => $data.serverForm.ip_address = $event),
+                  placeholder: "可选"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.serverForm.ip_address]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "最大站点数"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "form-input",
+                  type: "number",
+                  "onUpdate:modelValue": _cache[26] || (_cache[26] = ($event) => $data.serverForm.max_sites = $event),
+                  placeholder: "默认100"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.serverForm.max_sites]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "状态"),
+              vue.createElementVNode("switch", {
+                checked: $data.serverForm.status === 1,
+                onChange: _cache[27] || (_cache[27] = ($event) => $data.serverForm.status = $event.detail.value ? 1 : 0)
+              }, null, 40, ["checked"])
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-footer" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[28] || (_cache[28] = ($event) => $data.showServerModal = false)
+            }, "取消"),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[29] || (_cache[29] = (...args) => $options.saveServer && $options.saveServer(...args))
+            }, "保存")
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 套餐弹窗 "),
+      $data.showPlanModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 6,
+        class: "modal",
+        onClick: _cache[46] || (_cache[46] = vue.withModifiers(($event) => $data.showPlanModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content large" }, [
+          vue.createElementVNode("view", { class: "modal-header" }, [
+            vue.createElementVNode(
+              "text",
+              { class: "modal-title" },
+              vue.toDisplayString($data.planForm.id ? "编辑套餐" : "创建套餐"),
+              1
+              /* TEXT */
+            ),
+            vue.createElementVNode("text", {
+              class: "modal-close",
+              onClick: _cache[31] || (_cache[31] = ($event) => $data.showPlanModal = false)
+            }, "×")
+          ]),
+          vue.createElementVNode("view", { class: "modal-body" }, [
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "套餐名称 *"),
+              vue.withDirectives(vue.createElementVNode(
+                "input",
+                {
+                  class: "form-input",
+                  "onUpdate:modelValue": _cache[32] || (_cache[32] = ($event) => $data.planForm.name = $event),
+                  placeholder: "请输入套餐名称"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.planForm.name]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "套餐描述"),
+              vue.withDirectives(vue.createElementVNode(
+                "textarea",
+                {
+                  class: "form-textarea",
+                  "onUpdate:modelValue": _cache[33] || (_cache[33] = ($event) => $data.planForm.description = $event),
+                  placeholder: "可选"
+                },
+                null,
+                512
+                /* NEED_PATCH */
+              ), [
+                [vue.vModelText, $data.planForm.description]
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("view", { class: "form-item half" }, [
+                vue.createElementVNode("text", { class: "form-label" }, "磁盘空间(MB)"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "form-input",
+                    type: "number",
+                    "onUpdate:modelValue": _cache[34] || (_cache[34] = ($event) => $data.planForm.disk_space = $event),
+                    placeholder: "0"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.planForm.disk_space]
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "form-item half" }, [
+                vue.createElementVNode("text", { class: "form-label" }, "月流量(GB)"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "form-input",
+                    type: "number",
+                    "onUpdate:modelValue": _cache[35] || (_cache[35] = ($event) => $data.planForm.bandwidth = $event),
+                    placeholder: "0"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.planForm.bandwidth]
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("view", { class: "form-item half" }, [
+                vue.createElementVNode("text", { class: "form-label" }, "可绑域名数"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "form-input",
+                    type: "number",
+                    "onUpdate:modelValue": _cache[36] || (_cache[36] = ($event) => $data.planForm.max_domains = $event),
+                    placeholder: "1"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.planForm.max_domains]
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "form-item half" }, [
+                vue.createElementVNode("text", { class: "form-label" }, "数据库数"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "form-input",
+                    type: "number",
+                    "onUpdate:modelValue": _cache[37] || (_cache[37] = ($event) => $data.planForm.max_databases = $event),
+                    placeholder: "1"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.planForm.max_databases]
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("view", { class: "form-item half" }, [
+                vue.createElementVNode("text", { class: "form-label" }, "FTP账号数"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "form-input",
+                    type: "number",
+                    "onUpdate:modelValue": _cache[38] || (_cache[38] = ($event) => $data.planForm.max_ftp = $event),
+                    placeholder: "1"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.planForm.max_ftp]
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "form-item half" }, [
+                vue.createElementVNode("text", { class: "form-label" }, "价格(元)"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "form-input",
+                    type: "digit",
+                    "onUpdate:modelValue": _cache[39] || (_cache[39] = ($event) => $data.planForm.price = $event),
+                    placeholder: "0"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.planForm.price]
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-row" }, [
+              vue.createElementVNode("view", { class: "form-item half" }, [
+                vue.createElementVNode("text", { class: "form-label" }, "有效期(天)"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "form-input",
+                    type: "number",
+                    "onUpdate:modelValue": _cache[40] || (_cache[40] = ($event) => $data.planForm.duration_days = $event),
+                    placeholder: "-1为永久"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.planForm.duration_days]
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "form-item half" }, [
+                vue.createElementVNode("text", { class: "form-label" }, "排序"),
+                vue.withDirectives(vue.createElementVNode(
+                  "input",
+                  {
+                    class: "form-input",
+                    type: "number",
+                    "onUpdate:modelValue": _cache[41] || (_cache[41] = ($event) => $data.planForm.sort_order = $event),
+                    placeholder: "0"
+                  },
+                  null,
+                  512
+                  /* NEED_PATCH */
+                ), [
+                  [vue.vModelText, $data.planForm.sort_order]
+                ])
+              ])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "指定服务器"),
+              vue.createElementVNode("picker", {
+                mode: "selector",
+                range: $options.serverOptionsWithAll,
+                "range-key": "name",
+                value: $options.getServerIndex(),
+                onChange: _cache[42] || (_cache[42] = (...args) => $options.onPlanServerChange && $options.onPlanServerChange(...args))
+              }, [
+                vue.createElementVNode(
+                  "view",
+                  { class: "form-picker" },
+                  vue.toDisplayString($options.getServerName($data.planForm.server_id)),
+                  1
+                  /* TEXT */
+                )
+              ], 40, ["range", "value"])
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "状态"),
+              vue.createElementVNode("switch", {
+                checked: $data.planForm.status === 1,
+                onChange: _cache[43] || (_cache[43] = ($event) => $data.planForm.status = $event.detail.value ? 1 : 0)
+              }, null, 40, ["checked"])
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-footer" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[44] || (_cache[44] = ($event) => $data.showPlanModal = false)
+            }, "取消"),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[45] || (_cache[45] = (...args) => $options.savePlan && $options.savePlan(...args))
+            }, "保存")
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 修改到期时间弹窗 "),
+      $data.showExpiryModalFlag ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 7,
+        class: "modal",
+        onClick: _cache[51] || (_cache[51] = vue.withModifiers(($event) => $data.showExpiryModalFlag = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("view", { class: "modal-header" }, [
+            vue.createElementVNode("text", { class: "modal-title" }, "修改到期时间"),
+            vue.createElementVNode("text", {
+              class: "modal-close",
+              onClick: _cache[47] || (_cache[47] = ($event) => $data.showExpiryModalFlag = false)
+            }, "×")
+          ]),
+          vue.createElementVNode("view", { class: "modal-body" }, [
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "当前到期时间"),
+              vue.createElementVNode(
+                "text",
+                { class: "form-value" },
+                vue.toDisplayString($options.formatDate($data.currentInstance.expires_at)),
+                1
+                /* TEXT */
+              )
+            ]),
+            vue.createElementVNode("view", { class: "form-item" }, [
+              vue.createElementVNode("text", { class: "form-label" }, "新到期时间"),
+              vue.createElementVNode("picker", {
+                mode: "date",
+                value: $data.expiryDate,
+                onChange: _cache[48] || (_cache[48] = ($event) => $data.expiryDate = $event.detail.value)
+              }, [
+                vue.createElementVNode(
+                  "view",
+                  { class: "form-picker" },
+                  vue.toDisplayString($data.expiryDate || "请选择日期"),
+                  1
+                  /* TEXT */
+                )
+              ], 40, ["value"])
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-footer" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[49] || (_cache[49] = ($event) => $data.showExpiryModalFlag = false)
+            }, "取消"),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[50] || (_cache[50] = (...args) => $options.saveExpiry && $options.saveExpiry(...args))
+            }, "保存")
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createElementVNode("view", { class: "bottom-space" })
+    ]);
+  }
+  const PagesAdminVhost = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$3], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/admin/vhost.vue"]]);
+  const _sfc_main$3 = {
+    data() {
+      return {
+        instances: [],
+        statusFilter: "",
+        loading: true,
+        refreshing: false
+      };
+    },
+    computed: {
+      filteredInstances() {
+        if (this.statusFilter === "") {
+          return this.instances;
+        }
+        return this.instances.filter((item) => item.status === this.statusFilter);
+      }
+    },
+    onShow() {
+      this.loadData();
+    },
+    methods: {
+      async onRefresh() {
+        this.refreshing = true;
+        await this.loadData();
+        this.refreshing = false;
+      },
+      async loadData() {
+        var _a;
+        this.loading = true;
+        try {
+          const res = await getVHostInstances();
+          this.instances = ((_a = res.data) == null ? void 0 : _a.instances) || [];
+        } catch (e) {
+          formatAppLog("error", "at pages/vhost/list.vue:133", "加载主机列表失败", e);
+        } finally {
+          this.loading = false;
+        }
+      },
+      filterByStatus(status) {
+        this.statusFilter = status;
+      },
+      getStatusClass(status) {
+        const map = {
+          1: "success",
+          2: "warning",
+          3: "danger"
+        };
+        return map[status] || "";
+      },
+      formatDate(dateStr) {
+        if (!dateStr)
+          return "-";
+        const date = new Date(dateStr);
+        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      },
+      goToDetail(item) {
+        uni.navigateTo({ url: `/pages/vhost/detail?id=${item.id}` });
+      },
+      goToPurchase() {
+        uni.navigateTo({ url: "/pages/vhost/purchase" });
+      }
+    }
+  };
+  function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createCommentVNode(" 页面头部 "),
+      vue.createElementVNode("view", { class: "page-header" }, [
+        vue.createElementVNode("view", { class: "header-content" }, [
+          vue.createElementVNode("text", { class: "header-title" }, "虚拟主机"),
+          vue.createElementVNode(
+            "text",
+            { class: "header-count" },
+            "共 " + vue.toDisplayString($data.instances.length) + " 个",
+            1
+            /* TEXT */
+          )
+        ])
+      ]),
+      vue.createCommentVNode(" 状态筛选 "),
+      vue.createElementVNode("view", { class: "filter-bar" }, [
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["filter-item", { active: $data.statusFilter === "" }]),
+            onClick: _cache[0] || (_cache[0] = ($event) => $options.filterByStatus(""))
+          },
+          [
+            vue.createElementVNode("text", null, "全部")
+          ],
+          2
+          /* CLASS */
+        ),
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["filter-item", { active: $data.statusFilter === 1 }]),
+            onClick: _cache[1] || (_cache[1] = ($event) => $options.filterByStatus(1))
+          },
+          [
+            vue.createElementVNode("text", null, "正常")
+          ],
+          2
+          /* CLASS */
+        ),
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["filter-item", { active: $data.statusFilter === 3 }]),
+            onClick: _cache[2] || (_cache[2] = ($event) => $options.filterByStatus(3))
+          },
+          [
+            vue.createElementVNode("text", null, "已过期")
+          ],
+          2
+          /* CLASS */
+        ),
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["filter-item", { active: $data.statusFilter === 2 }]),
+            onClick: _cache[3] || (_cache[3] = ($event) => $options.filterByStatus(2))
+          },
+          [
+            vue.createElementVNode("text", null, "已暂停")
+          ],
+          2
+          /* CLASS */
+        )
+      ]),
+      vue.createCommentVNode(" 主机列表 "),
+      vue.createElementVNode("scroll-view", {
+        class: "host-list",
+        "scroll-y": "",
+        "refresher-enabled": "",
+        "refresher-triggered": $data.refreshing,
+        onRefresherrefresh: _cache[5] || (_cache[5] = (...args) => $options.onRefresh && $options.onRefresh(...args))
+      }, [
+        (vue.openBlock(true), vue.createElementBlock(
+          vue.Fragment,
+          null,
+          vue.renderList($options.filteredInstances, (item) => {
+            var _a, _b;
+            return vue.openBlock(), vue.createElementBlock("view", {
+              class: "host-card",
+              key: item.id,
+              onClick: ($event) => $options.goToDetail(item)
+            }, [
+              vue.createElementVNode("view", { class: "card-header" }, [
+                vue.createElementVNode(
+                  "view",
+                  {
+                    class: vue.normalizeClass(["status-badge", $options.getStatusClass(item.status)])
+                  },
+                  [
+                    vue.createElementVNode(
+                      "text",
+                      null,
+                      vue.toDisplayString(item.status_name),
+                      1
+                      /* TEXT */
+                    )
+                  ],
+                  2
+                  /* CLASS */
+                ),
+                vue.createElementVNode(
+                  "text",
+                  {
+                    class: vue.normalizeClass(["expire-text", { warning: item.days_remaining <= 7 && item.days_remaining > 0 }])
+                  },
+                  vue.toDisplayString(item.days_remaining > 0 ? `剩余 ${item.days_remaining} 天` : "已过期"),
+                  3
+                  /* TEXT, CLASS */
+                )
+              ]),
+              vue.createElementVNode("view", { class: "card-body" }, [
+                vue.createElementVNode(
+                  "text",
+                  { class: "host-domain" },
+                  vue.toDisplayString(item.domain),
+                  1
+                  /* TEXT */
+                ),
+                vue.createElementVNode("view", { class: "host-info" }, [
+                  vue.createElementVNode("view", { class: "info-item" }, [
+                    vue.createElementVNode("text", { class: "info-icon" }, "📦"),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "info-text" },
+                      vue.toDisplayString(((_a = item.plan) == null ? void 0 : _a.name) || "套餐"),
+                      1
+                      /* TEXT */
+                    )
+                  ]),
+                  vue.createElementVNode("view", { class: "info-item" }, [
+                    vue.createElementVNode("text", { class: "info-icon" }, "🖥️"),
+                    vue.createElementVNode(
+                      "text",
+                      { class: "info-text" },
+                      vue.toDisplayString(((_b = item.server) == null ? void 0 : _b.name) || "服务器"),
+                      1
+                      /* TEXT */
+                    )
+                  ])
+                ])
+              ]),
+              vue.createElementVNode("view", { class: "card-footer" }, [
+                vue.createElementVNode(
+                  "text",
+                  { class: "expire-date" },
+                  "到期：" + vue.toDisplayString($options.formatDate(item.expires_at)),
+                  1
+                  /* TEXT */
+                ),
+                vue.createElementVNode("text", { class: "arrow" }, "›")
+              ])
+            ], 8, ["onClick"]);
+          }),
+          128
+          /* KEYED_FRAGMENT */
+        )),
+        vue.createCommentVNode(" 加载状态 "),
+        $data.loading ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "loading-state"
+        }, [
+          vue.createElementVNode("text", { class: "loading-text" }, "加载中...")
+        ])) : vue.createCommentVNode("v-if", true),
+        vue.createCommentVNode(" 空状态 "),
+        $options.filteredInstances.length === 0 && !$data.loading ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "empty-state"
+        }, [
+          vue.createElementVNode("text", { class: "empty-icon" }, "🖥️"),
+          vue.createElementVNode("text", { class: "empty-title" }, "暂无主机"),
+          vue.createElementVNode("text", { class: "empty-desc" }, "点击下方按钮购买您的第一台虚拟主机"),
+          vue.createElementVNode("view", {
+            class: "empty-btn",
+            onClick: _cache[4] || (_cache[4] = (...args) => $options.goToPurchase && $options.goToPurchase(...args))
+          }, [
+            vue.createElementVNode("text", { class: "empty-btn-text" }, "立即购买")
+          ])
+        ])) : vue.createCommentVNode("v-if", true),
+        vue.createElementVNode("view", { class: "bottom-space" })
+      ], 40, ["refresher-triggered"]),
+      vue.createCommentVNode(" 添加按钮 "),
+      vue.createElementVNode("view", {
+        class: "fab",
+        onClick: _cache[6] || (_cache[6] = (...args) => $options.goToPurchase && $options.goToPurchase(...args))
+      }, [
+        vue.createElementVNode("text", { class: "fab-icon" }, "+")
+      ])
+    ]);
+  }
+  const PagesVhostList = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$2], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/vhost/list.vue"]]);
+  const _sfc_main$2 = {
+    data() {
+      return {
+        instanceId: null,
+        instance: {},
+        activeTab: "info",
+        showFtpPass: false,
+        showDbPass: false,
+        // 域名绑定
+        domains: [],
+        showAddDomain: false,
+        newDomain: "",
+        // 文件管理
+        files: [],
+        filesLoading: false,
+        currentPath: "/",
+        showFileMenu: false,
+        showFileAction: false,
+        showFileEditor: false,
+        selectedFile: null,
+        fileContent: "",
+        // 设置
+        phpVersions: [],
+        phpVersionList: null,
+        currentPhpVersion: "",
+        runPath: "/",
+        runPathDirs: [],
+        rewriteTemplates: [],
+        rewriteContent: "",
+        showRewriteModal: false,
+        sslStatus: null,
+        showSslModal: false,
+        sslKey: "",
+        sslCsr: ""
+      };
+    },
+    computed: {
+      pathParts() {
+        if (this.currentPath === "/")
+          return [];
+        return this.currentPath.split("/").filter((p) => p);
+      }
+    },
+    onLoad(options) {
+      this.instanceId = options.id;
+      this.loadInstance();
+    },
+    methods: {
+      async loadInstance() {
+        var _a;
+        try {
+          const res = await getVHostInstance(this.instanceId);
+          this.instance = ((_a = res.data) == null ? void 0 : _a.instance) || {};
+        } catch (e) {
+          formatAppLog("error", "at pages/vhost/detail.vue:445", "加载主机详情失败", e);
+        }
+      },
+      getStatusClass(status) {
+        return { 1: "success", 2: "warning", 3: "danger" }[status] || "";
+      },
+      formatDate(dateStr) {
+        if (!dateStr)
+          return "-";
+        return dateStr.split("T")[0];
+      },
+      formatSize(bytes) {
+        if (bytes < 1024)
+          return bytes + " B";
+        if (bytes < 1024 * 1024)
+          return (bytes / 1024).toFixed(1) + " KB";
+        return (bytes / 1024 / 1024).toFixed(1) + " MB";
+      },
+      // 套餐配置辅助方法 - 兼容不同字段名
+      getPlanDiskSpace() {
+        const plan = this.instance.plan;
+        if (!plan)
+          return "-";
+        if (plan.disk_space_display)
+          return plan.disk_space_display;
+        if (plan.diskSpaceDisplay)
+          return plan.diskSpaceDisplay;
+        if (plan.disk_space) {
+          const size = parseInt(plan.disk_space);
+          if (size >= 1024)
+            return (size / 1024).toFixed(0) + " GB";
+          return size + " MB";
+        }
+        if (plan.diskSpace) {
+          const size = parseInt(plan.diskSpace);
+          if (size >= 1024)
+            return (size / 1024).toFixed(0) + " GB";
+          return size + " MB";
+        }
+        return "-";
+      },
+      getPlanBandwidth() {
+        const plan = this.instance.plan;
+        if (!plan)
+          return "-";
+        if (plan.bandwidth_display)
+          return plan.bandwidth_display;
+        if (plan.bandwidthDisplay)
+          return plan.bandwidthDisplay;
+        if (plan.bandwidth) {
+          const size = parseInt(plan.bandwidth);
+          if (size >= 1024)
+            return (size / 1024).toFixed(0) + " GB";
+          return size + " MB";
+        }
+        if (plan.monthly_bandwidth) {
+          const size = parseInt(plan.monthly_bandwidth);
+          if (size >= 1024)
+            return (size / 1024).toFixed(0) + " GB";
+          return size + " MB";
+        }
+        return "-";
+      },
+      getPlanMaxDomains() {
+        const plan = this.instance.plan;
+        if (!plan)
+          return "-";
+        return plan.max_domains || plan.maxDomains || plan.domains || "-";
+      },
+      getPlanMaxDatabases() {
+        const plan = this.instance.plan;
+        if (!plan)
+          return "-";
+        return plan.max_databases || plan.maxDatabases || plan.databases || "-";
+      },
+      copyText(text) {
+        if (!text)
+          return;
+        uni.setClipboardData({
+          data: text,
+          success: () => uni.showToast({ title: "已复制", icon: "success" })
+        });
+      },
+      async handleRenew() {
+        var _a;
+        uni.showModal({
+          title: "续费确认",
+          content: `确定续费该主机吗？将扣除 ¥${((_a = this.instance.plan) == null ? void 0 : _a.price) || 0}`,
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                uni.showLoading({ title: "续费中..." });
+                await renewVHost(this.instanceId);
+                uni.hideLoading();
+                uni.showToast({ title: "续费成功", icon: "success" });
+                this.loadInstance();
+              } catch (e) {
+                uni.hideLoading();
+              }
+            }
+          }
+        });
+      },
+      // 域名绑定
+      async loadDomains() {
+        var _a;
+        try {
+          const res = await getInstanceDomains(this.instanceId);
+          this.domains = ((_a = res.data) == null ? void 0 : _a.domains) || [];
+        } catch (e) {
+          formatAppLog("error", "at pages/vhost/detail.vue:539", "加载域名列表失败", e);
+        }
+      },
+      async addDomain() {
+        var _a;
+        if (!this.newDomain.trim()) {
+          uni.showToast({ title: "请输入域名", icon: "none" });
+          return;
+        }
+        if (this.domains.length >= (((_a = this.instance.plan) == null ? void 0 : _a.max_domains) || 0)) {
+          uni.showToast({ title: "已达到最大域名数量限制", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "添加中..." });
+          await addInstanceDomain(this.instanceId, { domain: this.newDomain.trim() });
+          uni.hideLoading();
+          uni.showToast({ title: "添加成功", icon: "success" });
+          this.showAddDomain = false;
+          this.newDomain = "";
+          this.loadDomains();
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      deleteDomain(item) {
+        uni.showModal({
+          title: "确认删除",
+          content: `确定删除域名 ${item.domain} 吗？`,
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                await deleteInstanceDomain(this.instanceId, item.id);
+                uni.showToast({ title: "删除成功", icon: "success" });
+                this.loadDomains();
+              } catch (e) {
+              }
+            }
+          }
+        });
+      },
+      // 文件管理
+      async loadFiles(path = "/") {
+        this.filesLoading = true;
+        this.currentPath = path;
+        try {
+          formatAppLog("log", "at pages/vhost/detail.vue:583", "Loading files from path:", path);
+          const res = await getFiles(this.instanceId, path);
+          formatAppLog("log", "at pages/vhost/detail.vue:585", "Files API response:", res);
+          const data = res.data || res;
+          let fileList = data.files || data.list || data.items || data.data || [];
+          if (!Array.isArray(fileList)) {
+            formatAppLog("warn", "at pages/vhost/detail.vue:593", "fileList is not an array:", fileList);
+            fileList = [];
+          }
+          this.files = fileList.map((f) => {
+            const fileName = f.name || f.filename || f.file_name || "";
+            let filePath = f.path || f.full_path;
+            if (!filePath && fileName) {
+              filePath = path === "/" ? "/" + fileName : path + "/" + fileName;
+            }
+            return {
+              name: fileName,
+              path: filePath,
+              is_dir: f.is_dir !== void 0 ? f.is_dir : f.isDir !== void 0 ? f.isDir : f.type === "dir" || f.type === "directory",
+              size: f.size || f.file_size || 0
+            };
+          });
+          formatAppLog("log", "at pages/vhost/detail.vue:613", "Files loaded:", this.files.length, "items in", path);
+        } catch (e) {
+          formatAppLog("error", "at pages/vhost/detail.vue:615", "加载文件列表失败", e);
+          this.files = [];
+          uni.showToast({ title: "加载文件列表失败", icon: "none" });
+        }
+        this.filesLoading = false;
+      },
+      navigateTo(path) {
+        this.loadFiles(path);
+      },
+      navigateToIndex(index) {
+        const path = "/" + this.pathParts.slice(0, index + 1).join("/");
+        this.loadFiles(path);
+      },
+      goBack() {
+        const parts = this.pathParts;
+        parts.pop();
+        const path = parts.length ? "/" + parts.join("/") : "/";
+        this.loadFiles(path);
+      },
+      openFile(file) {
+        formatAppLog("log", "at pages/vhost/detail.vue:635", "Opening file:", file);
+        if (!file) {
+          formatAppLog("error", "at pages/vhost/detail.vue:637", "File object is null");
+          return;
+        }
+        if (file.is_dir) {
+          const targetPath = file.path || (this.currentPath === "/" ? "/" + file.name : this.currentPath + "/" + file.name);
+          formatAppLog("log", "at pages/vhost/detail.vue:644", "Navigating to directory:", targetPath);
+          this.loadFiles(targetPath);
+        } else {
+          this.selectedFile = {
+            ...file,
+            path: file.path || (this.currentPath === "/" ? "/" + file.name : this.currentPath + "/" + file.name)
+          };
+          formatAppLog("log", "at pages/vhost/detail.vue:652", "Selected file for edit:", this.selectedFile);
+          this.editFile();
+        }
+      },
+      showFileActions(file) {
+        formatAppLog("log", "at pages/vhost/detail.vue:657", "Show actions for:", file);
+        if (!file) {
+          formatAppLog("error", "at pages/vhost/detail.vue:659", "File object is null");
+          return;
+        }
+        this.selectedFile = {
+          ...file,
+          path: file.path || (this.currentPath === "/" ? "/" + file.name : this.currentPath + "/" + file.name)
+        };
+        formatAppLog("log", "at pages/vhost/detail.vue:668", "Selected file:", this.selectedFile);
+        this.showFileAction = true;
+      },
+      async editFile() {
+        this.showFileAction = false;
+        formatAppLog("log", "at pages/vhost/detail.vue:673", "Editing file:", this.selectedFile);
+        if (!this.selectedFile || !this.selectedFile.path) {
+          uni.showToast({ title: "文件路径无效", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "加载中..." });
+          formatAppLog("log", "at pages/vhost/detail.vue:682", "Reading file path:", this.selectedFile.path);
+          const res = await readFile(this.instanceId, this.selectedFile.path);
+          formatAppLog("log", "at pages/vhost/detail.vue:684", "Read file response:", res);
+          const data = res.data || res;
+          if (data.content !== void 0) {
+            this.fileContent = data.content;
+          } else if (data.data !== void 0) {
+            this.fileContent = data.data;
+          } else if (data.body !== void 0) {
+            this.fileContent = data.body;
+          } else if (typeof data === "string") {
+            this.fileContent = data;
+          } else {
+            this.fileContent = "";
+          }
+          uni.hideLoading();
+          this.showFileEditor = true;
+        } catch (e) {
+          formatAppLog("error", "at pages/vhost/detail.vue:704", "读取文件失败:", e);
+          uni.hideLoading();
+          const errMsg = e.message || e.msg || "读取文件失败";
+          uni.showToast({ title: errMsg, icon: "none" });
+        }
+      },
+      async saveFileContent() {
+        try {
+          uni.showLoading({ title: "保存中..." });
+          await saveFile(this.instanceId, { path: this.selectedFile.path, content: this.fileContent });
+          uni.hideLoading();
+          uni.showToast({ title: "保存成功", icon: "success" });
+          this.showFileEditor = false;
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      createNewFile() {
+        this.showFileMenu = false;
+        uni.showModal({
+          title: "新建文件",
+          editable: true,
+          placeholderText: "输入文件名",
+          success: async (res) => {
+            if (res.confirm && res.content) {
+              try {
+                const path = this.currentPath === "/" ? "/" + res.content : this.currentPath + "/" + res.content;
+                await createFile(this.instanceId, { path });
+                uni.showToast({ title: "创建成功", icon: "success" });
+                this.loadFiles(this.currentPath);
+              } catch (e) {
+              }
+            }
+          }
+        });
+      },
+      createNewDir() {
+        this.showFileMenu = false;
+        uni.showModal({
+          title: "新建目录",
+          editable: true,
+          placeholderText: "输入目录名",
+          success: async (res) => {
+            if (res.confirm && res.content) {
+              try {
+                const path = this.currentPath === "/" ? "/" + res.content : this.currentPath + "/" + res.content;
+                await createDir(this.instanceId, { path });
+                uni.showToast({ title: "创建成功", icon: "success" });
+                this.loadFiles(this.currentPath);
+              } catch (e) {
+              }
+            }
+          }
+        });
+      },
+      renameFileAction() {
+        this.showFileAction = false;
+        uni.showModal({
+          title: "重命名",
+          editable: true,
+          placeholderText: "输入新名称",
+          success: async (res) => {
+            if (res.confirm && res.content) {
+              try {
+                await renameFile(this.instanceId, { path: this.selectedFile.path, new_name: res.content });
+                uni.showToast({ title: "重命名成功", icon: "success" });
+                this.loadFiles(this.currentPath);
+              } catch (e) {
+              }
+            }
+          }
+        });
+      },
+      copyFileAction() {
+        this.showFileAction = false;
+        uni.showModal({
+          title: "复制到",
+          editable: true,
+          placeholderText: "输入目标路径",
+          success: async (res) => {
+            if (res.confirm && res.content) {
+              try {
+                await copyFile(this.instanceId, { source: this.selectedFile.path, dest: res.content });
+                uni.showToast({ title: "复制成功", icon: "success" });
+                this.loadFiles(this.currentPath);
+              } catch (e) {
+              }
+            }
+          }
+        });
+      },
+      moveFileAction() {
+        this.showFileAction = false;
+        uni.showModal({
+          title: "移动到",
+          editable: true,
+          placeholderText: "输入目标路径",
+          success: async (res) => {
+            if (res.confirm && res.content) {
+              try {
+                await moveFile(this.instanceId, { source: this.selectedFile.path, dest: res.content });
+                uni.showToast({ title: "移动成功", icon: "success" });
+                this.loadFiles(this.currentPath);
+              } catch (e) {
+              }
+            }
+          }
+        });
+      },
+      zipFileAction() {
+        this.showFileAction = false;
+        uni.showModal({
+          title: "压缩",
+          editable: true,
+          placeholderText: "输入压缩包名称",
+          success: async (res) => {
+            if (res.confirm && res.content) {
+              try {
+                await zipFile(this.instanceId, { source: this.selectedFile.path, zip_name: res.content });
+                uni.showToast({ title: "压缩成功", icon: "success" });
+                this.loadFiles(this.currentPath);
+              } catch (e) {
+              }
+            }
+          }
+        });
+      },
+      async unzipFileAction() {
+        this.showFileAction = false;
+        try {
+          uni.showLoading({ title: "解压中..." });
+          await unzipFile(this.instanceId, { zip_path: this.selectedFile.path });
+          uni.hideLoading();
+          uni.showToast({ title: "解压成功", icon: "success" });
+          this.loadFiles(this.currentPath);
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      deleteFileAction() {
+        this.showFileAction = false;
+        uni.showModal({
+          title: "确认删除",
+          content: `确定删除 ${this.selectedFile.name} 吗？`,
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                await deleteFile(this.instanceId, { path: this.selectedFile.path, is_dir: this.selectedFile.is_dir });
+                uni.showToast({ title: "删除成功", icon: "success" });
+                this.loadFiles(this.currentPath);
+              } catch (e) {
+              }
+            }
+          }
+        });
+      },
+      // 设置
+      async loadPhpVersions() {
+        try {
+          const res = await getPhpVersions(this.instanceId);
+          const data = res.data || res;
+          const versions = data.versions || data.php_versions || data.list || [];
+          if (versions.length > 0 && typeof versions[0] === "object") {
+            this.phpVersionList = versions;
+            this.phpVersions = versions.map((v) => v.name || `PHP-${v.version}`);
+            const current = data.current_version || data.currentVersion || data.current || data.php_version || "";
+            if (current) {
+              const currentItem = versions.find((v) => v.version === current || v.name === current);
+              this.currentPhpVersion = currentItem ? currentItem.name || `PHP-${currentItem.version}` : current;
+            } else {
+              this.currentPhpVersion = "";
+            }
+          } else {
+            this.phpVersionList = null;
+            this.phpVersions = versions;
+            this.currentPhpVersion = data.current_version || data.currentVersion || data.current || data.php_version || "";
+          }
+          formatAppLog("log", "at pages/vhost/detail.vue:878", "PHP versions loaded:", this.phpVersions, "current:", this.currentPhpVersion);
+        } catch (e) {
+          formatAppLog("error", "at pages/vhost/detail.vue:880", "加载PHP版本失败", e);
+        }
+      },
+      async onPhpChange(e) {
+        let version = this.phpVersions[e.detail.value];
+        if (this.phpVersionList && this.phpVersionList[e.detail.value]) {
+          version = this.phpVersionList[e.detail.value].version;
+        }
+        try {
+          uni.showLoading({ title: "切换中..." });
+          await setPhpVersion(this.instanceId, { version });
+          uni.hideLoading();
+          uni.showToast({ title: "切换成功", icon: "success" });
+          this.currentPhpVersion = this.phpVersions[e.detail.value];
+        } catch (e2) {
+          uni.hideLoading();
+        }
+      },
+      async loadRunPath() {
+        try {
+          const res = await getRunPath(this.instanceId);
+          const data = res.data || res;
+          this.runPath = data.run_path || data.runPath || data.path || "/";
+          this.runPathDirs = data.dirs || data.directories || data.list || ["/"];
+          formatAppLog("log", "at pages/vhost/detail.vue:906", "Run path loaded:", this.runPath, "dirs:", this.runPathDirs);
+        } catch (e) {
+          formatAppLog("error", "at pages/vhost/detail.vue:908", "加载运行目录失败", e);
+        }
+      },
+      async onRunPathChange(e) {
+        const path = this.runPathDirs[e.detail.value];
+        try {
+          uni.showLoading({ title: "设置中..." });
+          await setRunPath(this.instanceId, { run_path: path });
+          uni.hideLoading();
+          uni.showToast({ title: "设置成功", icon: "success" });
+          this.runPath = path;
+        } catch (e2) {
+          uni.hideLoading();
+        }
+      },
+      async loadRewrite() {
+        try {
+          const res = await getRewrite(this.instanceId);
+          const data = res.data || res;
+          this.rewriteTemplates = data.templates || data.template_list || ["wordpress", "thinkphp", "laravel", "codeigniter", "typecho"];
+          this.rewriteContent = data.content || data.rewrite || "";
+          formatAppLog("log", "at pages/vhost/detail.vue:930", "Rewrite loaded, templates:", this.rewriteTemplates);
+        } catch (e) {
+          formatAppLog("error", "at pages/vhost/detail.vue:932", "加载伪静态失败", e);
+          this.rewriteTemplates = ["wordpress", "thinkphp", "laravel", "codeigniter", "typecho"];
+        }
+      },
+      async loadRewriteTemplate(name) {
+        var _a;
+        try {
+          uni.showLoading({ title: "加载中..." });
+          const res = await getRewriteTemplate(this.instanceId, name);
+          this.rewriteContent = ((_a = res.data) == null ? void 0 : _a.content) || "";
+          uni.hideLoading();
+          this.showRewriteModal = true;
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async saveRewrite() {
+        try {
+          uni.showLoading({ title: "保存中..." });
+          await setRewrite(this.instanceId, { content: this.rewriteContent });
+          uni.hideLoading();
+          uni.showToast({ title: "保存成功", icon: "success" });
+          this.showRewriteModal = false;
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      async loadSslStatus() {
+        try {
+          const res = await getSslStatus(this.instanceId);
+          const data = res.data || res;
+          this.sslStatus = {
+            status: data.status || data.enabled || data.ssl_enabled || false,
+            https_force: data.https_force || data.force_https || data.forceHttps || false,
+            cert_info: data.cert_info || data.certInfo || data.certificate || null
+          };
+          formatAppLog("log", "at pages/vhost/detail.vue:969", "SSL status loaded:", this.sslStatus);
+        } catch (e) {
+          formatAppLog("error", "at pages/vhost/detail.vue:971", "加载SSL状态失败", e);
+          this.sslStatus = { status: false, https_force: false, cert_info: null };
+        }
+      },
+      async deploySslCert() {
+        if (!this.sslKey.trim() || !this.sslCsr.trim()) {
+          uni.showToast({ title: "请填写证书信息", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "部署中..." });
+          await deploySsl(this.instanceId, { key: this.sslKey, csr: this.sslCsr });
+          uni.hideLoading();
+          uni.showToast({ title: "部署成功", icon: "success" });
+          this.showSslModal = false;
+          this.sslKey = "";
+          this.sslCsr = "";
+          this.loadSslStatus();
+        } catch (e) {
+          uni.hideLoading();
+        }
+      },
+      handleCloseSsl() {
+        uni.showModal({
+          title: "确认关闭",
+          content: "确定关闭 SSL 吗？",
+          success: async (res) => {
+            if (res.confirm) {
+              try {
+                await closeSsl(this.instanceId);
+                uni.showToast({ title: "已关闭", icon: "success" });
+                this.loadSslStatus();
+              } catch (e) {
+              }
+            }
+          }
+        });
+      },
+      async toggleForceHttps(e) {
+        try {
+          await setForceHttps(this.instanceId, { enable: e.detail.value });
+          uni.showToast({ title: "设置成功", icon: "success" });
+        } catch (e2) {
+        }
+      }
+    },
+    watch: {
+      activeTab(val) {
+        if (val === "domains" && this.domains.length === 0)
+          this.loadDomains();
+        if (val === "files" && this.files.length === 0)
+          this.loadFiles();
+        if (val === "settings") {
+          if (this.phpVersions.length === 0)
+            this.loadPhpVersions();
+          if (this.runPathDirs.length === 0)
+            this.loadRunPath();
+          if (this.rewriteTemplates.length === 0)
+            this.loadRewrite();
+          if (!this.sslStatus)
+            this.loadSslStatus();
+        }
+      }
+    }
+  };
+  function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+    var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j;
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createCommentVNode(" 页面头部 "),
+      vue.createElementVNode("view", { class: "page-header" }, [
+        vue.createElementVNode("text", { class: "header-title" }, "主机详情"),
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["header-status", $options.getStatusClass($data.instance.status)])
+          },
+          [
+            vue.createElementVNode(
+              "text",
+              null,
+              vue.toDisplayString($data.instance.status_name || "加载中"),
+              1
+              /* TEXT */
+            )
+          ],
+          2
+          /* CLASS */
+        )
+      ]),
+      vue.createCommentVNode(" 主机信息卡片 "),
+      vue.createElementVNode("view", { class: "info-card" }, [
+        vue.createElementVNode("view", { class: "domain-header" }, [
+          vue.createElementVNode("text", { class: "domain-icon" }, "🖥️"),
+          vue.createElementVNode(
+            "text",
+            { class: "domain-name" },
+            vue.toDisplayString($data.instance.domain),
+            1
+            /* TEXT */
+          )
+        ]),
+        vue.createElementVNode("view", { class: "info-row" }, [
+          vue.createElementVNode("view", { class: "info-item" }, [
+            vue.createElementVNode("text", { class: "info-label" }, "套餐"),
+            vue.createElementVNode(
+              "text",
+              { class: "info-value" },
+              vue.toDisplayString(((_a = $data.instance.plan) == null ? void 0 : _a.name) || "-"),
+              1
+              /* TEXT */
+            )
+          ]),
+          vue.createElementVNode("view", { class: "info-item" }, [
+            vue.createElementVNode("text", { class: "info-label" }, "到期时间"),
+            vue.createElementVNode(
+              "text",
+              { class: "info-value" },
+              vue.toDisplayString($options.formatDate($data.instance.expires_at)),
+              1
+              /* TEXT */
+            )
+          ])
+        ]),
+        vue.createElementVNode("view", { class: "info-row" }, [
+          vue.createElementVNode("view", { class: "info-item" }, [
+            vue.createElementVNode("text", { class: "info-label" }, "剩余天数"),
+            vue.createElementVNode(
+              "text",
+              {
+                class: vue.normalizeClass(["info-value", { warning: $data.instance.days_remaining <= 7 }])
+              },
+              vue.toDisplayString($data.instance.days_remaining > 0 ? $data.instance.days_remaining + " 天" : "已过期"),
+              3
+              /* TEXT, CLASS */
+            )
+          ]),
+          vue.createElementVNode("view", { class: "info-item" }, [
+            vue.createElementVNode("text", { class: "info-label" }, "服务器"),
+            vue.createElementVNode(
+              "text",
+              { class: "info-value" },
+              vue.toDisplayString(((_b = $data.instance.server) == null ? void 0 : _b.name) || "-"),
+              1
+              /* TEXT */
+            )
+          ])
+        ]),
+        vue.createElementVNode("view", {
+          class: "action-btn",
+          onClick: _cache[0] || (_cache[0] = (...args) => $options.handleRenew && $options.handleRenew(...args))
+        }, [
+          vue.createElementVNode("text", { class: "action-text" }, "续费")
+        ])
+      ]),
+      vue.createCommentVNode(" 标签页 "),
+      vue.createElementVNode("view", { class: "tabs" }, [
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["tab-item", { active: $data.activeTab === "info" }]),
+            onClick: _cache[1] || (_cache[1] = ($event) => $data.activeTab = "info")
+          },
+          [
+            vue.createElementVNode("text", null, "基本信息")
+          ],
+          2
+          /* CLASS */
+        ),
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["tab-item", { active: $data.activeTab === "domains" }]),
+            onClick: _cache[2] || (_cache[2] = ($event) => $data.activeTab = "domains")
+          },
+          [
+            vue.createElementVNode("text", null, "域名绑定")
+          ],
+          2
+          /* CLASS */
+        ),
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["tab-item", { active: $data.activeTab === "files" }]),
+            onClick: _cache[3] || (_cache[3] = ($event) => $data.activeTab = "files")
+          },
+          [
+            vue.createElementVNode("text", null, "文件管理")
+          ],
+          2
+          /* CLASS */
+        ),
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["tab-item", { active: $data.activeTab === "settings" }]),
+            onClick: _cache[4] || (_cache[4] = ($event) => $data.activeTab = "settings")
+          },
+          [
+            vue.createElementVNode("text", null, "设置")
+          ],
+          2
+          /* CLASS */
+        )
+      ]),
+      vue.createCommentVNode(" 基本信息 "),
+      $data.activeTab === "info" ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "tab-content"
+      }, [
+        vue.createCommentVNode(" FTP 信息 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "FTP 连接信息")
+          ]),
+          vue.createElementVNode("view", { class: "info-list" }, [
+            vue.createElementVNode("view", { class: "info-line" }, [
+              vue.createElementVNode("text", { class: "line-label" }, "主机"),
+              vue.createElementVNode(
+                "text",
+                { class: "line-value" },
+                vue.toDisplayString(((_c = $data.instance.server) == null ? void 0 : _c.ip_address) || "-"),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", {
+                class: "copy-btn",
+                onClick: _cache[5] || (_cache[5] = ($event) => {
+                  var _a2;
+                  return $options.copyText((_a2 = $data.instance.server) == null ? void 0 : _a2.ip_address);
+                })
+              }, "复制")
+            ]),
+            vue.createElementVNode("view", { class: "info-line" }, [
+              vue.createElementVNode("text", { class: "line-label" }, "用户名"),
+              vue.createElementVNode(
+                "text",
+                { class: "line-value" },
+                vue.toDisplayString($data.instance.ftp_user || "-"),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", {
+                class: "copy-btn",
+                onClick: _cache[6] || (_cache[6] = ($event) => $options.copyText($data.instance.ftp_user))
+              }, "复制")
+            ]),
+            vue.createElementVNode("view", { class: "info-line" }, [
+              vue.createElementVNode("text", { class: "line-label" }, "密码"),
+              vue.createElementVNode(
+                "text",
+                { class: "line-value" },
+                vue.toDisplayString($data.showFtpPass ? $data.instance.ftp_pass : "••••••••"),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode(
+                "text",
+                {
+                  class: "toggle-btn",
+                  onClick: _cache[7] || (_cache[7] = ($event) => $data.showFtpPass = !$data.showFtpPass)
+                },
+                vue.toDisplayString($data.showFtpPass ? "隐藏" : "显示"),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", {
+                class: "copy-btn",
+                onClick: _cache[8] || (_cache[8] = ($event) => $options.copyText($data.instance.ftp_pass))
+              }, "复制")
+            ])
+          ])
+        ]),
+        vue.createCommentVNode(" 数据库信息 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "数据库连接信息")
+          ]),
+          vue.createElementVNode("view", { class: "info-list" }, [
+            vue.createElementVNode("view", { class: "info-line" }, [
+              vue.createElementVNode("text", { class: "line-label" }, "主机"),
+              vue.createElementVNode("text", { class: "line-value" }, "localhost"),
+              vue.createElementVNode("text", {
+                class: "copy-btn",
+                onClick: _cache[9] || (_cache[9] = ($event) => $options.copyText("localhost"))
+              }, "复制")
+            ]),
+            vue.createElementVNode("view", { class: "info-line" }, [
+              vue.createElementVNode("text", { class: "line-label" }, "数据库名"),
+              vue.createElementVNode(
+                "text",
+                { class: "line-value" },
+                vue.toDisplayString($data.instance.db_name || "-"),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", {
+                class: "copy-btn",
+                onClick: _cache[10] || (_cache[10] = ($event) => $options.copyText($data.instance.db_name))
+              }, "复制")
+            ]),
+            vue.createElementVNode("view", { class: "info-line" }, [
+              vue.createElementVNode("text", { class: "line-label" }, "用户名"),
+              vue.createElementVNode(
+                "text",
+                { class: "line-value" },
+                vue.toDisplayString($data.instance.db_user || "-"),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", {
+                class: "copy-btn",
+                onClick: _cache[11] || (_cache[11] = ($event) => $options.copyText($data.instance.db_user))
+              }, "复制")
+            ]),
+            vue.createElementVNode("view", { class: "info-line" }, [
+              vue.createElementVNode("text", { class: "line-label" }, "密码"),
+              vue.createElementVNode(
+                "text",
+                { class: "line-value" },
+                vue.toDisplayString($data.showDbPass ? $data.instance.db_pass : "••••••••"),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode(
+                "text",
+                {
+                  class: "toggle-btn",
+                  onClick: _cache[12] || (_cache[12] = ($event) => $data.showDbPass = !$data.showDbPass)
+                },
+                vue.toDisplayString($data.showDbPass ? "隐藏" : "显示"),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode("text", {
+                class: "copy-btn",
+                onClick: _cache[13] || (_cache[13] = ($event) => $options.copyText($data.instance.db_pass))
+              }, "复制")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 域名绑定 "),
+      $data.activeTab === "domains" ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 1,
+        class: "tab-content"
+      }, [
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "已绑定域名"),
+            vue.createElementVNode(
+              "view",
+              { class: "section-badge" },
+              vue.toDisplayString($data.domains.length) + "/" + vue.toDisplayString(((_d = $data.instance.plan) == null ? void 0 : _d.max_domains) || 0),
+              1
+              /* TEXT */
+            ),
+            vue.createElementVNode("view", {
+              class: "section-action",
+              onClick: _cache[14] || (_cache[14] = ($event) => $data.showAddDomain = true)
+            }, [
+              vue.createElementVNode("text", { class: "action-icon" }, "+"),
+              vue.createElementVNode("text", { class: "action-label" }, "添加")
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "domain-list" }, [
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($data.domains, (item) => {
+                return vue.openBlock(), vue.createElementBlock("view", {
+                  class: "domain-item",
+                  key: item.id
+                }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "domain-text" },
+                    vue.toDisplayString(item.domain),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode("text", {
+                    class: "delete-btn",
+                    onClick: ($event) => $options.deleteDomain(item)
+                  }, "删除", 8, ["onClick"])
+                ]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ]),
+          $data.domains.length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "empty-state"
+          }, [
+            vue.createElementVNode("text", { class: "empty-icon" }, "🌐"),
+            vue.createElementVNode("text", { class: "empty-text" }, "暂无绑定域名")
+          ])) : vue.createCommentVNode("v-if", true)
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 文件管理 "),
+      $data.activeTab === "files" ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 2,
+        class: "tab-content"
+      }, [
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "文件管理"),
+            vue.createElementVNode("view", {
+              class: "section-action",
+              onClick: _cache[15] || (_cache[15] = ($event) => $data.showFileMenu = true)
+            }, [
+              vue.createElementVNode("text", { class: "action-icon" }, "+"),
+              vue.createElementVNode("text", { class: "action-label" }, "新建")
+            ])
+          ]),
+          vue.createCommentVNode(" 面包屑导航 "),
+          vue.createElementVNode("view", { class: "breadcrumb" }, [
+            vue.createElementVNode("text", {
+              class: "crumb-item",
+              onClick: _cache[16] || (_cache[16] = ($event) => $options.navigateTo("/"))
+            }, "根目录"),
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($options.pathParts, (part, index) => {
+                return vue.openBlock(), vue.createElementBlock("text", {
+                  class: "crumb-sep",
+                  key: index
+                }, "/");
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            )),
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($options.pathParts, (part, index) => {
+                return vue.openBlock(), vue.createElementBlock("text", {
+                  class: "crumb-item",
+                  key: "p" + index,
+                  onClick: ($event) => $options.navigateToIndex(index)
+                }, vue.toDisplayString(part), 9, ["onClick"]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ]),
+          vue.createCommentVNode(" 文件列表 "),
+          vue.createElementVNode("view", { class: "file-list" }, [
+            $data.currentPath !== "/" ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "file-item",
+              onClick: _cache[17] || (_cache[17] = (...args) => $options.goBack && $options.goBack(...args))
+            }, [
+              vue.createElementVNode("text", { class: "file-icon" }, "📁"),
+              vue.createElementVNode("text", { class: "file-name" }, "..")
+            ])) : vue.createCommentVNode("v-if", true),
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($data.files, (file) => {
+                return vue.openBlock(), vue.createElementBlock("view", {
+                  class: "file-item",
+                  key: file.path,
+                  onClick: ($event) => $options.openFile(file),
+                  onLongpress: ($event) => $options.showFileActions(file)
+                }, [
+                  vue.createElementVNode(
+                    "text",
+                    { class: "file-icon" },
+                    vue.toDisplayString(file.is_dir ? "📁" : "📄"),
+                    1
+                    /* TEXT */
+                  ),
+                  vue.createElementVNode("view", { class: "file-info" }, [
+                    vue.createElementVNode(
+                      "text",
+                      { class: "file-name" },
+                      vue.toDisplayString(file.name),
+                      1
+                      /* TEXT */
+                    ),
+                    !file.is_dir ? (vue.openBlock(), vue.createElementBlock(
+                      "text",
+                      {
+                        key: 0,
+                        class: "file-meta"
+                      },
+                      vue.toDisplayString($options.formatSize(file.size)),
+                      1
+                      /* TEXT */
+                    )) : vue.createCommentVNode("v-if", true)
+                  ]),
+                  vue.createElementVNode("text", {
+                    class: "file-more",
+                    onClick: vue.withModifiers(($event) => $options.showFileActions(file), ["stop"])
+                  }, "⋮", 8, ["onClick"])
+                ], 40, ["onClick", "onLongpress"]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ]),
+          $data.files.length === 0 && !$data.filesLoading ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "empty-state"
+          }, [
+            vue.createElementVNode("text", { class: "empty-icon" }, "📂"),
+            vue.createElementVNode("text", { class: "empty-text" }, "空目录")
+          ])) : vue.createCommentVNode("v-if", true)
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 设置 "),
+      $data.activeTab === "settings" ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 3,
+        class: "tab-content"
+      }, [
+        vue.createCommentVNode(" PHP 版本 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "PHP 版本")
+          ]),
+          vue.createElementVNode("view", { class: "setting-row" }, [
+            vue.createElementVNode("text", { class: "setting-label" }, "当前版本"),
+            vue.createElementVNode("picker", {
+              range: $data.phpVersions,
+              onChange: _cache[18] || (_cache[18] = (...args) => $options.onPhpChange && $options.onPhpChange(...args))
+            }, [
+              vue.createElementVNode("view", { class: "setting-picker" }, [
+                vue.createElementVNode(
+                  "text",
+                  null,
+                  "PHP " + vue.toDisplayString($data.currentPhpVersion || "选择版本"),
+                  1
+                  /* TEXT */
+                ),
+                vue.createElementVNode("text", { class: "picker-arrow" }, "›")
+              ])
+            ], 40, ["range"])
+          ])
+        ]),
+        vue.createCommentVNode(" 运行目录 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "运行目录")
+          ]),
+          vue.createElementVNode("view", { class: "setting-row" }, [
+            vue.createElementVNode("text", { class: "setting-label" }, "当前目录"),
+            vue.createElementVNode("picker", {
+              range: $data.runPathDirs,
+              onChange: _cache[19] || (_cache[19] = (...args) => $options.onRunPathChange && $options.onRunPathChange(...args))
+            }, [
+              vue.createElementVNode("view", { class: "setting-picker" }, [
+                vue.createElementVNode(
+                  "text",
+                  null,
+                  vue.toDisplayString($data.runPath || "/"),
+                  1
+                  /* TEXT */
+                ),
+                vue.createElementVNode("text", { class: "picker-arrow" }, "›")
+              ])
+            ], 40, ["range"])
+          ])
+        ]),
+        vue.createCommentVNode(" 伪静态 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "伪静态规则"),
+            vue.createElementVNode("view", {
+              class: "section-action",
+              onClick: _cache[20] || (_cache[20] = ($event) => $data.showRewriteModal = true)
+            }, [
+              vue.createElementVNode("text", { class: "action-label" }, "编辑")
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "template-list" }, [
+            (vue.openBlock(true), vue.createElementBlock(
+              vue.Fragment,
+              null,
+              vue.renderList($data.rewriteTemplates, (tpl) => {
+                return vue.openBlock(), vue.createElementBlock("view", {
+                  class: "template-item",
+                  key: tpl,
+                  onClick: ($event) => $options.loadRewriteTemplate(tpl)
+                }, [
+                  vue.createElementVNode(
+                    "text",
+                    null,
+                    vue.toDisplayString(tpl),
+                    1
+                    /* TEXT */
+                  )
+                ], 8, ["onClick"]);
+              }),
+              128
+              /* KEYED_FRAGMENT */
+            ))
+          ])
+        ]),
+        vue.createCommentVNode(" SSL 证书 "),
+        vue.createElementVNode("view", { class: "section" }, [
+          vue.createElementVNode("view", { class: "section-header" }, [
+            vue.createElementVNode("text", { class: "section-title" }, "SSL 证书")
+          ]),
+          $data.sslStatus ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "ssl-status"
+          }, [
+            vue.createElementVNode(
+              "view",
+              {
+                class: vue.normalizeClass(["ssl-badge", { active: $data.sslStatus.status }])
+              },
+              [
+                vue.createElementVNode(
+                  "text",
+                  null,
+                  vue.toDisplayString($data.sslStatus.status ? "已部署" : "未部署"),
+                  1
+                  /* TEXT */
+                )
+              ],
+              2
+              /* CLASS */
+            ),
+            $data.sslStatus.status && $data.sslStatus.cert_info ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "ssl-info"
+            }, [
+              vue.createElementVNode(
+                "text",
+                { class: "ssl-item" },
+                "颁发者：" + vue.toDisplayString($data.sslStatus.cert_info.issuer),
+                1
+                /* TEXT */
+              ),
+              vue.createElementVNode(
+                "text",
+                { class: "ssl-item" },
+                "有效期：" + vue.toDisplayString($data.sslStatus.cert_info.notBefore) + " ~ " + vue.toDisplayString($data.sslStatus.cert_info.notAfter),
+                1
+                /* TEXT */
+              )
+            ])) : vue.createCommentVNode("v-if", true)
+          ])) : vue.createCommentVNode("v-if", true),
+          vue.createElementVNode("view", { class: "ssl-actions" }, [
+            vue.createElementVNode("view", {
+              class: "ssl-btn",
+              onClick: _cache[21] || (_cache[21] = ($event) => $data.showSslModal = true)
+            }, [
+              vue.createElementVNode(
+                "text",
+                null,
+                vue.toDisplayString(((_e = $data.sslStatus) == null ? void 0 : _e.status) ? "更换证书" : "部署证书"),
+                1
+                /* TEXT */
+              )
+            ]),
+            ((_f = $data.sslStatus) == null ? void 0 : _f.status) ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "ssl-btn danger",
+              onClick: _cache[22] || (_cache[22] = (...args) => $options.handleCloseSsl && $options.handleCloseSsl(...args))
+            }, [
+              vue.createElementVNode("text", null, "关闭SSL")
+            ])) : vue.createCommentVNode("v-if", true)
+          ]),
+          ((_g = $data.sslStatus) == null ? void 0 : _g.status) ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 1,
+            class: "setting-row"
+          }, [
+            vue.createElementVNode("text", { class: "setting-label" }, "强制 HTTPS"),
+            vue.createElementVNode("switch", {
+              checked: $data.sslStatus.https_force,
+              onChange: _cache[23] || (_cache[23] = (...args) => $options.toggleForceHttps && $options.toggleForceHttps(...args))
+            }, null, 40, ["checked"])
+          ])) : vue.createCommentVNode("v-if", true)
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 添加域名弹窗 "),
+      $data.showAddDomain ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 4,
+        class: "modal",
+        onClick: _cache[27] || (_cache[27] = vue.withModifiers(($event) => $data.showAddDomain = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "添加域名绑定"),
+          vue.createElementVNode("view", { class: "form-item" }, [
+            vue.createElementVNode("text", { class: "label" }, "域名"),
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "input",
+                "onUpdate:modelValue": _cache[24] || (_cache[24] = ($event) => $data.newDomain = $event),
+                placeholder: "输入要绑定的域名"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.newDomain]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[25] || (_cache[25] = ($event) => $data.showAddDomain = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[26] || (_cache[26] = (...args) => $options.addDomain && $options.addDomain(...args))
+            }, [
+              vue.createElementVNode("text", null, "确定")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 文件操作菜单 "),
+      $data.showFileMenu ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 5,
+        class: "modal",
+        onClick: _cache[31] || (_cache[31] = vue.withModifiers(($event) => $data.showFileMenu = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content menu-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "新建"),
+          vue.createElementVNode("view", {
+            class: "menu-item",
+            onClick: _cache[28] || (_cache[28] = (...args) => $options.createNewFile && $options.createNewFile(...args))
+          }, [
+            vue.createElementVNode("text", null, "📄 新建文件")
+          ]),
+          vue.createElementVNode("view", {
+            class: "menu-item",
+            onClick: _cache[29] || (_cache[29] = (...args) => $options.createNewDir && $options.createNewDir(...args))
+          }, [
+            vue.createElementVNode("text", null, "📁 新建目录")
+          ]),
+          vue.createElementVNode("view", {
+            class: "menu-item cancel",
+            onClick: _cache[30] || (_cache[30] = ($event) => $data.showFileMenu = false)
+          }, [
+            vue.createElementVNode("text", null, "取消")
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 文件操作弹窗 "),
+      $data.showFileAction ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 6,
+        class: "modal",
+        onClick: _cache[40] || (_cache[40] = vue.withModifiers(($event) => $data.showFileAction = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content menu-content" }, [
+          vue.createElementVNode(
+            "text",
+            { class: "modal-title" },
+            vue.toDisplayString((_h = $data.selectedFile) == null ? void 0 : _h.name),
+            1
+            /* TEXT */
+          ),
+          !((_i = $data.selectedFile) == null ? void 0 : _i.is_dir) ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "menu-item",
+            onClick: _cache[32] || (_cache[32] = (...args) => $options.editFile && $options.editFile(...args))
+          }, [
+            vue.createElementVNode("text", null, "✏️ 编辑")
+          ])) : vue.createCommentVNode("v-if", true),
+          vue.createElementVNode("view", {
+            class: "menu-item",
+            onClick: _cache[33] || (_cache[33] = (...args) => $options.renameFileAction && $options.renameFileAction(...args))
+          }, [
+            vue.createElementVNode("text", null, "📝 重命名")
+          ]),
+          vue.createElementVNode("view", {
+            class: "menu-item",
+            onClick: _cache[34] || (_cache[34] = (...args) => $options.copyFileAction && $options.copyFileAction(...args))
+          }, [
+            vue.createElementVNode("text", null, "📋 复制")
+          ]),
+          vue.createElementVNode("view", {
+            class: "menu-item",
+            onClick: _cache[35] || (_cache[35] = (...args) => $options.moveFileAction && $options.moveFileAction(...args))
+          }, [
+            vue.createElementVNode("text", null, "📦 移动")
+          ]),
+          vue.createElementVNode("view", {
+            class: "menu-item",
+            onClick: _cache[36] || (_cache[36] = (...args) => $options.zipFileAction && $options.zipFileAction(...args))
+          }, [
+            vue.createElementVNode("text", null, "🗜️ 压缩")
+          ]),
+          ((_j = $data.selectedFile) == null ? void 0 : _j.name.endsWith(".zip")) ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 1,
+            class: "menu-item",
+            onClick: _cache[37] || (_cache[37] = (...args) => $options.unzipFileAction && $options.unzipFileAction(...args))
+          }, [
+            vue.createElementVNode("text", null, "📂 解压")
+          ])) : vue.createCommentVNode("v-if", true),
+          vue.createElementVNode("view", {
+            class: "menu-item danger",
+            onClick: _cache[38] || (_cache[38] = (...args) => $options.deleteFileAction && $options.deleteFileAction(...args))
+          }, [
+            vue.createElementVNode("text", null, "🗑️ 删除")
+          ]),
+          vue.createElementVNode("view", {
+            class: "menu-item cancel",
+            onClick: _cache[39] || (_cache[39] = ($event) => $data.showFileAction = false)
+          }, [
+            vue.createElementVNode("text", null, "取消")
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 文件编辑弹窗 "),
+      $data.showFileEditor ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 7,
+        class: "modal",
+        onClick: _cache[44] || (_cache[44] = vue.withModifiers(($event) => $data.showFileEditor = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content editor-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "编辑文件"),
+          vue.withDirectives(vue.createElementVNode(
+            "textarea",
+            {
+              class: "editor-textarea",
+              "onUpdate:modelValue": _cache[41] || (_cache[41] = ($event) => $data.fileContent = $event),
+              placeholder: "文件内容"
+            },
+            null,
+            512
+            /* NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.fileContent]
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[42] || (_cache[42] = ($event) => $data.showFileEditor = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[43] || (_cache[43] = (...args) => $options.saveFileContent && $options.saveFileContent(...args))
+            }, [
+              vue.createElementVNode("text", null, "保存")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 伪静态编辑弹窗 "),
+      $data.showRewriteModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 8,
+        class: "modal",
+        onClick: _cache[48] || (_cache[48] = vue.withModifiers(($event) => $data.showRewriteModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content editor-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "伪静态规则"),
+          vue.withDirectives(vue.createElementVNode(
+            "textarea",
+            {
+              class: "editor-textarea",
+              "onUpdate:modelValue": _cache[45] || (_cache[45] = ($event) => $data.rewriteContent = $event),
+              placeholder: "伪静态规则内容"
+            },
+            null,
+            512
+            /* NEED_PATCH */
+          ), [
+            [vue.vModelText, $data.rewriteContent]
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[46] || (_cache[46] = ($event) => $data.showRewriteModal = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[47] || (_cache[47] = (...args) => $options.saveRewrite && $options.saveRewrite(...args))
+            }, [
+              vue.createElementVNode("text", null, "保存")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" SSL 部署弹窗 "),
+      $data.showSslModal ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 9,
+        class: "modal",
+        onClick: _cache[53] || (_cache[53] = vue.withModifiers(($event) => $data.showSslModal = false, ["self"]))
+      }, [
+        vue.createElementVNode("view", { class: "modal-content" }, [
+          vue.createElementVNode("text", { class: "modal-title" }, "部署 SSL 证书"),
+          vue.createElementVNode("view", { class: "form-item" }, [
+            vue.createElementVNode("text", { class: "label" }, "证书私钥 (KEY)"),
+            vue.withDirectives(vue.createElementVNode(
+              "textarea",
+              {
+                class: "textarea",
+                "onUpdate:modelValue": _cache[49] || (_cache[49] = ($event) => $data.sslKey = $event),
+                placeholder: "-----BEGIN RSA PRIVATE KEY-----"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.sslKey]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "form-item" }, [
+            vue.createElementVNode("text", { class: "label" }, "证书内容 (PEM)"),
+            vue.withDirectives(vue.createElementVNode(
+              "textarea",
+              {
+                class: "textarea",
+                "onUpdate:modelValue": _cache[50] || (_cache[50] = ($event) => $data.sslCsr = $event),
+                placeholder: "-----BEGIN CERTIFICATE-----"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.sslCsr]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "modal-btns" }, [
+            vue.createElementVNode("view", {
+              class: "modal-btn cancel",
+              onClick: _cache[51] || (_cache[51] = ($event) => $data.showSslModal = false)
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]),
+            vue.createElementVNode("view", {
+              class: "modal-btn confirm",
+              onClick: _cache[52] || (_cache[52] = (...args) => $options.deploySslCert && $options.deploySslCert(...args))
+            }, [
+              vue.createElementVNode("text", null, "部署")
+            ])
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const PagesVhostDetail = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$1], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/vhost/detail.vue"]]);
+  const _sfc_main$1 = {
+    data() {
+      return {
+        loading: false,
+        plans: [],
+        selectedPlan: null,
+        domain: "",
+        couponCode: "",
+        couponLoading: false,
+        couponApplied: false,
+        couponInfo: null
+      };
+    },
+    computed: {
+      finalPrice() {
+        if (!this.selectedPlan)
+          return "¥0";
+        if (this.selectedPlan.price <= 0)
+          return "免费";
+        if (this.couponApplied && this.couponInfo) {
+          return "¥" + this.couponInfo.final_price;
+        }
+        return "¥" + this.selectedPlan.price;
+      }
+    },
+    onLoad() {
+      this.loadPlans();
+    },
+    methods: {
+      async loadPlans() {
+        var _a;
+        this.loading = true;
+        try {
+          const res = await getVHostPlans();
+          this.plans = ((_a = res.data) == null ? void 0 : _a.plans) || [];
+        } catch (e) {
+          formatAppLog("error", "at pages/vhost/purchase.vue:182", "加载套餐失败", e);
+        }
+        this.loading = false;
+      },
+      selectPlan(plan) {
+        this.selectedPlan = plan;
+        this.cancelCoupon();
+      },
+      async handleCoupon() {
+        if (!this.couponCode.trim()) {
+          uni.showToast({ title: "请输入优惠码", icon: "none" });
+          return;
+        }
+        if (this.couponLoading)
+          return;
+        this.couponLoading = true;
+        try {
+          const res = await validateCoupon({
+            code: this.couponCode.trim(),
+            plan_id: this.selectedPlan.id,
+            price: this.selectedPlan.price,
+            product_type: "vhost"
+          });
+          this.couponInfo = res.data;
+          this.couponApplied = true;
+          uni.showToast({ title: "优惠码已应用", icon: "success" });
+        } catch (e) {
+          formatAppLog("error", "at pages/vhost/purchase.vue:209", "验证优惠码失败", e);
+        }
+        this.couponLoading = false;
+      },
+      cancelCoupon() {
+        this.couponCode = "";
+        this.couponApplied = false;
+        this.couponInfo = null;
+      },
+      validateDomain(domain) {
+        const pattern = /^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z]{2,})+$/;
+        return pattern.test(domain);
+      },
+      async handlePurchase() {
+        if (!isLoggedIn()) {
+          uni.navigateTo({ url: "/pages/login/login" });
+          return;
+        }
+        if (!this.domain.trim()) {
+          uni.showToast({ title: "请输入域名", icon: "none" });
+          return;
+        }
+        if (!this.validateDomain(this.domain.trim())) {
+          uni.showToast({ title: "域名格式不正确", icon: "none" });
+          return;
+        }
+        try {
+          uni.showLoading({ title: "购买中..." });
+          const params = {
+            plan_id: this.selectedPlan.id,
+            domain: this.domain.trim()
+          };
+          if (this.couponApplied && this.couponCode) {
+            params.coupon_code = this.couponCode.trim();
+          }
+          const res = await purchaseVHost(params);
+          uni.hideLoading();
+          uni.showToast({ title: "购买成功", icon: "success" });
+          setTimeout(() => {
+            var _a, _b;
+            const instanceId = (_b = (_a = res.data) == null ? void 0 : _a.instance) == null ? void 0 : _b.id;
+            if (instanceId) {
+              uni.redirectTo({ url: `/pages/vhost/detail?id=${instanceId}` });
+            } else {
+              uni.redirectTo({ url: "/pages/vhost/list" });
+            }
+          }, 1500);
+        } catch (e) {
+          uni.hideLoading();
+        }
+      }
+    }
+  };
+  function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+    return vue.openBlock(), vue.createElementBlock("view", { class: "page" }, [
+      vue.createCommentVNode(" 页面头部 "),
+      vue.createElementVNode("view", { class: "page-header" }, [
+        vue.createElementVNode("text", { class: "page-title" }, "购买虚拟主机"),
+        vue.createElementVNode("text", { class: "page-subtitle" }, "选择适合您的套餐方案")
+      ]),
+      vue.createCommentVNode(" 步骤指示 "),
+      vue.createElementVNode("view", { class: "steps-bar" }, [
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["step-item", { active: true, done: $data.selectedPlan }])
+          },
+          [
+            vue.createElementVNode("view", { class: "step-dot" }, "1"),
+            vue.createElementVNode("text", { class: "step-label" }, "选择套餐")
+          ],
+          2
+          /* CLASS */
+        ),
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["step-line", { active: $data.selectedPlan }])
+          },
+          null,
+          2
+          /* CLASS */
+        ),
+        vue.createElementVNode(
+          "view",
+          {
+            class: vue.normalizeClass(["step-item", { active: $data.selectedPlan }])
+          },
+          [
+            vue.createElementVNode("view", { class: "step-dot" }, "2"),
+            vue.createElementVNode("text", { class: "step-label" }, "填写信息")
+          ],
+          2
+          /* CLASS */
+        )
+      ]),
+      vue.createCommentVNode(" 套餐列表 "),
+      vue.createElementVNode("view", { class: "section" }, [
+        vue.createElementVNode("view", { class: "section-header" }, [
+          vue.createElementVNode("text", { class: "section-title" }, "选择套餐方案"),
+          vue.createElementVNode(
+            "text",
+            { class: "section-count" },
+            vue.toDisplayString($data.plans.length) + " 个可选",
+            1
+            /* TEXT */
+          )
+        ]),
+        !$data.loading && $data.plans.length === 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+          key: 0,
+          class: "empty-state"
+        }, [
+          vue.createElementVNode("text", { class: "empty-icon" }, "📦"),
+          vue.createElementVNode("text", { class: "empty-text" }, "暂无可用套餐")
+        ])) : (vue.openBlock(), vue.createElementBlock("view", {
+          key: 1,
+          class: "plan-list"
+        }, [
+          (vue.openBlock(true), vue.createElementBlock(
+            vue.Fragment,
+            null,
+            vue.renderList($data.plans, (plan) => {
+              var _a, _b;
+              return vue.openBlock(), vue.createElementBlock("view", {
+                class: vue.normalizeClass(["plan-card", { active: ((_a = $data.selectedPlan) == null ? void 0 : _a.id) === plan.id }]),
+                key: plan.id,
+                onClick: ($event) => $options.selectPlan(plan)
+              }, [
+                vue.createElementVNode("view", { class: "plan-radio" }, [
+                  ((_b = $data.selectedPlan) == null ? void 0 : _b.id) === plan.id ? (vue.openBlock(), vue.createElementBlock("view", {
+                    key: 0,
+                    class: "radio-inner"
+                  })) : vue.createCommentVNode("v-if", true)
+                ]),
+                vue.createElementVNode("view", { class: "plan-content" }, [
+                  vue.createElementVNode("view", { class: "plan-top" }, [
+                    vue.createElementVNode(
+                      "text",
+                      { class: "plan-name" },
+                      vue.toDisplayString(plan.name),
+                      1
+                      /* TEXT */
+                    ),
+                    vue.createElementVNode("view", { class: "plan-price-box" }, [
+                      vue.createElementVNode(
+                        "text",
+                        { class: "plan-price" },
+                        "¥" + vue.toDisplayString(plan.price),
+                        1
+                        /* TEXT */
+                      ),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "plan-duration" },
+                        "/" + vue.toDisplayString(plan.duration_days) + "天",
+                        1
+                        /* TEXT */
+                      )
+                    ])
+                  ]),
+                  plan.description ? (vue.openBlock(), vue.createElementBlock(
+                    "text",
+                    {
+                      key: 0,
+                      class: "plan-desc"
+                    },
+                    vue.toDisplayString(plan.description),
+                    1
+                    /* TEXT */
+                  )) : vue.createCommentVNode("v-if", true),
+                  vue.createElementVNode("view", { class: "plan-specs" }, [
+                    vue.createElementVNode("view", { class: "spec-item" }, [
+                      vue.createElementVNode("text", { class: "spec-icon" }, "💾"),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "spec-text" },
+                        vue.toDisplayString(plan.disk_space_display),
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    vue.createElementVNode("view", { class: "spec-item" }, [
+                      vue.createElementVNode("text", { class: "spec-icon" }, "📊"),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "spec-text" },
+                        vue.toDisplayString(plan.bandwidth_display) + "/月",
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    vue.createElementVNode("view", { class: "spec-item" }, [
+                      vue.createElementVNode("text", { class: "spec-icon" }, "🌐"),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "spec-text" },
+                        vue.toDisplayString(plan.max_domains) + "个域名",
+                        1
+                        /* TEXT */
+                      )
+                    ]),
+                    vue.createElementVNode("view", { class: "spec-item" }, [
+                      vue.createElementVNode("text", { class: "spec-icon" }, "🗄️"),
+                      vue.createElementVNode(
+                        "text",
+                        { class: "spec-text" },
+                        vue.toDisplayString(plan.max_databases) + "个数据库",
+                        1
+                        /* TEXT */
+                      )
+                    ])
+                  ])
+                ])
+              ], 10, ["onClick"]);
+            }),
+            128
+            /* KEYED_FRAGMENT */
+          ))
+        ]))
+      ]),
+      vue.createCommentVNode(" 输入域名 "),
+      $data.selectedPlan ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 0,
+        class: "section"
+      }, [
+        vue.createElementVNode("view", { class: "section-header" }, [
+          vue.createElementVNode("text", { class: "section-title" }, "设置主域名")
+        ]),
+        vue.createElementVNode("view", { class: "domain-input-card" }, [
+          vue.createElementVNode("view", { class: "input-row" }, [
+            vue.withDirectives(vue.createElementVNode(
+              "input",
+              {
+                class: "domain-input",
+                "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.domain = $event),
+                placeholder: "输入您的域名，如 example.com"
+              },
+              null,
+              512
+              /* NEED_PATCH */
+            ), [
+              [vue.vModelText, $data.domain]
+            ])
+          ]),
+          vue.createElementVNode("view", { class: "input-tip" }, [
+            vue.createElementVNode("text", { class: "tip-icon" }, "💡"),
+            vue.createElementVNode("text", { class: "tip-text" }, "请输入您已拥有的域名，购买后需将域名解析到服务器")
+          ])
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 优惠码 "),
+      $data.selectedPlan && $data.selectedPlan.price > 0 ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 1,
+        class: "section"
+      }, [
+        vue.createElementVNode("view", { class: "section-header" }, [
+          vue.createElementVNode("text", { class: "section-title" }, "优惠码"),
+          vue.createElementVNode("text", { class: "section-optional" }, "选填")
+        ]),
+        vue.createElementVNode("view", { class: "coupon-input-card" }, [
+          vue.createElementVNode("view", { class: "coupon-input-row" }, [
+            vue.withDirectives(vue.createElementVNode("input", {
+              class: "coupon-input",
+              "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.couponCode = $event),
+              placeholder: "输入优惠码",
+              disabled: $data.couponApplied
+            }, null, 8, ["disabled"]), [
+              [vue.vModelText, $data.couponCode]
+            ]),
+            !$data.couponApplied ? (vue.openBlock(), vue.createElementBlock("view", {
+              key: 0,
+              class: "coupon-btn",
+              onClick: _cache[2] || (_cache[2] = (...args) => $options.handleCoupon && $options.handleCoupon(...args))
+            }, [
+              vue.createElementVNode(
+                "text",
+                null,
+                vue.toDisplayString($data.couponLoading ? "验证中..." : "使用"),
+                1
+                /* TEXT */
+              )
+            ])) : (vue.openBlock(), vue.createElementBlock("view", {
+              key: 1,
+              class: "coupon-btn cancel",
+              onClick: _cache[3] || (_cache[3] = (...args) => $options.cancelCoupon && $options.cancelCoupon(...args))
+            }, [
+              vue.createElementVNode("text", null, "取消")
+            ]))
+          ]),
+          $data.couponApplied && $data.couponInfo ? (vue.openBlock(), vue.createElementBlock("view", {
+            key: 0,
+            class: "coupon-result"
+          }, [
+            vue.createElementVNode("view", { class: "coupon-success" }, [
+              vue.createElementVNode("text", { class: "coupon-icon" }, "🎉"),
+              vue.createElementVNode(
+                "text",
+                { class: "coupon-msg" },
+                vue.toDisplayString($data.couponInfo.coupon.name),
+                1
+                /* TEXT */
+              )
+            ]),
+            vue.createElementVNode("view", { class: "coupon-discount" }, [
+              vue.createElementVNode(
+                "text",
+                null,
+                "优惠 -¥" + vue.toDisplayString($data.couponInfo.discount),
+                1
+                /* TEXT */
+              )
+            ])
+          ])) : vue.createCommentVNode("v-if", true)
+        ])
+      ])) : vue.createCommentVNode("v-if", true),
+      vue.createCommentVNode(" 提交按钮 "),
+      $data.selectedPlan ? (vue.openBlock(), vue.createElementBlock("view", {
+        key: 2,
+        class: "footer"
+      }, [
+        vue.createElementVNode("view", { class: "footer-left" }, [
+          vue.createElementVNode("text", { class: "price-label" }, "应付金额"),
+          vue.createElementVNode(
+            "text",
+            { class: "price-value" },
+            vue.toDisplayString($options.finalPrice),
+            1
+            /* TEXT */
+          ),
+          $data.couponApplied && $data.couponInfo ? (vue.openBlock(), vue.createElementBlock(
+            "text",
+            {
+              key: 0,
+              class: "price-original"
+            },
+            "原价 ¥" + vue.toDisplayString($data.selectedPlan.price),
+            1
+            /* TEXT */
+          )) : vue.createCommentVNode("v-if", true)
+        ]),
+        vue.createElementVNode("view", {
+          class: "submit-btn",
+          onClick: _cache[4] || (_cache[4] = (...args) => $options.handlePurchase && $options.handlePurchase(...args))
+        }, [
+          vue.createElementVNode("text", { class: "submit-text" }, "立即购买")
+        ])
+      ])) : vue.createCommentVNode("v-if", true)
+    ]);
+  }
+  const PagesVhostPurchase = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render], ["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/pages/vhost/purchase.vue"]]);
   __definePage("pages/index/index", PagesIndexIndex);
   __definePage("pages/mine/mine", PagesMineMine);
   __definePage("pages/login/login", PagesLoginLogin);
@@ -13019,6 +17924,10 @@ if (uni.restoreGlobal) {
   __definePage("pages/admin/email-templates", PagesAdminEmailTemplates);
   __definePage("pages/admin/ip-blacklist", PagesAdminIpBlacklist);
   __definePage("pages/admin/data-manage", PagesAdminDataManage);
+  __definePage("pages/admin/vhost", PagesAdminVhost);
+  __definePage("pages/vhost/list", PagesVhostList);
+  __definePage("pages/vhost/detail", PagesVhostDetail);
+  __definePage("pages/vhost/purchase", PagesVhostPurchase);
   function checkAppUpdate(params) {
     return request({
       url: "/app/check-update",
@@ -13101,7 +18010,7 @@ ${updateInfo.update_log || "修复已知问题，提升用户体验"}`;
   };
   const App = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "C:/Users/liu/Desktop/GitHub/cloudflare-DNS-APP/App.vue"]]);
   var define_process_env_UNI_STATISTICS_CONFIG_default = { enable: true, version: "1" };
-  var define_process_env_UNI_STAT_TITLE_JSON_default = { "pages/index/index": "首页", "pages/mine/mine": "我的", "pages/login/login": "登录", "pages/register/register": "注册", "pages/forgot-password/forgot-password": "忘记密码", "pages/domain/list": "我的域名", "pages/domain/purchase": "购买域名", "pages/domain/detail": "域名详情", "pages/recharge/recharge": "充值", "pages/record/record": "购买记录", "pages/announcement/list": "公告", "pages/settings/settings": "设置", "pages/settings/security": "安全设置", "pages/admin/index": "管理中心", "pages/admin/users": "用户管理", "pages/admin/domains": "域名管理", "pages/admin/plans": "套餐管理", "pages/admin/redeem": "卡密管理", "pages/admin/orders": "订单管理", "pages/admin/announcements": "公告管理", "pages/admin/settings": "系统设置", "pages/admin/cf-accounts": "渠道管理", "pages/admin/dns-records": "DNS记录管理", "pages/admin/subdomains": "二级域名管理", "pages/admin/logs": "操作日志", "pages/admin/coupons": "优惠券管理", "pages/admin/app-versions": "APP版本管理", "pages/admin/email-templates": "邮件模板管理", "pages/admin/ip-blacklist": "IP黑名单", "pages/admin/data-manage": "数据管理" };
+  var define_process_env_UNI_STAT_TITLE_JSON_default = { "pages/index/index": "首页", "pages/mine/mine": "我的", "pages/login/login": "登录", "pages/register/register": "注册", "pages/forgot-password/forgot-password": "忘记密码", "pages/domain/list": "我的域名", "pages/domain/purchase": "购买域名", "pages/domain/detail": "域名详情", "pages/recharge/recharge": "充值", "pages/record/record": "购买记录", "pages/announcement/list": "公告", "pages/settings/settings": "设置", "pages/settings/security": "安全设置", "pages/admin/index": "管理中心", "pages/admin/users": "用户管理", "pages/admin/domains": "域名管理", "pages/admin/plans": "套餐管理", "pages/admin/redeem": "卡密管理", "pages/admin/orders": "订单管理", "pages/admin/announcements": "公告管理", "pages/admin/settings": "系统设置", "pages/admin/cf-accounts": "渠道管理", "pages/admin/dns-records": "DNS记录管理", "pages/admin/subdomains": "二级域名管理", "pages/admin/logs": "操作日志", "pages/admin/coupons": "优惠券管理", "pages/admin/app-versions": "APP版本管理", "pages/admin/email-templates": "邮件模板管理", "pages/admin/ip-blacklist": "IP黑名单", "pages/admin/data-manage": "数据管理", "pages/admin/vhost": "虚拟主机管理", "pages/vhost/list": "虚拟主机", "pages/vhost/detail": "主机详情", "pages/vhost/purchase": "购买主机" };
   const sys = uni.getSystemInfoSync();
   const STAT_VERSION = "4.75";
   const STAT_URL = "https://tongji.dcloud.io/uni/stat";

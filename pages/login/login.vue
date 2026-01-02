@@ -57,6 +57,29 @@
 			<text class="register-link" @click="goToRegister">立即注册</text>
 		</view>
 		
+		<!-- 第三方登录 -->
+		<view class="oauth-section" v-if="hasOAuthProvider">
+			<view class="oauth-divider">
+				<view class="divider-line"></view>
+				<text class="divider-text">其他登录方式</text>
+				<view class="divider-line"></view>
+			</view>
+			<view class="oauth-buttons">
+				<view class="oauth-btn" v-if="oauthProviders.github.enabled" @click="handleOAuthLogin('github')">
+					<text class="oauth-btn-icon">🐙</text>
+					<text class="oauth-btn-text">GitHub</text>
+				</view>
+				<view class="oauth-btn" v-if="oauthProviders.google.enabled" @click="handleOAuthLogin('google')">
+					<text class="oauth-btn-icon">🔍</text>
+					<text class="oauth-btn-text">Google</text>
+				</view>
+				<view class="oauth-btn" v-if="oauthProviders.nodeloc.enabled" @click="handleOAuthLogin('nodeloc')">
+					<text class="oauth-btn-icon">🌐</text>
+					<text class="oauth-btn-text">NodeLoc</text>
+				</view>
+			</view>
+		</view>
+		
 		<!-- 底部信息 -->
 		<view class="footer">
 			<text class="footer-text">© 2024 六趣DNS · 安全可靠的DNS服务</text>
@@ -65,7 +88,7 @@
 </template>
 
 <script>
-import { login, getCaptcha } from '@/api/auth'
+import { login, getCaptcha, getGithubStatus, getGoogleStatus, getNodelocStatus, getOAuthAuthUrl } from '@/api/auth'
 import { setToken, setUserInfo } from '@/utils/storage'
 
 export default {
@@ -78,12 +101,29 @@ export default {
 				captcha_id: ''
 			},
 			needCaptcha: true, // 始终需要验证码
-			captchaUrl: ''
+			captchaUrl: '',
+			// OAuth 第三方登录
+			oauthProviders: {
+				github: { enabled: false },
+				google: { enabled: false },
+				nodeloc: { enabled: false }
+			}
+		}
+	},
+	computed: {
+		hasOAuthProvider() {
+			return this.oauthProviders.github.enabled || 
+				   this.oauthProviders.google.enabled || 
+				   this.oauthProviders.nodeloc.enabled
 		}
 	},
 	onLoad() {
 		// 页面加载时直接获取验证码
 		this.refreshCaptcha()
+		// 检查 OAuth 提供商状态
+		this.checkOAuthProviders()
+		// 处理 OAuth 回调
+		this.handleOAuthCallback()
 	},
 	methods: {
 		async refreshCaptcha() {
@@ -143,6 +183,73 @@ export default {
 		},
 		goToForgotPassword() {
 			uni.navigateTo({ url: '/pages/forgot-password/forgot-password' })
+		},
+		
+		// OAuth 相关方法
+		async checkOAuthProviders() {
+			try {
+				const [githubRes, googleRes, nodelocRes] = await Promise.all([
+					getGithubStatus().catch(() => ({ data: { enabled: false } })),
+					getGoogleStatus().catch(() => ({ data: { enabled: false } })),
+					getNodelocStatus().catch(() => ({ data: { enabled: false } }))
+				])
+				this.oauthProviders = {
+					github: { enabled: githubRes.data?.enabled || false },
+					google: { enabled: googleRes.data?.enabled || false },
+					nodeloc: { enabled: nodelocRes.data?.enabled || false }
+				}
+			} catch (e) {
+				console.error('检查OAuth状态失败', e)
+			}
+		},
+		
+		handleOAuthCallback() {
+			// 处理 OAuth 登录回调
+			const pages = getCurrentPages()
+			const currentPage = pages[pages.length - 1]
+			const options = currentPage.options || {}
+			
+			// 检查各 provider 的 token
+			const providers = ['github', 'google', 'nodeloc']
+			for (const provider of providers) {
+				const tokenKey = `${provider}_token`
+				if (options[tokenKey]) {
+					// 存储 token 并跳转
+					setToken(options[tokenKey])
+					uni.showToast({ title: '登录成功', icon: 'success' })
+					setTimeout(() => {
+						uni.reLaunch({ url: '/pages/mine/mine' })
+					}, 1500)
+					return
+				}
+			}
+			
+			// 检查错误
+			if (options.error) {
+				uni.showToast({ title: decodeURIComponent(options.error), icon: 'none' })
+			}
+		},
+		
+		async handleOAuthLogin(provider) {
+			try {
+				uni.showLoading({ title: '跳转中...' })
+				const res = await getOAuthAuthUrl(provider)
+				uni.hideLoading()
+				if (res.data?.url) {
+					// #ifdef H5
+					window.location.href = res.data.url
+					// #endif
+					// #ifdef APP-PLUS
+					plus.runtime.openURL(res.data.url)
+					// #endif
+					// #ifdef MP-WEIXIN
+					uni.showToast({ title: '请在浏览器中完成登录', icon: 'none' })
+					// #endif
+				}
+			} catch (e) {
+				uni.hideLoading()
+				uni.showToast({ title: e.message || '获取授权链接失败', icon: 'none' })
+			}
 		}
 	}
 }
@@ -341,5 +448,55 @@ export default {
 .footer-text {
 	font-size: 22rpx;
 	color: #c7c7cc;
+}
+
+/* OAuth 第三方登录样式 */
+.oauth-section {
+	padding: 0 40rpx 40rpx;
+}
+
+.oauth-divider {
+	display: flex;
+	align-items: center;
+	margin-bottom: 32rpx;
+}
+
+.divider-line {
+	flex: 1;
+	height: 1rpx;
+	background: #e0e0e0;
+}
+
+.divider-text {
+	padding: 0 24rpx;
+	font-size: 24rpx;
+	color: #8e8e93;
+}
+
+.oauth-buttons {
+	display: flex;
+	justify-content: center;
+	gap: 32rpx;
+}
+
+.oauth-btn {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 24rpx 32rpx;
+	background: #fff;
+	border-radius: 16rpx;
+	box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.06);
+	min-width: 160rpx;
+}
+
+.oauth-btn-icon {
+	font-size: 48rpx;
+	margin-bottom: 12rpx;
+}
+
+.oauth-btn-text {
+	font-size: 24rpx;
+	color: #666;
 }
 </style>

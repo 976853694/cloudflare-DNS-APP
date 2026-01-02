@@ -811,6 +811,18 @@ export function testSmtp(email) {
   })
 }
 
+/**
+ * 测试阿里云邮件推送配置
+ * @param {string} [email] - 测试邮箱（可选，默认发送到管理员邮箱）
+ */
+export function testAliyunDM(email) {
+  return request({
+    url: '/admin/settings/test-aliyun-dm',
+    method: 'POST',
+    data: email ? { email } : {}
+  })
+}
+
 // ==================== 操作日志模块 ====================
 
 /**
@@ -1342,5 +1354,246 @@ export function deleteAppVersion(versionId) {
   return request({
     url: `/admin/app-versions/${versionId}`,
     method: 'DELETE'
+  })
+}
+
+// ==================== 虚拟主机管理模块 ====================
+
+// ---------- 服务器管理 ----------
+
+/**
+ * 获取虚拟主机服务器列表
+ */
+export function getVHostServers() {
+  return request({
+    url: '/admin/vhost/servers',
+    method: 'GET'
+  })
+}
+
+/**
+ * 添加虚拟主机服务器
+ * @param {Object} data - 服务器数据
+ * @param {string} data.name - 服务器名称
+ * @param {string} data.panel_url - 宝塔面板地址
+ * @param {string} data.api_key - API密钥
+ * @param {string} [data.ip_address] - 服务器IP
+ * @param {number} [data.max_sites] - 最大站点数
+ * @param {number} [data.status] - 状态
+ */
+export function addVHostServer(data) {
+  return request({
+    url: '/admin/vhost/servers',
+    method: 'POST',
+    data
+  })
+}
+
+/**
+ * 更新虚拟主机服务器
+ * @param {number} serverId - 服务器 ID
+ * @param {Object} data - 服务器数据
+ */
+export function updateVHostServer(serverId, data) {
+  return request({
+    url: `/admin/vhost/servers/${serverId}`,
+    method: 'PUT',
+    data
+  })
+}
+
+/**
+ * 删除虚拟主机服务器
+ * @param {number} serverId - 服务器 ID
+ */
+export function deleteVHostServer(serverId) {
+  return request({
+    url: `/admin/vhost/servers/${serverId}`,
+    method: 'DELETE'
+  })
+}
+
+/**
+ * 测试虚拟主机服务器连接
+ * @param {number} serverId - 服务器 ID
+ */
+export function testVHostServer(serverId) {
+  return request({
+    url: `/admin/vhost/servers/${serverId}/test`,
+    method: 'POST'
+  })
+}
+
+// ---------- 套餐管理 ----------
+
+/**
+ * 获取虚拟主机套餐列表（管理端）
+ */
+export function getAdminVHostPlans() {
+  return request({
+    url: '/admin/vhost/plans',
+    method: 'GET'
+  })
+}
+
+/**
+ * 创建虚拟主机套餐
+ * @param {Object} data - 套餐数据
+ * @param {string} data.name - 套餐名称
+ * @param {string} [data.description] - 套餐描述
+ * @param {number} [data.server_id] - 指定服务器ID
+ * @param {number} [data.disk_space] - 磁盘空间(MB)
+ * @param {number} [data.bandwidth] - 月流量(GB)
+ * @param {number} [data.max_domains] - 可绑定域名数
+ * @param {number} [data.max_databases] - 数据库数量
+ * @param {number} [data.max_ftp] - FTP账号数
+ * @param {number} [data.price] - 价格
+ * @param {number} [data.duration_days] - 有效期(天)
+ * @param {number} [data.sort_order] - 排序
+ * @param {number} [data.status] - 状态
+ */
+export function createVHostPlan(data) {
+  return request({
+    url: '/admin/vhost/plans',
+    method: 'POST',
+    data
+  })
+}
+
+/**
+ * 更新虚拟主机套餐
+ * @param {number} planId - 套餐 ID
+ * @param {Object} data - 套餐数据
+ */
+export function updateVHostPlan(planId, data) {
+  return request({
+    url: `/admin/vhost/plans/${planId}`,
+    method: 'PUT',
+    data
+  })
+}
+
+/**
+ * 删除虚拟主机套餐
+ * @param {number} planId - 套餐 ID
+ */
+export function deleteVHostPlan(planId) {
+  return request({
+    url: `/admin/vhost/plans/${planId}`,
+    method: 'DELETE'
+  })
+}
+
+// ---------- 主机实例管理 ----------
+
+/**
+ * 获取虚拟主机实例列表（管理端）
+ * @param {Object} [params] - 查询参数
+ * @param {number} [params.page] - 页码
+ * @param {number} [params.per_page] - 每页数量
+ * @param {number} [params.user_id] - 按用户筛选
+ * @param {number} [params.server_id] - 按服务器筛选
+ * @param {number} [params.plan_id] - 按套餐筛选
+ * @param {number} [params.status] - 状态筛选
+ * @param {string} [params.domain] - 按域名搜索
+ */
+export function getAdminVHostInstances(params = {}) {
+  return request({
+    url: '/admin/vhost/instances',
+    method: 'GET',
+    data: params
+  })
+}
+
+/**
+ * 更新虚拟主机实例
+ * @param {number} instanceId - 实例 ID
+ * @param {Object} data - 更新数据
+ * @param {string} [data.action] - 操作(suspend/resume)
+ * @param {string} [data.expires_at] - 到期时间
+ * @param {number} [data.status] - 状态
+ */
+export function updateVHostInstance(instanceId, data) {
+  return request({
+    url: `/admin/vhost/instances/${instanceId}`,
+    method: 'PUT',
+    data
+  })
+}
+
+/**
+ * 删除虚拟主机实例
+ * @param {number} instanceId - 实例 ID
+ */
+export function deleteVHostInstance(instanceId) {
+  return request({
+    url: `/admin/vhost/instances/${instanceId}`,
+    method: 'DELETE'
+  })
+}
+
+/**
+ * 批量删除虚拟主机实例
+ * @param {Array} ids - 实例 ID 数组
+ */
+export function batchDeleteVHostInstances(ids) {
+  return request({
+    url: '/admin/vhost/instances/batch-delete',
+    method: 'POST',
+    data: { ids }
+  })
+}
+
+// ---------- 订单管理 ----------
+
+/**
+ * 获取虚拟主机订单列表（管理端）
+ * @param {Object} [params] - 查询参数
+ * @param {number} [params.page] - 页码
+ * @param {number} [params.per_page] - 每页数量
+ * @param {number} [params.user_id] - 按用户筛选
+ * @param {string} [params.order_type] - 订单类型(new/renew)
+ * @param {number} [params.status] - 状态筛选
+ */
+export function getAdminVHostOrders(params = {}) {
+  return request({
+    url: '/admin/vhost/orders',
+    method: 'GET',
+    data: params
+  })
+}
+
+/**
+ * 删除虚拟主机订单
+ * @param {number} orderId - 订单 ID
+ */
+export function deleteVHostOrder(orderId) {
+  return request({
+    url: `/admin/vhost/orders/${orderId}`,
+    method: 'DELETE'
+  })
+}
+
+/**
+ * 批量删除虚拟主机订单
+ * @param {Array} ids - 订单 ID 数组
+ */
+export function batchDeleteVHostOrders(ids) {
+  return request({
+    url: '/admin/vhost/orders/batch-delete',
+    method: 'POST',
+    data: { ids }
+  })
+}
+
+// ---------- 统计数据 ----------
+
+/**
+ * 获取虚拟主机统计数据
+ */
+export function getVHostStats() {
+  return request({
+    url: '/admin/vhost/stats',
+    method: 'GET'
   })
 }

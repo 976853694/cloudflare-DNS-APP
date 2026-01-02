@@ -130,7 +130,10 @@
 						<view class="menu-icon-wrap brown">📦</view>
 						<text class="menu-text">数据管理</text>
 					</view>
-					<view class="menu-item"></view>
+					<view class="menu-item" @click="goTo('/pages/admin/vhost')">
+						<view class="menu-icon-wrap teal">🖥️</view>
+						<text class="menu-text">虚拟主机</text>
+					</view>
 					<view class="menu-item"></view>
 					<view class="menu-item"></view>
 				</view>
